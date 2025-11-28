@@ -41,15 +41,19 @@ Every API request must include your Secret Key in the `Authorization` header.
 
 Example:
 
+```curl
     POST /api/events HTTP/1.1
     Host: api.profiledrisk.com
     Authorization: sk_live_xxxxxxxxxxxxxxxxxxxxxx
     Content-Type: application/json
-    
+```
+
+```json
     {
       "type": "payments",
       "event": { ... }
     }
+```
     
 
   

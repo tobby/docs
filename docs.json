@@ -4,8 +4,8 @@
   "name": "Dojah Inc",
   "colors": {
     "primary": "#010061",
-    "light": "#010061",
-    "dark": "#010061"
+    "light": "#3498DB",
+    "dark": "#3498DB"
   },
   "favicon": "/logo/blue.png",
   "navigation": {
