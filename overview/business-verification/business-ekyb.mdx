@@ -1,0 +1,78 @@
+---
+title: eKYB
+icon: "file"
+---
+
+eKYB (Know Your Business) via document upload allows you to 
+verify the legitimacy of a business entity by collecting and analyzing 
+their corporate documents. Instead of relying solely on database lookups 
+like CAC or TIN, this method lets you validate documents directly from the business.
+
+Dojah’s eKYB engine extracts and cross-checks submitted document data, such as 
+business name, RC number, type, and date of registration, against trusted
+ government or regulatory records.
+
+This method is ideal for onboarding businesses where lookups may be insufficient or incomplete.
+
+***
+
+#### How It Works 
+
+<Steps>
+  <Step title="Document Upload">
+   Users submit official documents such as:
+   - CAC certificate
+   - Proof of business address (e.g., utility bill)
+   - Optional: other corporate identifiers or tax documents
+   
+   These can be set from the EasyOnboard [configuration](/guides/identity/easyonboard/flow/configure-flow).
+  </Step>
+
+<Step title="Document Parsing"> 
+  The system uses OCR and AI to:
+- Extract business name, RC number, type, and registration date
+- Normalize and structure the data
+- Check for file quality, clarity, and forgery indicators
+</Step>
+
+<Step title="Verification & Match">
+The extracted data is:
+- Automatically matched against known CAC structures or cross-validated with other verification steps (e.g., TIN)
+- Flagged for review if mismatches or incomplete data are detected
+- Returned with status labels
+</Step>
+
+</Steps>
+
+***
+
+#### When to Use
+
+- The business does not have an RC number yet or is recently registered
+
+- You need to collect multiple documents for compliance review
+
+- You want to consolidate CAC, TIN, and address checks into a single flow
+
+***
+
+### Integration Options
+
+<Columns cols={1}>
+  <Card title="Verification Link"  icon="link" href="/docs/globalverification/businesscheck/global-business-details"  arrow="true" cta="View API Reference">
+Generate a unique flow URL for each user. 
+	You can send this link whichever you prefer, e.g from your internal dashboard. Users can easily complete the entire eKYC process in a browser
+
+	How to Generate Verification Links [here](../../sdks/overviews)
+
+  </Card>
+  
+ <Card title="SDK Integration"  icon="box" href="/sdks/overviews" arrow="true" cta="Explore Documentation.">
+  eKYB Upload is bundled into the EasyOnboard SDK.
+
+- Handles file upload and capture logic
+- Includes media validation, error handling, and retries
+- Automatically feeds uploaded documents into the verification pipeline
+
+</Card>
+</Columns>

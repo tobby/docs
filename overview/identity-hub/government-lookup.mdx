@@ -1,0 +1,101 @@
+---
+title: Government Lookup
+icon: "landmark"
+---
+
+Verify user identities directly from authoritative government databases, without friction.
+This module allows you to pull and confirm identity details such as name, date of birth, gender, etc from official sources
+ like NIN, BVN, Voter ID, Driver’s License, International Passport, and other records. 
+ It's the fastest way to validate that someone is who they claim to be, using the data governments already trust.
+
+You can access this via [APIs](../../docs/nigeria/lookup-bvn) or use the [dashboard](../../guides/identity/lookup/individual-lookup) for quick, one-off verifications with no integration required.
+
+<Tabs>
+  <Tab title="Individual LookUp">
+   Easily verify the identities of individuals with our Individual Lookup feature. Whether you're conducting background checks, onboarding new customers, or processing applications, Easy Lookup streamlines the verification process.
+   
+   #### Supported IDs - Individuals
+
+   <Accordion title="Nigeria 🇳🇬">
+		- [Lookup BVN](../../docs/nigeria/validate-bvn) 
+		- [Lookup Phone Number](../../docs/nigeria/lookup-phone-number) 
+		- [Lookup NUBAN KYC Status](../../docs/nigeria/lookup-nuban-kycstatus)
+		- [Lookup NIN](../../docs/nigeria/lookup-virtual-nin)
+		- [Lookup Driver’s License](../../docs/nigeria/lookup-drivers-license)
+		- [Lookup Voter’s ID](../../docs/nigeria/lookup-voters-id)   	   
+   </Accordion>
+
+    <Accordion title="Ghana 🇬🇭">
+   		- [Lookup Ghana Passport](../../docs/ghana/lookup-passport)
+		- [Lookup Ghana Driver's License](../../docs/ghana/lookup-drivers-license)
+		- [Lookup Ghana Voter ID](../../docs/ghana/lookup-voters-id)
+		- [Lookup Ghana TIN](../../docs/ghana/lookup-tin)
+		- [Lookup Ghana SSNIT ID](../../docs/ghana/lookup-ssnit)
+		- [Validate Ghana Digital Addresses](../../docs/ghana/validate-digital-addresses)
+   </Accordion>
+
+
+   <Accordion title="Kenya 🇰🇪">
+   		- [Lookup Kenya National ID](../../docs/kenya/lookup-national-id)
+		- [Lookup Kenya Passport](../../docs/kenya/lookup-passport)
+		- [Lookup Kenya KRA PIN](../../docs/kenya/lookup-kra-pin)
+   </Accordion>
+
+   <Accordion title="Uganda 🇺🇬">
+   		- [Lookup NIN](../../docs/uganda/lookup-nin)
+
+   </Accordion>
+
+   <Accordion title="South Africa 🇿🇦">
+   		- [SA National ID](../../docs/southafrica/lookup-national-id)
+   </Accordion>
+
+   <Accordion title="Angola 🇦🇴">
+   		- Angola National ID](../../docs/angola/lookup-national-id)
+   </Accordion>
+
+    <Accordion title="Zimbabwe 🇿🇼">
+   		- [Zimbabwe National ID](../../docs/zimbabwe/lookup-national-id)
+		- [Zimbabwe Credit Check](../../docs/zimbabwe/lookup-credit-check)
+   </Accordion>
+
+   <Accordion title="Zambia 🇿🇲">
+   		- [Zambia National Registration Card](../../docs/zambia/lookup-national-id)
+   </Accordion>
+
+	
+	
+
+  </Tab>
+  <Tab title="Business LookUp">
+    Fetch endpoints for validating business identities in Nigeria. These endpoints are essential for KYB (Know Your Business), compliance, and due diligence processes.
+    #### Supported IDs - Businesses
+
+    <Accordion title="Validate FIRS TIN">
+	  Verify the authenticity of a business’s Tax Identification Number (TIN) with the Federal Inland Revenue Service (FIRS).
+
+	  <ul>
+	  	<li>Confirm if a TIN is valid and properly registered.</li>
+	  	<li>Useful for tax compliance checks, vendor onboarding, and business verification.</li>
+	  </ul>
+
+	</Accordion>
+
+	<Accordion title="Lookup CAC">
+	  Fetch company registration details using the CAC registration number. This confirms the legal existence of a company in Nigeria.
+	  The API returns two tiers of payload based on the available data:
+
+	  <ul>
+	  	<li>Basic</li>
+	  	<li>Advanced</li>
+	  </ul>
+
+	  Use case: Perform KYB checks, verify company legitimacy, or assess vendor authenticity before onboarding.
+
+	  See endpoints & response [here](../../docs/nigeria/lookup-cac) for each ID type.
+
+	</Accordion>
+
+  </Tab>
+  
+</Tabs>

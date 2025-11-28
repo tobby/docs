@@ -1,0 +1,215 @@
+---
+title: Banking & Account Security
+icon: "file"
+---
+
+Banking events represent account activities that involve storing or moving funds. These activities require continuous monitoring to detect account takeover attempts, mule behavior, and other high-risk financial interactions.
+
+ProfiledRisk evaluates each banking event using both:
+
+-   **User-configured rules** (Flows)
+    
+-   **ProfiledRisk intelligence** (behavioral and contextual scoring)  
+      
+    
+
+Each evaluation returns an operational decision via the status field:
+
+-   **allowed** — event can proceed
+    
+-   **blocked** — event should be stopped
+    
+-   **pending** — event requires manual review before continuing
+    
+
+This ensures good users move forward quickly while high-risk actions are held or stopped.
+
+  
+
+## **When To Use This Use Case**
+
+Use the **Banking** category when processing:
+
+-   Deposit requests
+    
+-   Withdrawal requests
+    
+-   Wallet-to-wallet or account-to-account transfers
+    
+-   Bill payments and other value transactions
+    
+-   Security-sensitive account actions, including password or PIN updates
+    
+
+If an action can affect stored value, evaluate it as a Banking event.
+
+  
+
+## **Expected Event Inputs**
+
+A Banking event should include signals that describe:
+
+**Category**
+
+**Example Fields**
+
+**Purpose**
+
+Transaction details
+
+amount, currency, type, channel, purpose, time
+
+Identifies financial behavior and velocity changes
+
+Profile details
+
+user\_id, tier, account type, registration time
+
+Establishes identity history and entitlement levels
+
+Counterparty details
+
+sender, receiver account metadata
+
+Detects laundering or high-risk corridors
+
+Device & network
+
+device\_id, IP, model, OS
+
+Detects account takeover and device sharing
+
+Additional metadata
+
+meta array
+
+Business-specific flags and labels
+
+The full JSON schema and field definitions are documented [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388)
+
+ProfiledRisk will use all available fields to build risk context over time.
+
+  
+
+## **Decisioning Logic**
+
+Each Banking event is evaluated through:
+
+1.  **Your Flows**  
+    Rules configured in the dashboard using conditions such as amount thresholds, country restrictions, new devices, etc.  
+      
+    
+2.  **System Intelligence**
+    
+    -   User’s historical transaction behavior
+        
+    -   Device and IP history
+        
+    -   Geographic consistency
+        
+    -   Counter-party patterns
+        
+    -   Interaction velocity
+        
+
+The outcome returns:
+
+    {
+      "status": "blocked",
+      "risk_score": 87,
+      "risk_level": "high",
+      "case_created": true
+    }
+
+Your system can enforce the response:
+
+**Status**
+
+**Required Action from Client System**
+
+**allowed**
+
+Complete the transaction normally
+
+**blocked**
+
+Do not process; optionally notify the user
+
+**pending**
+
+Hold and send to Case review before processing
+
+When a case is created, ProfiledRisk retains event details for analyst decisioning.
+
+  
+
+## **Case Creation**
+
+A Case may be created when:
+
+-   A rule instructs that additional verification is required
+    
+-   System intelligence cannot determine clear fraud vs. legitimate behavior
+    
+-   The returned status is **pending**  
+      
+    
+
+Cases are visible in the dashboard with complete contextual information including user profile, device history, and linked transactions.
+
+Analysts may confirm or overturn automation, and decisions may be used to refine rules over time.
+
+  
+
+## **Example Flow Rules**
+
+Below are common rule patterns for Banking events:
+
+**Scenario**
+
+**Flow Condition**
+
+**Returned Status**
+
+Account takeover indicators
+
+New device + password changed recently + high withdrawal amount
+
+blocked
+
+Suspicious cash-out pattern
+
+3+ unrelated incoming transfers followed by immediate withdrawals
+
+pending
+
+High-risk recipient
+
+First-time beneficiary in restricted region
+
+pending
+
+Abnormal activity from dormant profile
+
+No activity for extended period then large transfers
+
+blocked
+
+Rule sets can be expanded and tuned based on operational policy.
+
+  
+
+## **Summary**
+
+ProfiledRisk helps protect banking operations by:
+
+-   Preventing unauthorized account access and withdrawals
+    
+-   Detecting mule activity and laundering flows
+    
+-   Routing uncertain activity to human review before funds move
+    
+-   Reducing operational workload through automated decisioning
+    
+
+This use case is essential when handling any banking actions that involve changes to stored value or account integrity.

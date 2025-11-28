@@ -1,0 +1,51 @@
+---
+title: Send Messages
+icon: "paper-plane"
+
+---
+
+Send high-priority transactional SMS messages to your users 
+using Dojah’s Messaging API. Whether it's delivering 
+payment confirmations, or onboarding alerts, messages are routed instantly with full
+ visibility into delivery status.
+
+
+***
+
+#### How It Works
+
+Before you can start sending messages, you must register a Sender ID—this is the alphanumeric name that appears as the sender (e.g., DOJAH, MYBANK). You can request a Sender ID via the Dojah Dashboard. Once approved, it becomes available for use in your API calls.
+
+**To send a message**:
+
+- Register and activate your Sender ID
+
+- Make a POST request to the messaging endpoint with the recipient’s phone number and message body
+
+- Receive a message_id in response for tracking status
+
+Optionally, poll the status endpoint using the message_id to track delivery lifecycle
+
+**Statuses include**:
+
+- queued – Message is awaiting dispatch
+
+- sent – Message has been handed to the telco
+
+- delivered – Successfully received by the user
+
+- failed – Delivery failed (e.g., invalid number or telco issue)
+
+
+#### Use Cases
+
+- Payment or wallet transaction alerts
+
+- Loan disbursement or status updates
+
+- Onboarding verification messages
+
+#### Message Status Tracking
+
+Use the GET /status endpoint with the message_id to track the real-time state of any message. This provides a full audit trail across your communication touchpoints and ensures reliability in delivery.
+

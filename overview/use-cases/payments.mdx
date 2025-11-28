@@ -1,0 +1,261 @@
+---
+title: Payments
+icon: "bank"
+---
+
+Payment events represent value-moving activities processed through cards, transfers, USSD, POS, or mobile channels. Because these transactions often settle immediately or trigger downstream risk exposure, they require real-time decisioning.
+
+ProfiledRisk evaluates each payment event using:
+
+-   **User-configured rules** in your Flows
+    
+-   **ProfiledRisk intelligence**, including behavioral and velocity scoring  
+      
+    
+
+The returned decision is provided in the response status field:
+
+-   **allowed** — payment may proceed
+    
+-   **blocked** — payment must not proceed
+    
+-   **pending** — payment is held pending analyst review
+    
+
+This ensures rapid authorization for trusted customers while blocking or pausing suspicious payment attempts.
+
+  
+
+## **When to Use This Use Case**
+
+Use the **Payments** category when:
+
+-   A user initiates a financial purchase or transfer
+    
+-   A card or stored payment method is used
+    
+-   A payment is attempted from a device or location
+    
+-   A request requires authorization from a payment processor or partner network
+    
+
+Examples include:
+
+-   Card payments (online, mobile, POS)
+    
+-   Wallet funding and withdrawals
+    
+-   Airtime/data purchases
+    
+-   Peer-to-peer transfers
+    
+-   Recurring billing
+    
+
+If the event impacts transaction settlement or fraud risk, send it as a Payment event.
+
+  
+
+## **Expected Event Inputs**
+
+A Payment event should provide a unified view across:
+
+**Category**
+
+**Example Details**
+
+**Risk Purpose**
+
+**User**
+
+Profile/identity, KYC, income, account status
+
+Trust level, identity stability
+
+**Transaction**
+
+Value, channel, frequency, purpose
+
+Detects behavioral anomalies
+
+**Payment**
+
+Card scheme, CVV, 3DS, AVS, recurring flag
+
+Financial instrument validation
+
+**Merchant**
+
+Merchant/location/category
+
+Risk scoring by MCC and geography
+
+**Device**
+
+device\_id, IP, OS
+
+Account takeover and device sharing signals
+
+**Billing Address**
+
+street, city, country
+
+AVS/presence verification
+
+The JSON schema and validation rules for Payment events are documented [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388).
+
+The more relevant signals provided, the more accurate the risk evaluation.
+
+  
+
+## **Decisioning Logic**
+
+Evaluation combines:
+
+### **1\. Your Flows**
+
+Configured business rules such as:
+
+-   Payment limit thresholds
+    
+-   Country restrictions
+    
+-   Card presence and 3DS enforcement
+    
+-   Device reputation checks  
+      
+    
+
+### **2\. ProfiledRisk Intelligence**
+
+Continuously updated behavior modeling:
+
+-   Velocity of failed/successful payments
+    
+-   Unusual channel or merchant changes
+    
+-   Device or geo inconsistency with historical behavior
+    
+-   Risky merchant categories or stacks
+    
+-   Sudden spike in high-value transactions  
+      
+    
+
+The output decision structure is:
+
+      "status": "blocked",
+      "risk_score": 91,
+      "risk_level": "high",
+      "case_created": true
+
+Your system can enforce the response:
+
+**Status**
+
+**Client Enforcement**
+
+**allowed**
+
+Continue and authorize payment
+
+**blocked**
+
+Stop transaction and optionally notify user
+
+**pending**
+
+Hold payment for analyst validation before settlement
+
+  
+
+## **Case Management**
+
+A Case is created automatically when:
+
+-   Flow rules mark the payment as requiring review
+    
+-   System intelligence finds new anomalies that require human assessment
+    
+-   Returned status is **pending**
+    
+      
+    
+
+Analysts can evaluate:
+
+-   Payment history
+    
+-   Merchant and counterparty exposure
+    
+-   Device/IP consistency
+    
+-   Rule triggers and scores
+    
+
+Their decision can then be written back into operational flows.
+
+  
+
+## **Example Payment Rules**
+
+Common configurations used by payment providers and fintechs:
+
+**Objective**
+
+**Rule Concept**
+
+**Returned Status**
+
+Prevent stolen card use
+
+CVV missing OR 3DS disabled AND high-risk merchant
+
+blocked
+
+Detect account takeover
+
+First-time large purchase + new device + newly changed password/PIN
+
+blocked
+
+Catch friendly fraud attempts
+
+Dispute history + recurring transaction retry + high-risk MCC
+
+pending
+
+Control risky corridors
+
+Merchant country ≠ profile history + high-value
+
+pending
+
+Catch high-velocity fraud
+
+Multiple declined attempts across merchants in 5 minutes
+
+blocked
+
+All rule logic can be tuned per risk tolerance and regulatory obligations.
+
+  
+
+## **Summary**
+
+ProfiledRisk supports safe and scalable payment operations by ensuring:
+
+-   Real-time authorization decisions with clear enforcement signals
+    
+-   Strong defense against card abuse, mule behavior, and takeover-driven payments
+    
+-   Lower chargebacks and fraud losses
+    
+-   Minimal friction for trusted customers
+    
+-   Better analyst efficiency with automated segmentation
+    
+      
+    
+
+This use case should be utilized for any transaction where rapid, accurate risk evaluation is required prior to settlement.

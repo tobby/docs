@@ -1,0 +1,124 @@
+---
+title: Currency Transaction Report (CTR)
+icon: "file"
+
+---
+
+
+A Currency Transaction Report (CTR) is a regulatory filing required when a transaction or set of related transactions meets or exceeds a legally defined monetary threshold. CTRs support anti-money laundering oversight by ensuring large cash movements are recorded and made available to regulators.
+
+ProfiledRisk automatically prepares CTR documentation when reportable transactions are detected through real-time risk monitoring and rule enforcement.
+
+## **When CTRs Are Generated in ProfiledRisk**
+
+CTRs are generated when a **cash-related transaction** meets configured criteria. These can include:
+
+-   A **single transaction** exceeding a defined monetary limit
+    
+-   **Multiple smaller transactions** aggregated within a time window that collectively exceed the limit
+    
+-   Any behavior pattern identified as a **structuring attempt** to avoid reporting thresholds
+    
+
+Threshold rules are configurable per jurisdiction, allowing organizations to align CTR triggers with local legislation.
+
+Typical triggers include:
+
+-   High-value deposit or withdrawal
+    
+-   Large physical cash transaction via POS, agent, or ATM
+    
+-   Multiple cash loads within a defined timeframe
+    
+
+Events flagged for CTR **do not automatically imply suspicion** — the filing is driven by transaction size and category.
+
+## **CTR Review and Decision Flow**
+
+1.  Banking or payment event is received
+    
+2.  Rules and system intelligence assess cash exposure
+    
+3.  ProfiledRisk flags a CTR requirement when conditions are met
+    
+4.  CTR is automatically generated and associated with the event
+    
+5.  Compliance team reviews and downloads the report
+    
+6.  Filing with regulators is performed manually
+    
+
+CTR generation does **not** require a Case or manual suspicion review.
+
+## **What Data Is Included in the CTR**
+
+CTR documents include the full context of the cash activity, such as:
+
+Section
+
+Description
+
+Reporting entity details
+
+Preconfigured compliance contact and organization information
+
+Transaction data
+
+Amount, currency, time, channel, corridor
+
+Actor information
+
+Identity and KYC attributes of the user conducting the transaction
+
+Source/destination data
+
+For inbound/outbound cash handling
+
+Aggregation details
+
+If multiple transactions triggered the CTR
+
+Filing metadata
+
+Unique reference and reporting date
+
+ProfiledRisk consolidates events automatically when aggregation triggers apply.
+
+## **Entity Configuration Requirements**
+
+Before CTRs can be generated, organizations must configure:
+
+-   Reporting organization legal name
+    
+-   Rendering Entity Code
+    
+-   Branch name/ID/Code
+    
+
+These settings are applied consistently to all future CTR exports.
+
+## **Accessing CTR Reports**
+
+CTRs are available in the **Reports** dashboard and can be:
+
+✔ Downloaded in regulatory-acceptable formats  
+✔ Linked back to originating transactions and user profiles  
+✔ Filtered by amount, date range, or operational branch  
+✔ Retained and audited for compliance traceability
+
+All reports are locked once generated to preserve the regulatory record.
+
+## **Summary**
+
+ProfiledRisk simplifies CTR compliance by:
+
+-   Automating threshold detection and aggregation checks
+    
+-   Eliminating manual data preparation
+    
+-   Ensuring consistent reporting across jurisdictions
+    
+-   Maintaining complete audit trails for all flagged transactions
+    
+
+Your compliance team remains in full control of review and submission.

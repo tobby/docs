@@ -1,0 +1,92 @@
+---
+title: "Webhooks"
+icon: "book"
+description: "Webhooks allow ProfiledRisk to send real-time decisions, score outcomes, and behavioral insights back to your system immediately after an event is evaluated. This enables automated enforcement in your own transaction, onboarding, or lending workflows."
+---
+
+
+
+When your Flow triggers a decision, ProfiledRisk sends a signed webhook request to the endpoint you configure on the Dashboard.
+
+  
+
+## **Configuring Webhooks**
+
+You can subscribe to webhook notifications directly from each Flow in the Dashboard.
+
+> Manage flows → View flow → Settings → Webhook Info
+
+Each Flow can have **its own unique webhook URL**. This allows different event types to notify different internal services if required.
+
+After adding a webhook URL, select **Save changes** to activate delivery.
+
+  
+
+## **Webhook Payload Structure**
+
+Real example payload sent from ProfiledRisk:
+
+    {
+      "event": {
+        "meta": [
+          { "transaction_id": "ProfiledRisk-20231111085937073" }
+        ],
+        "user": {
+          "name": "Maplerad-Provarex-Acc  None",
+          "email": "",
+          "mobile": "None",
+          "user_id": "4ac1bc59-34ad-485a-bda5-eb406a49a411",
+          "registration_time": "1696421468798421"
+        },
+        "device": {
+          "os": "Android",
+          "type": "mobile",
+          "model": "Pixel 7",
+          "language": "en/US",
+          "device_id": "ff97adb7-8d3d-4f15-94df-87e21e1212de",
+          "ip_address": "154.72.170.233"
+        },
+        "sender": {
+          "country": "NG",
+          "bank_name": "",
+          "account_name": "Paystack",
+          "account_number": "1017692813"
+        },
+        "address": {
+          "city": "Lagos",
+          "street": "Ikeja",
+          "country": "Nigeria"
+        },
+        "receiver": {
+          "country": "NG",
+          "bank_name": "VFD_NEW",
+          "account_name": "",
+          "account_number": "1029283851"
+        },
+        "transaction": {
+          "id": "ProfiledRisk-20231111085937073",
+          "ref": "ProfiledRisk-20231111085937073",
+          "time": "1699693180085313",
+          "type": "deposit",
+          "amount": 300,
+          "channel": "transfer",
+          "currency": "NGN",
+          "session_id": "ProfiledRisk-20231111085937073"
+        }
+      },
+      "score": 30,
+      "decision": {
+        "action": "Allow",
+        "rule_status": false
+      },
+      "behavioral": {
+        "UnusualTimeTransactions": {
+          "state": true,
+          "description": "User transaction time is outside of normal business hours"
+        },
+        "AbnormalTransactionVolume": {
+          "state": true,
+          "description": "User has abnormally high transaction volume of 34 within a short period"
+        }
+      }
+    }

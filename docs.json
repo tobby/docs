@@ -1,122 +1,186 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "aspen",
+  "name": "Dojah Inc",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#010061",
+    "light": "#010061",
+    "dark": "#010061"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/logo/blue.png",
   "navigation": {
     "tabs": [
-      {
-        "tab": "Guides",
+
+          {
+          "tab": "Overview",
+          "groups": [
+
+          {
+            "group": "GETTING STARTED",
+            "pages": [
+              
+              "overview/introduction",
+              "overview/creating-an-account",
+              "overview/start-subscription"
+            ]
+          },
+
+           {
+            "group": "USE-CASES",
+            "pages": [
+             "overview/use-cases/banking-account-security",
+             "overview/use-cases/payments",
+              "overview/use-cases/onboarding-risk-evaluation",  
+              "overview/use-cases/lending-credit-risk" 
+          
+            ]
+          },
+             {
+            "group": "REPORTS",
+            "pages": [
+              
+             "overview/reports/suspicious-transaction-report",
+              "overview/reports/currency-transaction-report",
+              "overview/reports/fraud-transaction-report",
+              "overview/reports/profile-report"
+            ]
+          }
+
+         ]
+      },
+        {
+        "tab": "Device Fingerprinting",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Device Fingerprinting",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "device-Fingerprinting/overviews"
+             
             ]
           }
         ]
       },
+
+
+
+
+
+
       {
-        "tab": "API reference",
+        "tab": "API Integration",
         "groups": [
+         
           {
-            "group": "API documentation",
+           "group": "TECHNICAL REFERENCES",
             "pages": [
-              "api-reference/introduction"
+              "docs/technical-reference/events-ingestion",
+              "docs/technical-reference/keywords-definitions",
+               "docs/technical-reference/authentication",
+                "docs/technical-reference/webhooks"
+               
+  
             ]
           },
+
           {
-            "group": "Endpoint examples",
+            "group": "PAYLOAD SCHEMAS",
+              "pages": [
+              "docs/technical-reference/onboarding-event",
+              "docs/technical-reference/banking-events",
+              "docs/technical-reference/payment-events",
+              "docs/technical-reference/lending-events"
+               
+
+              
+
+
+
+
+
+
+  
+            ]
+          
+          },
+          {
+            "group": "RISK ENTITIES",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              {
+                "group": "🇳🇬 Nigeria",
+                "pages": [
+                  "docs/nigeria/validate-firs-tin",
+                  "docs/nigeria/lookup-cac"
+                ]
+              },
+               "docs/globalverification/businesscheck/global-business-search",
+              "docs/globalverification/businesscheck/global-business-details"
             ]
           }
+        
         ]
       }
+
+    
+    
     ],
-    "global": {
+      "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Visit Website",
+          "href": "https://profiledrisk.com/",
+          "icon": "globe"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Login to app",
+          "href": "https://app.profiledrisk.com/signin",
+          "icon": "cloud"
+        },
+        {
+          "anchor": "Join Community",
+          "href": "https://join.slack.com/t/dojahinc/shared_invite/zt-ng9ch04k-bT5sVBnTY6Fa1ffQ0SAxpQ",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Run in Postman",
+          "href": "https://app.getpostman.com/",
+          "icon": "code"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/blue.png",
+    "dark": "/logo/white.png"
+  
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+  "api": {
+    "mdx": {
+      "auth": {
+        "method": "key",
+        "name": "Authorization"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
     }
   },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+  "background": {
+    "image": "/background.png"
   },
+  
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/DojahInc",
+      "github": "https://github.com/dojah-inc",
+      "slack": "https://join.slack.com/t/dojahinc/shared_invite/zt-ng9ch04k-bT5sVBnTY6Fa1ffQ0SAxpQ",
+      "linkedin": "https://www.linkedin.com/company/dojah/"
+    }
+  },
+
+   "fonts": {
+    "heading": {
+      "family": "Inter",
+      "weight": 800
+    },
+    "body": {
+      "family": "Inter"
     }
   }
 }

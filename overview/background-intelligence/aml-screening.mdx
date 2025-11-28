@@ -1,0 +1,101 @@
+---
+title: AML Screening
+icon: "radar"
+
+---
+
+Dojah’s AML Screening service helps businesses detect and manage 
+potential financial crime risks. It checks individuals or businesses against global watchlists
+, politically exposed persons (PEPs), sanctions lists, and adverse media sources. 
+It’s designed to simplify compliance with KYC, AML, and CFT regulations, without 
+adding operational friction.
+
+You can screen users directly from the dashboard or via API, 
+review results in real-time, and manage alerts efficiently 
+within your internal compliance workflows.
+***
+
+#### Core Features
+
+- **Screening against global databases**: Sanctions lists, PEPs, and watchlists from 
+international regulators, including UN, OFAC, and EU.
+
+- **Adverse media monitoring**: Real-time checks for negative mentions across hundreds of news sources.
+
+- **Clear result types**: Categorized as No Match, Partially Matched, Potential Match, or Confirmed Match.
+
+- **Match score**: Each match includes a score from 0–100 to indicate how stringent a search should be.
+
+- **Risk levels**: Flagged profiles are categorized as Low, Medium, or High risk.
+
+- **Ongoing monitoring**: Enable continuous background monitoring for selected entities or users.
+
+
+***
+
+#### Case Management
+
+All screenings are logged and presented in an interactive, filterable table where your team can take action:
+
+- View match scores, risk levels, and entity type (individual or business).
+
+- Assign cases to team members, update match statuses, or leave comments.
+
+- Access profile details, including source links and description summaries.
+
+- Download a detailed screening report for audit or compliance records.
+
+- Easily distinguish one-time checks from monitored profiles.
+
+
+***
+
+#### How to Review a Case
+
+Clicking into a flagged case opens a detailed panel where you can:
+
+- See all entities with similar names or identifiers
+
+- Review source categories (e.g., Sanctions, Terrorism, Adverse Media)
+
+- Read extracted descriptions and other metadata
+
+- Adjust status manually (Confirmed, No Match, etc.)
+
+- Add internal comments or assign for review
+
+***
+
+#### Data Sources and Refresh Rates
+
+We source and refresh data regularly from over 1,500 government and proprietary databases. These include:
+
+- Sanction lists (UN, OFAC, EU, HMT, etc.)
+
+- PEP databases (global and regional)
+
+- Law enforcement watchlists
+
+- Adverse media (real-time updates from global sources)
+
+***
+
+#### Integration Options
+
+You can integrate AML Screening into your operations in two ways:
+
+<Columns cols={1}>
+  <Card title="API Integration"  icon="plug" href="/docs/aml/screening-info-individual"  arrow="true" cta="View API Reference">
+    Use our AML Screening API to submit user or business names programmatically. Ideal for automated workflows, onboarding pipelines, or ongoing KYC processes.
+
+    Receive match status, risk score, and confidence values. Also integrate results directly into your dashboard or internal tools
+
+  </Card>
+  
+ <Card title=" Manual Lookup via Dashboard"  icon="desktop" href="https://app.dojah.io/aml-screening/v2" arrow="true" cta="View AML Screening">
+  Simply enter a name into the search bar, and the platform will return a detailed case profile based on available watchlists, sanctions databases, and adverse media sources.
+
+This option is ideal for compliance officers and non-technical teams who need a fast, no-code way to run due diligence.
+
+</Card>
+</Columns>

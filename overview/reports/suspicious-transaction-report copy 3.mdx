@@ -1,0 +1,138 @@
+---
+title: Suspicious Transaction Report (STR)
+icon: "file"
+
+---
+
+A Suspicious Transaction Report (STR) is a documented record submitted to regulatory authorities when a transaction, activity, or behavior pattern suggests potential money laundering, terrorist financing, fraud, or any illegal financial conduct. ProfiledRisk provides automated STR preparation to support regulatory compliance obligations while reducing manual documentation work.
+
+STRs in ProfiledRisk are generated directly from verified suspicious activity identified during monitoring and case review.
+
+## **How STR Generation Works in ProfiledRisk**
+
+STR creation is driven by **confirmed suspicion**, not thresholds alone. A transaction must be reviewed and classified as suspicious before an STR is generated.
+
+STR workflows follow this sequence:
+
+1.  A transaction or profile event triggers a **pending** status
+    
+    -   Based on a rule condition
+        
+    -   Or detected by ProfiledRisk intelligence
+        
+2.  A **Case** is automatically created for investigation
+    
+3.  An analyst reviews the event, its context, and supporting intelligence
+    
+4.  Analyst marks the Case as **Suspicious**
+    
+    -   This permanently flags the event
+        
+    -   System locks all related data for audit integrity
+        
+5.  ProfiledRisk automatically generates a **Suspicious Transaction Report**
+    
+6.  The STR becomes available in the **Reports** section for download
+    
+
+ProfiledRisk does **not** submit STRs to regulators. Customers are responsible for filing through their licensed compliance process.
+
+## **What Data Is Included in the STR**
+
+The STR format used by ProfiledRisk is aligned with common regulatory reporting structures based on the templates you provided.
+
+The report contains:
+
+Section
+
+Description
+
+**Report Details**
+
+Filing reference, date of report generation, report type
+
+**Reporting Entity Information**
+
+Entity name, registration number, compliance contact, reporting branch
+
+**Subject Information**
+
+Customer identity and profile attributes, risk indicators
+
+**Transaction Information**
+
+Amount, date, channel, payment instrument, counterparties
+
+**Suspicion Indicators**
+
+Rules and intelligence that triggered suspicion
+
+**Narrative Summary**
+
+Analyst explanation supporting the suspicion classification
+
+**Attachments**
+
+Evidence such as linked transactions or profile changes
+
+ProfiledRisk automatically populates available data fields captured through Events and Cases.
+
+  
+
+## **Entity Configuration Requirements**
+
+Before STRs can be generated, compliance-related organization details must be configured in the Dashboard:
+
+-   Reporting organization legal name
+    
+-   Rendering Entity Code
+    
+-   Branch name/ID/Code
+    
+
+Once set, ProfiledRisk applies these values consistently to every STR.
+
+## **Accessing STR Reports**
+
+All STRs are accessible within the **Reports** module of the Dashboard.
+
+Each report can be:
+
+✔ Downloaded as a structured PDF or machine-readable file (JSON/CSV)  
+✔ Linked to the original Case and underlying events  
+✔ Exported for internal compliance and audit review  
+✔ Filtered by date range, transaction value, or risk level
+
+Reports are immutable once generated — ProfiledRisk maintains the original record for audit trails.
+
+## **Analyst Responsibilities**
+
+While ProfiledRisk automates detection, data population, formatting, and record keeping, analysts remain responsible for:
+
+-   Assessing whether suspicion is justified
+    
+-   Adding narrative context to support suspicion claims
+    
+-   Ensuring timely filing with the correct regulator
+    
+-   Providing supplemental information if requested by oversight bodies
+    
+
+ProfiledRisk enforces accountability by requiring the **analyst identity** to be attached to each STR generated.
+
+## **Summary**
+
+STR reporting in ProfiledRisk ensures:
+
+-   Faster regulatory response to suspicious activity
+    
+-   Accurate record keeping driven by real event data
+    
+-   Full traceability between Cases, Events, and Reports
+    
+-   Clear division of responsibility between automation and human oversight
+    
+-   Reliable exports that meet compliance standards
+    
+
+STR automation reduces reporting friction while maintaining regulatory quality and traceability across the entire risk lifecycle.
