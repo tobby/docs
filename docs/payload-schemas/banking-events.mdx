@@ -1,43 +1,72 @@
 ---
-title: "Events Ingestion"
-description: "Event Ingestion is how you send activity data to ProfiledRisk for evaluation. Each event is processed by a Flow, evaluated against your rules and ProfiledRisk intelligence, and returns a decision that you can enforce in your system."
+title: "Banking Events"
+description: ""
 ---
 
-Event Ingestion is how you send activity data to ProfiledRisk for evaluation. Each event is processed by a Flow, evaluated against your rules and ProfiledRisk intelligence, and returns a decision that you can enforce in your system.
+**Use when:** Evaluating account-level banking transactions (deposits, withdrawals, transfers).
 
-ProfiledRisk supports two ingestion modes per Flow:
+**Endpoint:** Realtime URL of a Banking Flow
 
--   **Realtime URL** – for live decisioning on production traffic
-    
--   **Backfill URL** – for historical or batch events
-    
+**Request Template:**
 
-The keys for each url can be gotten from the dashboard, and you can view the schema for each user type under the payload schemas
-
-```json 
+```json
     {
-        "key": "6WgE3W1",
-        "type": "onboarding",
-        "event": {
-            "user": {
-                "user_id": "3e4d2a19-6fbc-4a2c-a1c5-5678e9abcd13",
-                "registration_time": "2025-01-14 13:20:33",
-                "email": "jane.doe@example.com",
-                "name": "Bola Tinubusss",
-                "mobile": "+1234567891"
-            },
-            "device": {
-                "type": "desktop",
-                "os": "Windows 10",
-                "model": "Dell Inspiron",
-                "language": "en-US",
-                "ip_address": "104.28.251.101",
-                "device_id": "d41d8cd9-8f00-3204-a97d-e1f4d2e6cb39"
-            },
-            "address": {
-                "city": "New York",
-                "street": "123 Elm St, Apt 5B",
-                "country": "United States"
-            }
-        }
+      "type": "banking",
+      "event": {
+        "transaction": {
+          "id": "87554303-3f75-4883-8fb8-48fce003859f",
+          "time": "2022-12-12T12:15:05.391Z",
+          "amount": 8291,
+          "currency": "XAF",
+          "ref": "xaf",
+          "session_id": "xaf",
+          "type": "deposit",
+          "channel": "mobile",
+          "purpose": "salary payment",
+          "source_of_funds": "employment income"
+        },
+        "user": {
+          "user_id": "9931fac0-6bfa-4b3c-842c-7840006d89b6",
+          "user_type": "individual",
+          "registration_time": "2022-12-12T12:15:05.392Z",
+          "email": "erik.miller@buchanan.com",
+          "name": "Trevor Arias",
+          "tier": "silver",
+          "account_type": "checking",
+          "gender": "male",
+          "balance": 24500.50,
+          "mobile": "5797454931",
+          "last_pin_change": "2022-11-01T08:30:00.000Z",
+          "last_password_change": "2022-10-15T14:22:10.000Z"
+        },
+        "receiver": {
+          "account_name": "John Doe",
+          "bank_name": "EcoBank",
+          "account_number": "CM21100375689",
+          "country": "Cameroon"
+        },
+        "sender": {
+          "account_name": "Anon Doe",
+          "bank_name": "Paystack TITAN",
+          "account_number": "NG0567890321",
+          "country": "Nigeria"
+        },
+        "device": {
+          "type": "mobile",
+          "os": "Android",
+          "model": "Pixel 7",
+          "language": "en-US",
+          "ip_address": "154.72.170.233",
+          "device_id": "ff97adb7-8d3d-4f15-94df-87e21e1212de"
+        },
+        "address": {
+          "city": "North Sarah",
+          "street": "6238 Walker Unions Suite 802",
+          "country": "Morocco"
+        },
+        "meta": [
+          { "key": "value" }
+        ]
+      }
     }
+    ```

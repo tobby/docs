@@ -54,7 +54,7 @@
           {
             "group": "Device Fingerprinting",
             "pages": [
-              "device-Fingerprinting/overviews"
+              "device-fingerprinting/overviews"
              
             ]
           }
@@ -85,26 +85,23 @@
           {
             "group": "PAYLOAD SCHEMAS",
               "pages": [
-              "docs/technical-reference/onboarding-event",
-              "docs/technical-reference/banking-events",
-              "docs/technical-reference/payment-events",
-              "docs/technical-reference/lending-events"
+              "docs/payload-schemas/onboarding-register-event",
+               "docs/payload-schemas/onboarding-login-event",
+              "docs/payload-schemas/banking-events",
+              "docs/payload-schemas/payment-events",
+              "docs/payload-schemas/lending-events"
               
             ]
           
           },
           {
             "group": "RISK ENTITIES",
-            "pages": [
-              {
-                "group": "🇳🇬 Nigeria",
-                "pages": [
-                  "docs/nigeria/validate-firs-tin",
-                  "docs/nigeria/lookup-cac"
-                ]
-              },
-               "docs/globalverification/businesscheck/global-business-search",
-              "docs/globalverification/businesscheck/global-business-details"
+             "pages": [
+              "docs/risk-entities/onboarding-event",
+              "docs/risk-entities/banking-events",
+              "docs/risk-entities/payment-events",
+              "docs/risk-entities/lending-events"
+              
             ]
           }
         
