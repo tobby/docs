@@ -97,11 +97,8 @@
           {
             "group": "RISK ENTITIES",
              "pages": [
-              "docs/risk-entities/onboarding-event",
-              "docs/risk-entities/banking-events",
-              "docs/risk-entities/payment-events",
-              "docs/risk-entities/lending-events"
-              
+              "docs/risk-entities/create-profile",
+              "docs/risk-entities/update-profile"
             ]
           }
         
