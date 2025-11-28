@@ -36,13 +36,21 @@
             ]
           },
 
+          
+
+
+
+
+
+
              {
             "group": "REPORTS",
             "pages": [
               
-             "overview/introduction",
-              "overview/creating-an-account",
-              "overview/start-subscription"
+             "overview/reports/suspicious-transaction-report",
+              "overview/reports/currency-transaction-report",
+              "overview/reports/fraud-transaction-report",
+              "overview/reports/profile-report"
             ]
           }
          
@@ -54,20 +62,10 @@
         "tab": "Device Fingerprinting",
         "groups": [
           {
-            "group": "SDKs & Libraries",
+            "group": "Device Fingerprinting",
             "pages": [
-              "sdks/overviews",
-              {
-                "group": "for eKYC(ID Widget)",
-                "pages": [
-                  "sdks/javascript-library",
-                  "sdks/react-library",
-                  "sdks/react-native-library",
-                  "sdks/flutter-library",
-                  "sdks/kotlin",
-                  "sdks/swift"
-                ]
-              }
+              "sdks/overviews"
+             
             ]
           }
         ]
