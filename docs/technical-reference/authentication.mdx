@@ -8,13 +8,25 @@ Authentication applies to every endpoint in the ProfiledRisk API.
 
 ## **Base URL**
 
-    https://api.profiledrisk.com/api
     
+    
+All API requests made **must** include a base URL. Below are the base URLs for each environment.
+
+SANDBOX ==> [https://sandbox.profiledrisk.com/api](https://sandbox.profiledrisk.com/api)
+
+PRODUCTION ==> [https://api.profiledrisk.com/api](https://api.profiledrisk.com/api)
+
 
 This is the base domain used for all API interactions.
 
 You must append the correct endpoint path for each API call.  
 Specific endpoints will be referenced in subsequent sections of this documentation.
+
+
+
+## **Header Authentication**
+
+Every API request must include your Secret Key in the `Authorization` header.
 
   
 
@@ -27,36 +39,30 @@ ProfiledRisk uses **a single Secret Key** for live transactions
 Treat your Secret Key like a password.  
 Do not expose it in client-side, browser, or mobile applications.
 
-  
 
-## **Header Authentication**
 
-Every API request must include your Secret Key in the `Authorization` header.
 
-#### **Header Format**
 
-    Authorization: {PRIVATE_KEY}
-    Content-Type: application/json
-    
+
 
 Example:
 
-```curl
-    POST /api/events HTTP/1.1
-    Host: api.profiledrisk.com
-    Authorization: sk_live_xxxxxxxxxxxxxxxxxxxxxx
-    Content-Type: application/json
+### Request
+
+```http [POST]
+{{baseURL}}/api/events
 ```
 
-```json
+
+```json Body
     {
       "type": "payments",
       "event": { ... }
     }
 ```
-    
 
-  
+
+
 
 ## **Security Best Practices**
 

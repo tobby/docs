@@ -17,9 +17,33 @@ Updating profiles ensures future risk evaluations use the latest, accurate data.
     ```
     
 
+### Request
+
+```http [PATCH]
+{{baseURL}}/api/profiles/{profile_id}
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| Authorization | string | private key  |
+
 ## Request Body
 
-The structure mirrors Create Profile, but you send only the fields you want to update:
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| user.email  | string | User's email | optional |
+| user.tier  | string | User's level or tier | optional |
+| user.mobile  | string | User's mobile | optional |
+| device.language  | string | Device Language | optional |
+| address.city  | string | Address City | optional |
+| address.country  | string | Address Country | optional |
+
+
+
+
+> The structure mirrors Create Profile, but you send only the fields you want to update:
 
 
 ```json

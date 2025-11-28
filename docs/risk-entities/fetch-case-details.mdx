@@ -6,26 +6,27 @@ description: ""
 
 The Fetch Case Details endpoint lets you retrieve full information about a Case that was created during event evaluation.
 
-### Endpoint
 
-```curl
-    GET /api/cases/{case_id}
-    Authorization: {PRIVATE_KEY}
+### Request
+
+```http [GET]
+{{baseURL}}/api/cases/{case_id}
 ```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| Authorization | string | private key  |
 
 ### Path Parameters
 
-_Name_
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| case_id  | string | Unique identifier for the Case you want to retrieve | required |
 
-Type
 
-Description
 
-`case_id`
-
-string
-
-Unique identifier for the Case you want to retrieve
 
 ### Successful Response
 
