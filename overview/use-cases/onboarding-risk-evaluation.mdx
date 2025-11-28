@@ -1,0 +1,237 @@
+---
+title: Onboarding Risk Evaluation
+icon: "file"
+---
+
+Onboarding events represent the first point of interaction between a user and your product. Evaluating risk at this stage prevents hostile accounts, synthetic identities, and automated fraud from ever entering the system.
+
+ProfiledRisk analyzes onboarding data in real time using:
+
+-   **User-configured rules** that determine acceptable onboarding behavior
+    
+-   **ProfiledRisk intelligence** that learns from historical fraud patterns and behavior models
+    
+
+Each onboarding event returns a decision via the status field:
+
+-   **allowed** — user onboarding can continue normally
+    
+-   **blocked** — onboarding must not proceed
+    
+-   **pending** — additional verification or analyst intervention required
+    
+
+This ensures quality acquisition while preventing high-risk accounts from progressing.
+
+  
+
+## **When to Use This Use Case**
+
+Use the **Onboarding** category when:
+
+-   A new account is created (signup)
+    
+-   User profile data is updated during onboarding (tier upgrade, identity submission)
+    
+-   A risk-relevant interaction is triggered before account approval
+    
+-   Device or KYC changes occur prior to access to financial capabilities  
+      
+    
+
+Example onboarding triggers:
+
+-   User signs up for the first time
+    
+-   KYC document submitted
+    
+-   Mobile or email verified
+    
+-   First device and IP captured
+    
+
+Onboarding events help determine whether a profile should be trusted from the start.
+
+  
+
+## **Expected Event Inputs**
+
+A clear understanding of identity, device, and environment reduces false approvals and improves fraud blocking.
+
+### **Required Signal Groups**
+
+**Category**
+
+**Example Fields**
+
+**Purpose**
+
+**User identity**
+
+name, email, dob, phone
+
+Validate existence and completeness
+
+**KYC attributes**
+
+id type/number, issuing country
+
+Confirm regulatory compliance
+
+**Behavioral context**
+
+registration\_time, tier
+
+Identify rushed or unusual onboarding
+
+**Device & network**
+
+device\_id, OS, IP address
+
+Detect bots, multi-accounting, and takeover attempts
+
+**Location**
+
+user-provided address
+
+Match against risk geography context
+
+Full onboarding schema is documented in [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388)
+
+ProfiledRisk uses onboarding data to build the initial profile baseline.
+
+  
+
+## **Decisioning Logic**
+
+Evaluation of onboarding events combines:
+
+### **1\. Your Rules**
+
+Examples of such rules are:
+
+-   Require additional checks for high-risk identity types or mismatched details
+    
+-   Prevent onboarding from VPN/proxy ranges
+    
+-   Force step-up verification for incomplete or suspicious KYC
+    
+      
+    
+
+### **2\. ProfiledRisk Intelligence**
+
+Signals such as:
+
+-   Email/phone age and uniqueness score
+    
+-   Device—profile sharing
+    
+-   IP trust level and geolocation
+    
+-   Behavior velocity patterns from similar profiles
+    
+-   Early indicators of synthetic or bot-generated accounts  
+      
+    
+
+**Response Example**
+
+    {
+      "status": "pending",
+      "risk_score": 65,
+      "risk_level": "medium",
+      "case_created": true
+    }
+    
+    
+
+Your system can enforce the response:
+
+**Status**
+
+**Required Action**
+
+allowed
+
+Complete onboarding step
+
+blocked
+
+Stop onboarding and deny access
+
+pending
+
+Request additional validation or manually review
+
+Pending onboarding decisions typically trigger identity step-up flows.
+
+  
+
+## **Case Management**
+
+Cases may be generated during onboarding when:
+
+-   Submitted identity attributes conflict or appear fraudulent
+    
+-   Device behavior aligns with known attack patterns
+    
+-   Data is insufficient for reliable risk classification
+    
+-   Customer rules explicitly require approval workflows (e.g., high-tier enrollment)
+    
+
+Analysts can review available evidence such as device fingerprinting, risk factors, and historical entity relationships before confirming or rejecting onboarding.
+
+  
+
+## **Example Onboarding Rules**
+
+**Objective**
+
+**Flow Rule Concept**
+
+**Returned Status**
+
+Reduce bot signups
+
+Device seen across multiple unrelated profiles
+
+blocked
+
+Validate KYC compliance
+
+Missing ID details for regulated tiers
+
+pending
+
+Detect synthetic profiles
+
+Identity fields mismatch with country data model
+
+blocked
+
+Control registration risk
+
+Signups from high-risk IP geolocations
+
+pending
+
+These rules can be expanded and tuned continuously as fraud patterns evolve.
+
+  
+
+## **Summary**
+
+ProfiledRisk enhances onboarding by:
+
+-   Preventing fraudulent actors before they gain access
+    
+-   Reducing regulatory and operational exposure early in the lifecycle
+    
+-   Enabling step-up checks only when needed
+    
+-   Giving visibility into device, IP, and identity signal quality
+    
+
+This enables high-confidence account creation while maintaining streamlined onboarding for genuine users.

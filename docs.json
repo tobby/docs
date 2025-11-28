@@ -28,36 +28,11 @@
            {
             "group": "USE-CASES",
             "pages": [
-             "overview/user-verification/government-verification",   
-              "overview/user-verification/doc-id-verification",
-               {
-                "group": "Biometric Verification",
-                "icon": "fingerprint",
-                "pages": [
-                  "overview/user-verification/liveness",
-                  "overview/user-verification/face-match"
-                ]
-              },
-              {
-                "group": "eKYC",
-                "icon": "id-card",
-                "pages": [
-                  "overview/user-verification/eKYC",
-                  {
-                  "group": "EasyOnboard",
-                  "pages": [
-                    "overview/user-verification/easy-onboard",
-                    "overview/user-verification/setting-up",
-                    "overview/user-verification/fraud-check"
-                  ]
-                },
-                "overview/user-verification/custom-lists",
-                "overview/user-verification/case-management"
-                ]
-            },
-             "overview/user-verification/easy-auth",
-             "overview/user-verification/utility-bill",
-             "overview/user-verification/address-verification"
+             "overview/use-cases/banking-account-security",
+             "overview/use-cases/payments",
+              "overview/use-cases/onboarding-risk-evaluation",  
+              "overview/use-cases/lending-credit-risk" 
+          
             ]
           },
 
@@ -323,7 +298,7 @@
         },
         {
           "anchor": "Login to app",
-          "href": "https://profiledrisk.com/",
+          "href": "https://app.profiledrisk.com/signin",
           "icon": "cloud"
         },
         {
