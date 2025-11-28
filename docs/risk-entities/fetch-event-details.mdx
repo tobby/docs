@@ -1,36 +1,34 @@
 ---
 title: "Fetch Event Details"
-description: ""
+description: "The Fetch Event Details endpoint lets you retrieve the full payload and decision data for a previously ingested event."
 ---
 
-The Fetch Event Details endpoint lets you retrieve the full payload and decision data for a previously ingested event.
 
-### Endpoint
+### Request
 
-    GET /api/events/{event_id}
-    Authorization: {PRIVATE_KEY}
+```http [GET]
+{{baseURL}}/api/cases/{event_id}
+```
 
--   `event_id` is the identifier assigned or echoed by ProfiledRisk for the evaluated event
-    
+### Header
 
-### Parameters
+| Header | Type | Description |
+| --- | --- | --- |
+| Authorization | string | private key  |
 
-Name
+### Path Parameters
 
-Type
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| event_id  | string | Unique identifier assigned or echoed by ProfiledRisk for the evaluated event | required |
 
-Description
 
-`event_id`
 
-string
-
-Unique identifier of the event you want to retrieve
 
 ### Successful Response
 
 
-```json
+```json Response
     {
       "event_id": "ProfiledRisk-20231111085937073",
       "type": "banking",

@@ -8,21 +8,50 @@ The Create Profile endpoint is used to explicitly register a profile in Profiled
 > Profiles can also be created implicitly via event ingestion.  
 > Use this endpoint when you want **direct control** over initial profile data.
 
-## Endpoint
 
-    POST /api/profiles
-    Host: api.profiledrisk.com
-    Authorization: {PRIVATE_KEY}
-    Content-Type: application/json
-    
+### Request
 
-> Base URL and authentication follow the rules defined in **API Integration → Authentication**.
+```http [POST]
+{{baseURL}}/api/profiles
+```
 
-* * *
+### Header
 
-## Request Body
+| Header | Type | Description |
+| --- | --- | --- |
+| Authorization | string | private key  |
 
-```json
+### Request Body
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| user.user_id | string | Unique user ID | required |
+| user.user_type | string | Type of user | required |
+| user.email | string | User email address | required |
+| user.name | string | Full name of the user | required |
+| user.dob | string | Date of birth (YYYY-MM-DD) | optional |
+| user.tier | string | User tier level | optional |
+| user.account_type | string | Account type | optional |
+| user.gender | string | Gender | optional |
+| user.mobile | string | Mobile phone number | optional |
+| user.registration_time | string | Registration timestamp (ISO) | optional |
+| device.type | string | Device type | required |
+| device.os | string | Operating system | required |
+| device.model | string | Device model | optional |
+| device.language | string | Device language | optional |
+| device.ip_address | string | IP address | required |
+| device.device_id | string | Unique device ID | required |
+| address.address1 | string | Primary address line | required |
+| address.address2 | string | Secondary address line | optional |
+| address.city | string | City | required |
+| address.region | string | Region / State | optional |
+| address.zipcode | string | Postal code | optional |
+| address.country | string | Country | required |
+
+
+
+
+```json Body
     {
       "user": {
         "user_id": "9931fac0-6bfa-4b3c-842c-7840006d89b6",
@@ -60,7 +89,7 @@ The Create Profile endpoint is used to explicitly register a profile in Profiled
 ## Successful Response
 
   
-```json
+```json Response
     {
       "profile_id": "prf_01JABC9YEXAMPLE123",
       "user_id": "9931fac0-6bfa-4b3c-842c-7840006d89b6",
