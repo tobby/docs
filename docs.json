@@ -84,85 +84,23 @@
 
           {
             "group": "PAYLOAD SCHEMAS",
-            "pages": [
-              {
-                "group": "🇳🇬 Nigeria - Lookup",
-                "pages": [
-                  "docs/nigeria/lookup-bvn",
-                  "docs/nigeria/lookup-phone-number",
-                  "docs/nigeria/lookup-nuban-kycstatus",
-                  "docs/nigeria/lookup-nin",
-                  "docs/nigeria/lookup-voters-id"
-                ]
-              },
-              {
-                "group": "🇳🇬 Nigeria - Validation",
-                "pages": [
-                  "docs/nigeria/validate-bvn",
-                  "docs/nigeria/verify-nin-with-selfie-image",
-                  "docs/nigeria/verify-bvn-with-selfie-image",
-                  "docs/nigeria/age-identity-verification",
-                  "docs/nigeria/selfie-verification-vnin"
-                ]
-              },
-              {
-                "group": "🇰🇪 Kenya",
-                "pages": [
-                  "docs/kenya/lookup-national-id",
-                  "docs/kenya/lookup-passport",
-                  "docs/kenya/lookup-kra-pin"
-                ]
-              },
-              {
-                "group": "🇺🇬 Uganda",
-                "pages": [
-                  "docs/uganda/lookup-nin"
-                ]
-              },
-              {
-                "group": "🇬🇭 Ghana",
-                "pages": [
-                  "docs/ghana/lookup-passport",
-                  "docs/ghana/lookup-drivers-license",
-                  "docs/ghana/lookup-voters-id",
-                  "docs/ghana/lookup-tin",
-                  "docs/ghana/lookup-ssnit",
-                  "docs/ghana/validate-digital-addresses"
-                ]
-              },
-              {
-                "group": "🇿🇦 South Africa",
-                "pages": [
-                  "docs/southafrica/lookup-national-id"
-                ]
-              },
-              {
-                "group": "🇦🇴 Angola",
-                "pages": [
-                  "docs/angola/lookup-national-id"
-                ]
-              },
-              {
-                "group": "🇿🇼 Zimbabwe",
-                "pages": [
-                  "docs/zimbabwe/lookup-national-id",
-                  "docs/zimbabwe/lookup-credit-check"
-                ]
-              },
-              {
-                "group": "🇿🇲 Zambia",
-                "pages": [
-                  "docs/zambia/lookup-national-id"
-                ]
-              },
-               {
-                "group": "🌍 Global Identity Verification",
-                "pages": [
-                  "docs/globalverification/selfie-photo-id",
-                  "docs/globalverification/location-reverse-geocoding"
-                ]
-              }
+              "pages": [
+              "docs/technical-reference/onboarding-event",
+              "docs/technical-reference/banking-events",
+              "docs/technical-reference/payment-events",
+              "docs/technical-reference/lending-events"
+               
+
+              
+
+
+
+
+
+
+  
             ]
+          
           },
           {
             "group": "RISK ENTITIES",
