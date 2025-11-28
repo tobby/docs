@@ -7,7 +7,7 @@
     "light": "#010061",
     "dark": "#010061"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/logo/blue.png",
   "navigation": {
     "tabs": [
 
@@ -19,9 +19,9 @@
             "group": "GETTING STARTED",
             "pages": [
               
-              "overview/quickstart",
+              "overview/introduction",
               "overview/creating-an-account",
-              "overview/fund-your-wallet"
+              "overview/start-subscription"
             ]
           },
 
@@ -65,9 +65,9 @@
             "group": "REPORTS",
             "pages": [
               
-              "overview/quickstart",
+             "overview/introduction",
               "overview/creating-an-account",
-              "overview/fund-your-wallet"
+              "overview/start-subscription"
             ]
           }
          
@@ -318,12 +318,12 @@
       "anchors": [
         {
           "anchor": "Visit Website",
-          "href": "https://dojah.io/",
+          "href": "https://profiledrisk.com/",
           "icon": "globe"
         },
         {
           "anchor": "Login to app",
-          "href": "https://app.dojah.io/signin",
+          "href": "https://profiledrisk.com/",
           "icon": "cloud"
         },
         {
@@ -340,9 +340,9 @@
     }
   },
   "logo": {
-    "light": "/logo/dojah_blue.svg",
-    "dark": "/logo/dojah_blue.svg",
-    "href": "https://docs.dojah.io/overview/quickstart"
+    "light": "/logo/blue.png",
+    "dark": "/logo/white.png"
+  
   },
   "api": {
     "mdx": {

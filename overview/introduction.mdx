@@ -1,69 +1,221 @@
 ---
 title: Introduction
 icon: "rocket-launch"
-description: 'Welcome to Dojah documentation'
-keywords: ['documentation', 'fraud monitoring', 'onboarding']
+description: 'AI-Powered Risk Intelligence Platform'
+keywords: ['documentation', 'Risk Intelligence', 'Behavioral context', 'onboarding', 'Instant risk decisions']
 ---
 
 
-Welcome to the Dojah Developer Documentation. This guide is your starting point to explore and activate Dojah’s identity verification and fraud prevention capabilities. Whether you're building a fintech app, launching an e-commerce platform, managing compliance, or scaling digital operations, our tools are designed to help you integrate seamlessly, reduce risk, and move faster—with confidence. 
+ProfiledRisk is a real-time risk intelligence and transaction monitoring platform that consolidates behavioral and operational signals from every point of interaction in your ecosystem. It enables you to continuously evaluate risk across users, accounts, devices, merchants, agents, or any entity you define as a profile.
+
+The platform aggregates data from your internal systems and third-party sources to build a unified profile for each entity. This live profile powers dynamic scoring, automated decisions, and case escalation when risk exceeds predefined thresholds. The result is a proactive defense that protects revenue, streamlines approvals, and improves compliance efficiency.
 
 
-<Accordion title="What is Dojah?">
-  <Card title="What is Dojah?" icon="question">
-    Dojah is the anti-fraud infrastructure built for the internet, helping businesses of all sizes scale securely without compromising user experience.
+***
 
-    We provide a seamless, secure framework that embeds fraud prevention and identity verification directly into your customer journey. With Dojah, you reduce risk while enabling frictionless onboarding and trusted user interactions.
 
-    To achieve this, Dojah is powered by two complementary product suites:
+ProfiledRisk is a real-time risk intelligence and transaction monitoring platform that consolidates behavioral and operational signals from every point of interaction in your ecosystem. It enables you to continuously evaluate risk across users, accounts, devices, merchants, agents, or any entity you define as a profile.
 
-  </Card>
+The platform aggregates data from your internal systems and third-party sources to build a unified profile for each entity. This live profile powers dynamic scoring, automated decisions, and case escalation when risk exceeds predefined thresholds. The result is a proactive defense that protects revenue, streamlines approvals, and improves compliance efficiency.
 
-   <Card title="Identity Hub" icon="user">
-    A customizable identity verification infrastructure built to fit your market and use case. Whether you're verifying individuals (KYC) or businesses (KYB), the Identity Hub supports:
+  
+
+## **Why ProfiledRisk?**
+
+-   Deliver a single, real-time view of entity activity and risk signals
+    
+-   Enable automated scoring and transaction monitoring with minimal engineering overhead
+    
+-   Support non-technical users with an intuitive visual flow builder for risk logic
+    
+-   Scale transparently with your business as volume and complexity grow
+    
+-   Bridge fraud prevention and compliance operations into one workflow
+    
+
+ProfiledRisk is not just a fraud tool. It is the control layer for trust, operational security, and regulatory confidence.
+
+  
+
+## **Use Cases**
+
+ProfiledRisk gives you a complete real-time picture of how users, accounts, merchants, devices, or any entity behave across your product. Below are common operational areas where it delivers immediate impact:
+
+### **Onboarding**
+
+ProfiledRisk analyzes new registrations and verification attempts as they happen. By combining behavioral signals like IP address, device fingerprint, and signup patterns, the platform can spot risky identities early, block bad actors at the door, and automatically route medium-risk users to step-up checks without slowing down good customers.
+
+### **Banking**
+
+For digital banking and wallet experiences, ProfiledRisk acts as the always-on security layer. It monitors profile changes, unusual account activities, and authentication patterns to detect Account Takeover (ATO) before funds move. It also correlates KYC history and transaction behavior in one place for AML visibility.
+
+### **Payments**
+
+Every payment tells a story. By evaluating transaction events — amount, frequency, device, location, merchant, payment method — ProfiledRisk identifies behavior that deviates from the user’s normal profile. This enables you to decline fraudulent payments, reduce chargebacks, and approve more legitimate transactions with confidence.
+
+### **Lending**
+
+ProfiledRisk protects credit and lending flows by checking who is behind a loan request and how stable they appear. It can detect recent identity changes, repeated applications from the same device, or patterns linked to loan stacking. This adds an intelligence layer to your scoring models, improving approval quality and reducing default risk.
+
+### **Crypto**
+
+In high-velocity crypto environments, ProfiledRisk tracks wallet behavior and transaction flows to identify money laundering signals, sanction risks, and scam-related activity. You can dynamically flag suspicious withdrawals, new wallet interactions, or rapid asset movements for compliance review before any irreversible transaction completes.  
+  
+
+## **How It Works**
+
+ProfiledRisk continuously analyzes behavioral and transactional activity across your ecosystem to detect risk early and automate decisions.
+
+The lifecycle works as follows:
+
+### **Data Ingestion**
+
+Your system sends event data — such as signups, logins, profile changes, transfers, purchases, or wallet activities — to the dashboard in a defined JSON structure.
+
+### **Profile Creation and Aggregation**
+
+When the first event for a unique identifier is received, ProfiledRisk automatically creates a Profile. Every subsequent event tied to that identifier enriches the same Profile, giving you a complete view of how that entity behaves over time.
+
+### **Risk Evaluation**
+
+Each event runs through your Risk Logic (Flows), where conditions, thresholds, and signals are checked. This is where behavioral intelligence and compliance rules operate together.
+
+### **Scoring and Decisioning**
+
+-   Based on Flow outcomes, the system assigns:
+    
+    -   A **Risk Score** (e.g. 0–100)
+        
+    -   A **Risk Level** (Low, Medium, High, Critical)
+        
+    -   An operational **Decision** such as Approve, Decline, or Pending Review
+        
+
+Automated decisions can be used directly in your product flows to fast-track good actors and stop fraud instantly.
+
+### **Visualization and Action**
+
+All Profiles, Decisions, and open Cases are available in the dashboard. Analysts can review investigation details, add notes, and take final actions that can trigger updates back to your system.
+
+The entire loop runs in real time, supporting both transaction monitoring and lifecycle-based risk management.
+
+  
+
+## **Core Concepts**
+
+These concepts define how ProfiledRisk organizes and evaluates activity:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+| **Concept**     |     **Description**           |
+| -------- | ------------------------------------- |
+|  **Profile**  |  A unified record of all events and risk signals tied to an entity |
+| **Event** |  Any action or transaction sent to the API |
+|**Risk Logic (Flow)** | A visual decision workflow used to score and classify risk |
+| **Rule** | A conditional check executed within a flow |
+| **Risk Score** | A numerical rating indicating severity based on recent and historical behavior |
+| **Risk Level** | A tiered label (Low, Medium, High, Critical) derived from score thresholds |
+| **Decision** | Approved, Declined, or Pending action driven by flow outcomes |
+|  **Case** | A flagged event or profile requiring manual review by your team |
+
+#### <Icon icon="user" iconType="solid" />  Identity Hub
+
+A customizable identity verification infrastructure built to fit your market and use case. Whether you're verifying individuals (KYC) or businesses (KYB), the Identity Hub supports:
+
     - Government-issued ID verification and document analysis
     - Biometric verification (facial match, liveness detection)
     - Address verification (digital and field-based)
     - API-based and no-code widgets for fast deployment
-    Each verification journey is secure, localized, and adaptable to your regulatory needs.
-  </Card>
 
-   <Card title="Anti-Fraud Hub" icon="user-secret">
-    A fully integrated suite for real-time fraud detection and prevention. Built to scale with your transaction flows, this hub enables you to:
+Each verification journey is secure, localized, and adaptable to your regulatory needs.
+
+#### <Icon icon="user-secret" iconType="solid" />  Anti-Fraud Hub
+
+A fully integrated suite for real-time fraud detection and prevention. Built to scale with your transaction flows, this hub enables you to:
+
       - Monitor events with custom rules and alerts
       - Conduct AML screening and fraud scoring
       - Run credit checks and risk profiling
       - Automate fraud response from a unified dashboard
-      It's everything you need to stop fraud before it starts, all in one place.
+
+It's everything you need to stop fraud before it starts, all in one place.
+
+***
+
+### <Icon icon="link" iconType="solid" />  Integration Options
+
+ Dojah meets you wherever you are in your technical stack. Choose any of the following to get started:
+
+ <Columns cols={2}>
+  <Card title="API Integration" icon="link"  href="/overview/webhooks">
+   Use clear, well-documented REST endpoints and webhooks with real-world code samples.
   </Card>
-  
+  <Card title="Pre-built SDKs & Libraries" icon="link"  href="/overview/webhooks">
+   Integrate verification flows instantly with SDKs for web, iOS, and Android.
+  </Card>
+</Columns>
+
+<Card title="Portal Dashboard" icon="link"  href="/overview/webhooks">
+  Create verification rules, manage workflows, perform verifications, and pull reports, without writing code.
+  </Card>
+​
+
+***
+
+### <Icon icon="wrench" iconType="solid" />  Use Cases
+
+ Dojah powers secure onboarding and fraud prevention across industries by adapting to diverse compliance, security, and user experience needs. Whether you're a fintech startup, a healthcare provider, or an e-commerce platform, Dojah integrates effortlessly to help you build trust and operate securely from day one.
+
+<AccordionGroup>
+
+<Accordion title="Fintech">
+    Verify identities, reduce fraud in loan or wallet disbursements, monitor transactions.
 </Accordion>
 
-<Accordion title="Integration Options">
-  <Card title="Integration Options" icon="link">
-    Dojah meets you wherever you are in your technical stack. Choose any of the following to get started:
-    - API Integration: Use clear, well-documented REST endpoints and webhooks with real-world code samples.
-    - Pre-built SDKs & Libraries: Integrate verification flows instantly with SDKs for web, iOS, and Android.
-    - Portal Dashboard: Create verification rules, manage workflows, perform verifications, and pull reports, without writing code.
-  </Card>
+<Accordion title="E-commerce  ">
+   Prevent delivery fraud, confirm addresses, reduce return abuse and chargebacks. 
 </Accordion>
 
-<Accordion title="Use Cases">
-  <Card title="Use Cases" icon="wrench">
-    Dojah powers secure onboarding and fraud prevention across industries by adapting to diverse compliance, security, and user experience needs. Whether you're a fintech startup, a healthcare provider, or an e-commerce platform, Dojah integrates effortlessly to help you build trust and operate securely from day one.
-
-
-
-| **Industry**     | **What You Can Do**                     |
-| -------- | ------------------------------------- |
-| Fintech      | Verify identities, reduce fraud in loan or wallet disbursements, monitor transactions.                          |
-| E-commerce   | Prevent delivery fraud, confirm addresses, reduce return abuse and chargebacks. |
-| Mobility & Logistics   | Onboard drivers or users securely, detect device-based fraud, and verify customer locations. |
-| Healthcare   | Validate patient identity, protect sensitive data, eliminate duplicates. |
-| Telecoms   | Enable SIM registration, verify identities for mobile onboarding, and flag high-risk behaviors. |
-  </Card>
-
+<Accordion title="Mobility & Logistics">
+   Onboard drivers or users securely, detect device-based fraud, and verify customer locations.
 </Accordion>
+
+<Accordion title="Healthcare">
+    Validate patient identity, protect sensitive data, eliminate duplicates. 
+</Accordion>
+
+<Accordion title="Telecoms">
+   Enable SIM registration, verify identities for mobile onboarding, and flag high-risk behaviors.
+</Accordion>
+
+</AccordionGroup>
+
 
 
 
