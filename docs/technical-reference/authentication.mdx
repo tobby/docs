@@ -1,62 +1,96 @@
 ---
-title: "Authentication & API Setup"
-description: "Learn how to authenticate requests to Dojah APIs."
-
+title: "Authentication"
+description: "All ProfiledRisk API requests must be authenticated using your private API Secret Key. Requests without valid authentication will be rejected."
 ---
 
-Securely authenticate all Dojah API calls by following this simple lifecycle: 
-create your app, generate API keys, select environments, and sign each request with your credentials.
 
-***
+Authentication applies to every endpoint in the ProfiledRisk API.
 
-#### Create an App
+## **Base URL**
 
-- Log in to the Dojah Dashboard and go to **Developers → Configuration → My Apps**.
-- Create a new app or edit the default one. 
-        - Enter an App Name; 
-        - Optionally add a logo and primary color if you'll use widgets like EasyOnboard.
-- Each App has a unique **App ID**, this is required for all API calls.
+    https://api.profiledrisk.com/api
+    
 
-***
+This is the base domain used for all API interactions.
 
+You must append the correct endpoint path for each API call.  
+Specific endpoints will be referenced in subsequent sections of this documentation.
 
-#### API Keys
+  
 
-- Once your app is created, you can generate **public** and **private** API keys.
-- **Public Key**: Meant for front-end usage (e.g. SDKs or widgets).
-- **Private Key**: Must remain confidential; used for authenticating server-side API calls.
-- Keys can be regenerated anytime from the dashboard.
+## **API Keys**
 
-Each app comes with two keys:
-- **App ID**: Public identifier used in API calls.
-- **Secret Key**: Private key for signing and securing requests.
+ProfiledRisk uses **a single Secret Key** for live transactions
 
-<Note> Do not expose your Secret Key on the frontend or in public repositories. It should only be used server-side. </Note>
+> **Developers → API Keys**
 
+Treat your Secret Key like a password.  
+Do not expose it in client-side, browser, or mobile applications.
 
-***
+  
 
+## **Header Authentication**
 
-#### Environments
+Every API request must include your Secret Key in the `Authorization` header.
 
-Dojah supports both sandbox and production environments:
+#### **Header Format**
 
-| Environment | Base URL |
-|-------------|----------|
-| Sandbox     | `https://sandbox.dojah.io` |
-| Production  | `https://api.dojah.io`     |
+    Authorization: {PRIVATE_KEY}
+    Content-Type: application/json
+    
 
-> 📘 **Note**  
-> - Always use HTTPS for all API requests.  
-> - Make sure you have created an app before sending any request.  
-> - Keep your Secret Key secure—never share it or expose it publicly.
+Example:
 
-***
+    POST /api/events HTTP/1.1
+    Host: api.profiledrisk.com
+    Authorization: sk_live_xxxxxxxxxxxxxxxxxxxxxx
+    Content-Type: application/json
+    
+    {
+      "type": "payments",
+      "event": { ... }
+    }
+    
 
-#### Authorization
+  
 
-For every API request, include your App ID and Secret Key in the request headers:
+## **Security Best Practices**
 
-```http
-AppId: YOUR_APP_ID
-Authorization: YOUR_SECRET_KEY
+To maintain compliance and protect your risk infrastructure:
+
+-   **Never** store credentials directly in code repositories
+    
+-   Use a secure secrets manager for environment variables
+    
+-   Restrict access to keys based on least privilege
+    
+-   Rotate credentials if leakage is suspected
+    
+-   Disable and regenerate unused keys regularly
+    
+
+ProfiledRisk logs all API usage against your keys for audit purposes.
+
+##   
+
+## **Error Handling**
+
+If authentication fails, ProfiledRisk returns standard HTTP error responses:
+
+Code
+
+Error
+
+Reason
+
+`401 Unauthorized`
+
+Authentication failed
+
+Missing or invalid Secret Key
+
+`403 Forbidden`
+
+Access denied
+
+Key restricted or disabled

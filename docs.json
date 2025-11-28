@@ -62,6 +62,10 @@
       },
 
 
+
+
+
+
       {
         "tab": "API Integration",
         "groups": [
@@ -69,21 +73,12 @@
           {
            "group": "TECHNICAL REFERENCES",
             "pages": [
-              "docs/technical-reference/keywords",
-              "docs/technical-reference/response-codes",
+              "docs/technical-reference/events-ingestion",
+              "docs/technical-reference/keywords-definitions",
                "docs/technical-reference/authentication",
-                {
-                "group": "Webhooks",
-                "pages": [
-                  "docs/technical-reference/subscribe-to-service",
-                  "docs/technical-reference/fetch-all-webhooks",
-                  "docs/technical-reference/delete-webhook",
-                  "docs/technical-reference/verify-events",
-                  "docs/technical-reference/get-verification-details",
-                  "docs/technical-reference/get-all-verification"
-                ]
-              }
-      
+                "docs/technical-reference/webhooks"
+               
+  
             ]
           },
 
