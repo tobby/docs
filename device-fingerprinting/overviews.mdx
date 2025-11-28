@@ -1,85 +1,135 @@
 ---
-title: "for APIS"
+title: "DEVICE FINGERPRINTING"
+description: "Device fingerprinting enables ProfiledRisk to understand who is behind an action, beyond just the user account. It provides a stable hardware- or browser-level identifier that supports:"
 ---
 
+-   Detection of **multi-accounting** and **synthetic identities**
+    
+-   Early identification of **account takeover risks**
+    
+-   Identification of **fraud clusters** tied to specific devices
+    
+-   **Behavioural profiling** of legitimate users over time
+    
+-   Stronger signals in **web and mobile** channels where IPs fluctuate
+    
 
-### For Go
+> A strong device identifier dramatically increases ProfiledRisk’s precision when linking events to a profile.
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#go-api-client)
+  
 
-> Go
-> 
-> [dojah-inc/dojah-go](https://github.com/dojah-inc/dojah-sdks/blob/main/go/README.md)
+## Web Implementation — DeviceGuard SDK
 
-___
+You can collect a browser fingerprint and pass a consistent `device_id` into all event ingestion requests.
 
-### For Typescript
+### Integration Example
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#typescript-library)
+```javascript DeviceGuard
 
-This can be used in Node.js, Webpack, Browserify.
+    <!-- Step 1: Include DeviceGuard SDK from CDN -->
+    <script src="https://your-domain.com/sdk/deviceguard.min.js"></script>
+    
+    <script>
+      // Step 2: Create an instance with your SDK configuration
+      const deviceGuard = new DeviceGuard({
+        apiKey: 'your-api-key-here',
+        endpoint: 'https://your-domain.com',
+        debug: true
+      });
+    
+      // Step 3: Initialize SDK
+      deviceGuard.init()
+        .then(result => {
+          console.log('Device ID:', result.deviceId);
+    
+          // Include this ID in your ingestion payload:
+          // device.device_id = result.deviceId
+        })
+        .catch(error => {
+          console.error('DeviceGuard initialization failed:', error);
+        });
+    </script>
+    
+    ```
 
-> Typescript
-> 
-> [dojah-inc/dojah-typescript](https://github.com/dojah-inc/dojah-sdks/blob/main/typescript/README.md)
+This identifier should be included in the `device.device_id` field for:
 
-___
+-   Onboarding events
+    
+-   Login events
+    
+-   Payment / Banking / Lending events
+    
+-   Any future behavioural event you define
+    
 
-### For .NET
+This ensures event-to-profile linking remains consistent across the user lifecycle.
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#net)
+* * *
 
-Requires .Net Core>=1.0, .NET Framework >= 4.6, Mono/Xamarin >=vNext
+## Mobile SDK Guidance
 
-> C#
-> 
-> [dojah-inc/dojah-c#](https://github.com/dojah-inc/dojah-sdks/blob/main/csharp/README.md)
+Mobile applications inherently provide more stable identifiers than the browser. For both iOS and Android:
 
-___
+> We strongly advise using the **Advertising ID** as the `device_id`.
 
-### For Python
+Benefits:
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#python)
+-   Globally unique per device
+    
+-   Resettable by the user → compliant with privacy expectations
+    
+-   Available before authentication to detect risk during onboarding
+    
+-   Ties user behaviour across apps on the same device (optional advantage)
+    
+-     
+    
 
-Requires Python >=3.6
+Ensure the value is passed as:
 
-> Python
-> 
-> [dojah-inc/dojah-python](https://github.com/dojah-inc/dojah-sdks/blob/main/python/README.md)
+    "device": {
+      "device_id": "<advertising-id>",
+      "type": "mobile",
+      "os": "iOS" or "Android"
+    }
+    
 
-___
+  
 
-### For PHP
+## Best Practices
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#php)
+Best Practice
 
-Requires PHP 7.4 or later. Should also work with PHP 8.0
+Why It Matters
 
-> PHP
-> 
-> [dojah-inc/dojah-php-sdk](https://github.com/dojah-inc/dojah-php-sdk)
+Capture device\_id **before** signup/login
 
-___
+Detect returning fraudsters who use new accounts
 
-### For Java
+Use **same fingerprint logic** across channels
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#java)
+Prevent siloed identity profiles
 
-Requires Java 1.8+ and Maven (3.8.3+)/Gradle (7.2+)
+Store device\_id locally & reuse
 
-> Java
-> 
-> [dojah-sdks/dojah-java-sdk](https://github.com/dojah-inc/dojah-sdks/blob/main/java/README.md)
+Avoid fragmentation of the user’s risk profile
 
+Pair with IP + geolocation + device metadata
 
-___ 
+Improves anomaly and behaviour-based detection
 
+  
 
-### For Kotlin
+## Summary
 
-[](https://docs.dojah.io/docs/libraries-sdks-overview#go-api-client)
+A Profile is only as strong as the signals tied to it. Device fingerprinting ensures ProfiledRisk can:
 
-> Kotlin
-> 
-> [dojah-inc/dojah-kotlin](https://github.com/dojah-inc/sdk-kotlin/packages/2174016)
+-   Track behavioural risk evolution
+    
+-   Catch repeated fraud behaviours hidden across new accounts
+    
+-   Support higher-confidence automated decisions
+    
 
+This significantly reduces **false negatives** in fraud detection and **false positives** against good customers.

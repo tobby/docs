@@ -35,14 +35,6 @@
           
             ]
           },
-
-          
-
-
-
-
-
-
              {
             "group": "REPORTS",
             "pages": [
@@ -53,8 +45,6 @@
               "overview/reports/profile-report"
             ]
           }
-         
-
 
          ]
       },
@@ -64,7 +54,7 @@
           {
             "group": "Device Fingerprinting",
             "pages": [
-              "sdks/overviews"
+              "device-Fingerprinting/overviews"
              
             ]
           }
@@ -98,7 +88,7 @@
           },
 
           {
-            "group": "USER VERIFICATION - GOVT DATA",
+            "group": "PAYLOAD SCHEMAS",
             "pages": [
               {
                 "group": "🇳🇬 Nigeria - Lookup",
@@ -180,7 +170,7 @@
             ]
           },
           {
-            "group": "BUSINESS VERIFICATION",
+            "group": "RISK ENTITIES",
             "pages": [
               {
                 "group": "🇳🇬 Nigeria",
@@ -192,100 +182,13 @@
                "docs/globalverification/businesscheck/global-business-search",
               "docs/globalverification/businesscheck/global-business-details"
             ]
-          },
-          {
-            "group": "BIOMETRIC CHECKS",
-            "pages": [
-              "docs/biometrics/liveness-check"
-            ]
-          },
-          {
-            "group": "DOCUMENT VERIFICATION",
-            "pages": [
-              "docs/document-analysis/document-analysis",
-              "docs/document-analysis/business-document",
-              "docs/document-analysis/utility-bill"
-            
-            ]
-          },
-            {
-            "group": "EASYDETECT",
-            "pages": [
-              "fraud/monitoring/live-transactions"
-            ]
-          },
-          {
-            "group": "BACKGROUND INTELLIGENCE",
-            "pages": [
-            {
-            "group": "AML Screening",
-            "pages": [
-              "docs/aml/screening-info-individual"
-
-            ]
-          },
-             {
-            "group": "Credit Check",
-            "pages": [
-               "docs/nigeria/behavioural-analysis",
-                  "docs/nigeria/credit-summary",
-                  "docs/nigeria/credit-score"
-            ]
-          },
-      
-              "docs/fraud/phone-check",
-              "docs/fraud/email-check",
-              "docs/fraud/ip-screening",
-              "docs/fraud/user-screening"
-            ]
-          },
-
-          {
-            "group": "MESSAGING SERVICES",
-            "pages": [
-              "docs/messaging/sender-id",
-              "docs/messaging/send-messages",
-              "docs/messaging/get-message-status",
-              "docs/messaging/send-otp",
-              "docs/messaging/validate-otp"
-            ]
-          },
-
-
-           {
-            "group": "ADDRESS SERVICES",
-            "pages": [
-            "docs/address-verification/individual-address-verification",
-             "docs/address-verification/fetch-address-verification-data",
-              "docs/address-verification/business-address-verification"
-              
-            ]
-          },
-          {
-            "group": "GENERAL SERVICES",
-            "pages": [
-              "docs/general/service/resolve-nuban",
-              "docs/general/service/fetch-banks",
-              "docs/general/service/buy-airtime",
-              "docs/general/service/country-states",
-              "docs/general/service/states-lga"
-            ]
           }
-        ]
-      },
-
-    
-      {
-        "tab": "Changelog",
-        "groups": [
-          {
-            "group": "Changelog",
-            "pages": [
-              "changelog/api_changes"
-            ]
-          }
+        
         ]
       }
+
+    
+    
     ],
       "global": {
       "anchors": [
