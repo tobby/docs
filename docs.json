@@ -10,105 +10,90 @@
   "favicon": "/logo/blue.png",
   "navigation": {
     "tabs": [
-
-          {
-          "tab": "Overview",
-          "groups": [
-
+      {
+        "tab": "Overview",
+        "groups": [
           {
             "group": "GETTING STARTED",
             "pages": [
-              
               "overview/introduction",
               "overview/creating-an-account",
               "overview/start-subscription"
             ]
           },
-
-           {
+          {
             "group": "USE-CASES",
             "pages": [
-             "overview/use-cases/banking-account-security",
-             "overview/use-cases/payments",
-              "overview/use-cases/onboarding-risk-evaluation",  
-              "overview/use-cases/lending-credit-risk" 
-          
+              "overview/use-cases/banking-account-security",
+              "overview/use-cases/payments",
+              "overview/use-cases/onboarding-risk-evaluation",
+              "overview/use-cases/lending-credit-risk"
             ]
           },
-             {
+          {
             "group": "REPORTS",
             "pages": [
-              
-             "overview/reports/suspicious-transaction-report",
+              "overview/reports/suspicious-transaction-report",
               "overview/reports/currency-transaction-report",
               "overview/reports/fraud-transaction-report",
               "overview/reports/profile-report"
             ]
           }
-
-         ]
+        ]
       },
-        {
+      {
+        "tab": "API Integration",
+        "groups": [
+          {
+            "group": "TECHNICAL REFERENCES",
+            "pages": [
+              "docs/technical-reference/events-ingestion",
+              "docs/technical-reference/keywords-definitions",
+              "docs/technical-reference/authentication",
+              "docs/technical-reference/webhooks"
+            ]
+          },
+          {
+            "group": "PAYLOAD SCHEMAS",
+            "pages": [
+              "docs/payload-schemas/onboarding-register-event",
+              "docs/payload-schemas/onboarding-login-event",
+              "docs/payload-schemas/banking-events",
+              "docs/payload-schemas/payment-events",
+              "docs/payload-schemas/lending-events"
+            ]
+          },
+          {
+            "group": "RISK ENTITIES",
+            "pages": [
+              {
+                "group": "Profiles",
+                "pages": [
+                 "docs/risk-entities/create-profile",
+              "docs/risk-entities/update-profile"
+                ]
+              },
+              
+
+               "docs/risk-entities/fetch-event-details",
+                  "docs/risk-entities/fetch-case-details"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "Device Fingerprinting",
         "groups": [
           {
             "group": "Device Fingerprinting",
             "pages": [
               "device-fingerprinting/overviews"
-             
             ]
           }
-        ]
-      },
-
-
-
-
-
-
-      {
-        "tab": "API Integration",
-        "groups": [
-         
-          {
-           "group": "TECHNICAL REFERENCES",
-            "pages": [
-              "docs/technical-reference/events-ingestion",
-              "docs/technical-reference/keywords-definitions",
-               "docs/technical-reference/authentication",
-                "docs/technical-reference/webhooks"
-               
-  
-            ]
-          },
-
-          {
-            "group": "PAYLOAD SCHEMAS",
-              "pages": [
-              "docs/payload-schemas/onboarding-register-event",
-               "docs/payload-schemas/onboarding-login-event",
-              "docs/payload-schemas/banking-events",
-              "docs/payload-schemas/payment-events",
-              "docs/payload-schemas/lending-events"
-              
-            ]
-          
-          },
-          {
-            "group": "RISK ENTITIES",
-             "pages": [
-              "docs/risk-entities/create-profile",
-              "docs/risk-entities/update-profile"
-            ]
-          }
-        
         ]
       }
-
-    
-    
     ],
-      "global": {
+    "global": {
       "anchors": [
         {
           "anchor": "Visit Website",
@@ -136,7 +121,6 @@
   "logo": {
     "light": "/logo/blue.png",
     "dark": "/logo/white.png"
-  
   },
   "api": {
     "mdx": {
@@ -149,7 +133,6 @@
   "background": {
     "image": "/background.png"
   },
-  
   "footer": {
     "socials": {
       "x": "https://twitter.com/DojahInc",
@@ -158,8 +141,7 @@
       "linkedin": "https://www.linkedin.com/company/dojah/"
     }
   },
-
-   "fonts": {
+  "fonts": {
     "heading": {
       "family": "Inter",
       "weight": 800

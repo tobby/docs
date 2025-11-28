@@ -1,43 +1,52 @@
 ---
-title: "Events Ingestion"
-description: "Event Ingestion is how you send activity data to ProfiledRisk for evaluation. Each event is processed by a Flow, evaluated against your rules and ProfiledRisk intelligence, and returns a decision that you can enforce in your system."
+title: "Update Profile"
+description: ""
 ---
 
-Event Ingestion is how you send activity data to ProfiledRisk for evaluation. Each event is processed by a Flow, evaluated against your rules and ProfiledRisk intelligence, and returns a decision that you can enforce in your system.
+The Update Profile endpoint is used to **modify an existing profile’s attributes** when your internal records change (for example, contact updates, tier upgrades, address changes).
 
-ProfiledRisk supports two ingestion modes per Flow:
+Updating profiles ensures future risk evaluations use the latest, accurate data.
 
--   **Realtime URL** – for live decisioning on production traffic
+## Endpoint
+
     
--   **Backfill URL** – for historical or batch events
+    ```curl
+    PATCH /api/profiles/{profile_id}
+    Host: api.profiledrisk.com
+    Authorization: {PRIVATE_KEY}
+    ```
     
 
-The keys for each url can be gotten from the dashboard, and you can view the schema for each user type under the payload schemas
+## Request Body
 
-```json 
+The structure mirrors Create Profile, but you send only the fields you want to update:
+
+
+```json
     {
-        "key": "6WgE3W1",
-        "type": "onboarding",
-        "event": {
-            "user": {
-                "user_id": "3e4d2a19-6fbc-4a2c-a1c5-5678e9abcd13",
-                "registration_time": "2025-01-14 13:20:33",
-                "email": "jane.doe@example.com",
-                "name": "Bola Tinubusss",
-                "mobile": "+1234567891"
-            },
-            "device": {
-                "type": "desktop",
-                "os": "Windows 10",
-                "model": "Dell Inspiron",
-                "language": "en-US",
-                "ip_address": "104.28.251.101",
-                "device_id": "d41d8cd9-8f00-3204-a97d-e1f4d2e6cb39"
-            },
-            "address": {
-                "city": "New York",
-                "street": "123 Elm St, Apt 5B",
-                "country": "United States"
-            }
-        }
+      "user": {
+        "email": "trevor.updated@example.com",
+        "tier": "gold",
+        "mobile": "08030000000"
+      },
+      "device": {
+        "language": "en-NG"
+      },
+      "address": {
+        "city": "Lagos",
+        "country": "Nigeria"
+      }
     }
+    ```
+    
+
+## Successful Response
+
+```json
+    {
+      "profile_id": "prf_01JABC9YEXAMPLE123",
+      "user_id": "9931fac0-6bfa-4b3c-842c-7840006d89b6",
+      "updated_at": "2025-01-02T09:30:00Z",
+      "status": "active"
+    }
+```
