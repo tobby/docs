@@ -1,6 +1,5 @@
 ---
 title: "Webhooks"
-icon: "book"
 description: "Webhooks allow ProfiledRisk to send real-time decisions, score outcomes, and behavioral insights back to your system immediately after an event is evaluated. This enables automated enforcement in your own transaction, onboarding, or lending workflows."
 ---
 
@@ -26,6 +25,8 @@ After adding a webhook URL, select **Save changes** to activate delivery.
 
 Real example payload sent from ProfiledRisk:
 
+
+```json
     {
       "event": {
         "meta": [
@@ -90,3 +91,4 @@ Real example payload sent from ProfiledRisk:
         }
       }
     }
+  ```

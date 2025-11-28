@@ -1,32 +1,39 @@
 ---
-title: "Webhooks"
-icon: "book"
-description: "Webhooks allow ProfiledRisk to send real-time decisions, score outcomes, and behavioral insights back to your system immediately after an event is evaluated. This enables automated enforcement in your own transaction, onboarding, or lending workflows."
+title: "Fetch Event Details"
+description: ""
 ---
 
+The Fetch Event Details endpoint lets you retrieve the full payload and decision data for a previously ingested event.
+
+### Endpoint
+
+    GET /api/events/{event_id}
+    Authorization: {PRIVATE_KEY}
+
+-   `event_id` is the identifier assigned or echoed by ProfiledRisk for the evaluated event
+    
+
+### Parameters
+
+Name
+
+Type
+
+Description
+
+`event_id`
+
+string
+
+Unique identifier of the event you want to retrieve
+
+### Successful Response
 
 
-When your Flow triggers a decision, ProfiledRisk sends a signed webhook request to the endpoint you configure on the Dashboard.
-
-  
-
-## **Configuring Webhooks**
-
-You can subscribe to webhook notifications directly from each Flow in the Dashboard.
-
-> Manage flows → View flow → Settings → Webhook Info
-
-Each Flow can have **its own unique webhook URL**. This allows different event types to notify different internal services if required.
-
-After adding a webhook URL, select **Save changes** to activate delivery.
-
-  
-
-## **Webhook Payload Structure**
-
-Real example payload sent from ProfiledRisk:
-
+```json
     {
+      "event_id": "ProfiledRisk-20231111085937073",
+      "type": "banking",
       "event": {
         "meta": [
           { "transaction_id": "ProfiledRisk-20231111085937073" }
@@ -74,9 +81,11 @@ Real example payload sent from ProfiledRisk:
           "session_id": "ProfiledRisk-20231111085937073"
         }
       },
-      "score": 30,
       "decision": {
-        "action": "Allow",
+        "status": "allowed",
+        "risk_score": 30,
+        "risk_level": "low",
+        "case_created": false,
         "rule_status": false
       },
       "behavioral": {
@@ -88,5 +97,7 @@ Real example payload sent from ProfiledRisk:
           "state": true,
           "description": "User has abnormally high transaction volume of 34 within a short period"
         }
-      }
+      },
+      "created_at": "2023-11-11T08:59:37.073Z"
     }
+    ```
