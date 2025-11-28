@@ -1,0 +1,39 @@
+---
+title: Liveness Detection
+
+---
+
+Liveness Detection is a biometric check that verifies whether a real person is present during verification, not a spoof (e.g., photo, video, or mask). It’s designed to prevent common attacks like deepfakes, printed photos, and face overlays, ensuring your users are who they say they are, in that moment.
+
+At Dojah, liveness detection works by guiding users through short, real-time facial motion sequences or by analyzing passive camera signals. This verification can be used on its own or combined with document or face match checks.
+
+### How Liveness Verification Works
+
+Liveness verification is designed to be fast, lightweight and frictionless for users, whether they’re on mobile or desktop.
+
+<Steps>
+  <Step title="Guided Capture Instructions">
+  Clear, on-screen guidance is shown, either to simply position their face or perform an action like blinking or turning their head, depending on the flow. 
+</Step>
+  <Step title="Capture & Submission">
+ The user aligns their face within the frame. Once the system captures a valid image or sequence, the check is submitted automatically.
+  </Step>
+  <Step title="Processing & Result">
+   The system analyzes the input in real time, checking for depth, motion, texture and other anti-spoof signals, and returns a pass or fail verdict with a confidence score.
+  </Step>
+</Steps>
+
+
+### Integration Options
+
+Dojah supports two primary integration paths for Liveness Detection, depending on how much control you need over the capture and verification process.
+
+
+<Columns cols={2}>
+  <Card title="API Lookup"  icon="plug" href="/docs/biometrics/liveness-check"  arrow="true"  cta="View API Reference" >
+If you’re building a custom UI, capture the user’s selfie or video and send it to the Liveness API. This gives you full control over the capture flow, error handling and frontend experience.
+  </Card>
+  <Card title="SDK/Libraries"  icon="cubes" href="/sdks/overviews"  arrow="true"  cta="View Configuration" >
+   Use our SDK to manage the full flow from camera permission to liveness result. The SDK provides a guided experience for users and handles everything from validation to retries and error handling.
+</Card>
+</Columns>

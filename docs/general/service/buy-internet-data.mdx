@@ -1,0 +1,66 @@
+---
+title: "Buy Internet Data"
+description: "Purchase Internet Data from Nigerian mobile networks"
+---
+
+
+> ## 📘 NOTE
+> 
+> -   You can find out the available data plans you can pick from when trying to buy internet data.
+
+
+### Request
+
+```http [POST]
+{{baseUrl}}/api/v1/purchase/data
+```
+
+### Body parameter
+
+| Parameters | Type | Description |
+| --- | --- | --- |
+| plan \* | string | Plan type e.g \*9MOBILE\_1.5GB\* |
+| destination \* | integer | mobile number to receive data |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "phone_number": "2348012345678",
+        "amount": 200,
+        "network": "MTN 200 MB DATA BUNDLE",
+        "reference_id": "dj_e076726b-b136-4e18-b63d-3eabc77d56c1"
+    }
+}
+```
+
+## Data plans
+
+Fetch list of data plans available
+
+### Request
+
+```http [GET]
+{{baseUrl}}api/v1/purchase/data/plans
+
+```
+
+### Sample response
+
+```json Response
+{
+    "entity": [
+        {
+            "amount": 1000,
+            "description": "9MOBILE 1.5GB data bundle",
+            "plan": "9MOBILE_1.5GB"
+        },
+        {
+            "amount": 2000,
+            "description": "9MOBILE 4.5GB data bundle",
+            "plan": "9MOBILE_4.5GB"
+        },...
+  ]
+}
+```

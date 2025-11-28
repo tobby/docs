@@ -1,0 +1,60 @@
+---
+title: "GET Balance"
+api: "GET https://api.dojah.io/api/v1/balance"
+description: "This end point allows you to easily fetch your wallet balance on the Dojah platform
+"
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+<ResponseField name="200" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="wallet_balance" type="string">
+      Wallet balance 
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "wallet_balance": "14132.00"
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+
+</ResponseExample>

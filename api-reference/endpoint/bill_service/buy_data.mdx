@@ -1,0 +1,75 @@
+---
+title: "Buy Data"
+api: "POST https://api.dojah.io/api/v1/purchase/data/plans"
+description: "An endpoint that allows you have options of internet data plans for your personal selection."
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### BODY PARAMS
+ 
+<ParamField body="plan" type="string" required>
+  Plan type e.g 9MOBILE_1.5GB
+
+</ParamField>
+
+<ParamField body="destination" type="string">
+  mobile number to receive data e.g 2348012345678
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+    "entity": {
+        "phone_number": "2348012345678",
+        "amount": 200,
+        "network": "MTN 200 MB DATA BUNDLE",
+        "reference_id": "dj_e076726b-b136-4e18-b63d-3eabc77d56c1"
+    }
+}
+
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+</ResponseExample>

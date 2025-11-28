@@ -1,0 +1,56 @@
+---
+title: "Lookup NUBAN KYC Status"
+description: "The Lookup NUBAN Status endpoint provides information on the KYC status of the Account Owner"
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/nuban/status
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameters
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| account_number \* | string | Bank account number | required |
+| bank_code \* | integer | Bank Code | required |
+
+> ## 📘 Note
+> 
+> The bank codes can be gotten from this [endpoint](/docs/general/service/fetch-banks)
+
+### Sample response
+
+```json Response
+{
+  "entity": {
+    "account_currency": "NGN",
+    "account_name": "MICHEAL ADEOSUN GABRIEL",
+    "account_number": "3046***407",
+    "bank": "GTB",
+    "kyc_status": "2",
+    "first_name": "John",
+    "identity_number": "*********556",
+    "identity_type": "BVN",
+    "last_name": "ADEOSUN",
+    "other_names": "GABRIEL",
+  }
+}
+```
+
+### Test Credentials for Sandbox
+
+Kindly use this Test NUBAN in sandbox Environment
+
+Account Number = `3046507407`
+Bank Code = `011`

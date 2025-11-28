@@ -1,0 +1,168 @@
+---
+title: "Individual and organization"
+description: "Prevent fraudulent Individuals and organizations from your platform by screening by via PEP, OFAC, AML, Sanction and Adverse media across 200+ countries and 42800+ databases"
+---
+
+**AML Screening (v2) for individual and organization**
+
+
+### Request
+
+```http [POST]
+{{baseUrl}}api/v1/aml/v2/screening
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+
+
+### Body parameters
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| schema                            | string   | Screening type: "individual" or "organization"  | required |
+| unique_reference                      | string   | Optional unique identifier for the screening request | optional |
+| properties.names | string   | Full name of the individual, e.g., "John Doe" | required |
+| properties.gender                 | string   | Gender of the individual, e.g., "male"  | optional |
+| properties.date_of_birth          | string   | Date of birth in YYYY-MM-DD format  | optional |
+| properties.nationality            | string   | Nationality of the individual    | optional |
+| screening_options.pep_check       | boolean  | Perform Politically Exposed Person (PEP) check  | optional |
+| screening_options.sanction        | boolean  | Perform sanction screening  | optional |
+| screening_options.adverse_media_check | boolean  | Perform adverse media check | optional |
+| screening_options.watchlists      | array    | Specific watchlists to use; leave empty to use all | optional |
+| screening_options.match_threshold | number   | Match threshold score between 0 and 1, e.g., 0.85 | optional |
+
+
+### Sample Request for Individual
+
+```json Body
+{
+  "properties": {
+    "names": "John Doe",
+    "gender": "male",
+    "date_of_birth": "",
+    "nationality": "",
+    "id_number": "AD45UIOO123"
+  },
+  "screening_options": {
+    "pep_check": true,
+    "sanction": true,
+    "adverse_media_check": true,
+    "watchlists": ["OFAC_SDN", "EU_Terrorist"], //leave empty or specific watchlists
+    "match_threshold": 0.85 // 1 is the highest
+  },
+  "schema": "individual",  //individual or organization
+  "unique_reference" : "123450987qwergoi"  //optional
+}
+```
+
+### Sample Request for Business
+
+```json Body
+{
+  "properties": {
+    "names": "Anon Corp",
+    "registration_number": ["12345678"],
+    "country_of_incorporation": ["US", "GB"],
+  },
+  "screening_options": {
+    "watchlists": ["OFAC_SDN", "EU_Financial"],
+    "pep_check": true,
+    "adverse_media_check": true,
+    "match_threshold": 0.80
+  },
+  "schema": "organization",
+  "unique_reference" : "123450987qwergoi"  //optional
+}
+```
+
+
+
+### Sample response
+
+```json Response
+{
+  "entity": {
+      "entity_type": "individual",
+      "entity_id": "123450987qwergoi",
+      "date": "2025-05-14T01:37:53.423Z",
+      "total_results": 7,
+      "total_articles": 621151,
+      "search_query": "John Doe",
+      "risk_level": "Medium",
+      "match_status": "Confirmed Match",
+      "results": [
+            {
+                    "name": "John Doe",
+                    "source_type": "PEP", //PEP, CRIMINAL, SANCTIONS, ADVERSE_MEDIA
+                    "titles": ["Mr", "Dr", "Prof"],
+                    "last_names": ["MURADOV"],
+                    "alias_names": ["Георгий Львович Мурадов"],
+                    "given_names": ["John"],
+                    "middle_names": ["Doe"],
+                    "place_of_birth": ["Doe"],
+                    "date_of_birth": "1970-01-01",
+                    "pep_type": "Politically Exposed Person",
+                    "gender": "Male",
+                    "country": "Russia",
+                    "positions": ["Minister of Finance"],
+                    "nationalities": ["Russian"],
+                    "citizenship": ["Russian"],
+                    "occupations": ["Politician"],
+                    "relations": [{"spouse": "John Doe", "children": "John Doe"}],
+                    "political_affiliation": ["Communist Party of China"],
+                    "addresses": ["123 Main St, Anytown, USA"],
+                    "phone_numbers": ["+1234567890"],
+                    "urls": ["https://example.com/john-doe"],
+                    "description": ["John Doe is a Russian citizen who is a former Minister of Finance."],
+                    "sanction_details": [],
+                    "other_information": ["John Doe is a Russian citizen who is a former Minister of Finance."],
+                    "related_entities": [
+                        {
+                            "spouse": ["John Doe's Wife"],
+                            "siblings" : ["John Doe's Children"]
+                        }
+                    ],
+                    "media_category": "violent_crime",  //if adverse_media
+                    "articles": [
+                        {
+                            "article_url": "https://example.com/john-doe",
+                            "headline": "John Doe Involved in Bribery Scandal",
+                            "source": "New York Times",
+                            "relevance_score": 0.75,
+                            "published_date": "2025-04-29T02:10:00Z"
+                        }
+                    ]
+                  }  
+        ]
+      }
+}
+```
+
+
+
+### Note
+- Arrays are used for when its possible to have multiple values.
+- Sanctions type is either PEP, SANCTIONS, CRIMINAL or ADVERSE_MEDIA.
+- sanctions details is populated when the type is sanctions.
+- media_category and articles are for when the sanctions type is Adverse Media.
+
+
+**Adverse Media**
+- Screened against Adverse Media news sources.
+
+**Media Categories**
+- Political
+- Regulatory
+- Terrorism
+- Financial_crime
+- Organized_crime
+- Violent_crime
+
+**Ongoing Monitoring**
+- Checked against sanction, PEP and criminal watchlists.

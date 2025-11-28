@@ -1,0 +1,79 @@
+---
+title: "Lookup Voter's ID"
+api: "GET https://api.dojah.io/api/v1/kyc/vin"
+description: "This endpoint allows you to fetch a person's details using the Voter's Identification Number of the Individual."
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+
+<ParamField query="vin" type="string" required>
+ Voter's Identification Number
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "full_name": "JOHN DOE",
+    "voter_identification_number": "91F123456789777777",
+    "gender": "Male",
+    "occupation": "STUDENT",
+    "time_of_registration": "2011-02-18 13:59:46",
+    "state": "ONDO",
+    "local_government": "Earth",
+    "registration_area_ward": "ISALU JIGBOKIN",
+    "polling_unit": "planet earth",
+    "polling_unit_code": "12/03/04/005",
+    "address": "NO 16 PLANNET EARTH",
+    "phone": "0812345678",
+    "date_of_birth": "1960-10-16"
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

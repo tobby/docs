@@ -1,0 +1,47 @@
+---
+title: "Validate FIRS TIN"
+description: "Validate a business's Tax Identification Number with the FIRS"
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/tin
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| tin \* | string | A valid tin | required |
+
+### Sample response
+
+```json Response
+
+"entity": {
+    "search": "18609323-0001",
+    "taxpayer_name": "BRYAN GODWIN NIG LTD",
+    "cac_reg_number": "3897612",
+    "firstin": "18609323-0001",
+    "jittin": "N/A",
+    "tax_office": "MSTO ALIMOSHO",
+    "phone_number": "08012345678",
+    "email": "test@gmail.com"
+  }
+```
+
+### Test Credentials for Sandbox
+
+Kindly use this Test TIN in sandbox Environment
+
+TIN = `18609323-0001`

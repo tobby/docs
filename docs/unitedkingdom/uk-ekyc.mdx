@@ -1,0 +1,59 @@
+---
+title: "UK eKYC"
+icon: "file-code"
+description: "Verify a British Identity across multiple sources"
+---
+
+
+
+This is an Identity verification service for the UK, It uses Electoral Roll, CreditLendersFull(CAIS, Insight), CCJ(Country Court Judgements), BT OSIS, Mortality..
+
+The 2+2 Matching uses _Name+Address_ and _Name+DOB_ in various combination to reach a Pass or Fail.
+
+### Request
+```http [GET]
+{{baseUrl}}/api/v1/uk/kyc
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query Parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| first\_name \* | string |  | required |
+| last\_name \* | string |  | required |
+| middle\_name | string |  |  |
+| date\_of\_birth \* | string |  | required |
+| gender \* | string | M,F | required |
+| country \* | string | GBR | required |
+| street\_name \* | string |  | required |
+| house\_number \* | string |  | required |
+| post\_code \* | string |  | required |
+
+### Sample response
+
+```json Response
+{
+  "entity": {
+    "interpretResult": "Pass",
+    "message": "Matching performed using 11,8 sources as per profile",
+    "rawResponse": [
+      {
+        "AddressMatch": "NoMatch",
+        "DataSource": "Resident Roll",
+        "DobMatch": "Partial",
+        "FirstNameMatch": "Initial",
+        "SurnameMatch": "Full"
+      }
+    ],
+    "transactionResult": "Success"
+  }
+}
+```
+

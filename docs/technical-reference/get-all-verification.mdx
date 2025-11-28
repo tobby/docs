@@ -1,0 +1,163 @@
+---
+title: "All Verification"
+icon: "book"
+description: "Get the full list of all the verifications on applications"
+---
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/verifications
+```
+
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+
+### Query parameter
+
+| Parameter | Type | Description | Required | 
+| --- | --- | --- | --- |
+| term  | string | for search with email, reference_id | optional |
+| start  | string | Start date filter e.g YYYY-MM-DD| optional |
+| end  | string | End date filter e.g YYYY-MM-DD | optional |
+| status  | string | status filter e.g Ongoing, Completed, Pending, Failed | optional |
+
+
+
+### Response
+
+```json Response
+{
+    "entity": {
+        "data": [
+            {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            },
+              {
+                "reference_id": "DJ-479A8E4159",
+                "app_id": "64d4ab23b2793b00401a2993",
+                "verificationStatus": "Completed",
+                "datetime": "2024-07-19 17:06:05",
+                "environment": "production",
+                "first_name": "JOHN",
+                "last_name": "DOE",
+                "middle_name": "ANON",
+                "full_name": "JOHN DOE",
+                "business_name": "ANON Enterprises",
+                "selfieUrl": "https://dojah-kyc.s3.us-east-2.amazonaws.com/sandbox_kyc_image.png",
+                "verificationUrl": "https://app.dojah.io/verifications/bio-data/DJ-479A8E4159"
+            }
+            
+        ],
+        "meta": {
+            "total_count": 107,
+            "item_per_page": 10,
+            "current_page": 1
+        }
+    }
+}
+
+
+```

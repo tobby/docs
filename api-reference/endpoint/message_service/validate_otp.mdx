@@ -1,0 +1,73 @@
+---
+title: "Validate OTP"
+api: "GET https://api.dojah.io/api/v1/messaging/otp/validate"
+description: "An end point that allows you to validate OTP"
+---
+
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+ 
+<ParamField query="code" type="string" required>
+  OTP received from user
+</ParamField>
+
+
+<ParamField query="reference_id" type="string" required>
+  Reference ID to identify the OTP
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "valid": true
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

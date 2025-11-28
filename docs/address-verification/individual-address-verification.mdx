@@ -1,0 +1,44 @@
+---
+title: "Individual Address Verification"
+description: "Submit an address for physical verification of an Individual in Nigeria"
+---
+
+### Request
+
+```http [POST]
+{{baseUrl}}/api/v1/kyc/address
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+
+### Body parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| first_name | string | First name of Individual | required |
+| last_name | string | Last name of Individual | required |
+| middle_name | string | Middle name of Individual | required |
+| dob | string | Date of Birth of Individual in this format (yyyy-mm-dd) | required |
+| gender | string | Gender of Individual | required |
+| mobile | string | Active Mobile Number of Individual | required |
+| street | string | House number, Street name | required |
+| landmark | string | Closest landmark to the street | required |
+| lga | string | LGA | required |
+| state | string | State | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "status":"pending" ,
+        "reference_id": "69e10264-4b90-64fe-b4b7-c9dddafd0241"
+    }
+}
+```

@@ -1,0 +1,385 @@
+---
+title: "React JS Library"
+description: "The Dojah platform has a smooth widget that enables your users to authorize access to their accounts. This widget works effortlessly across various browsers and devices of all sizes."
+---
+
+**How to Generate Widget**
+
+This is a react.js library for implementing the dojah KYC widget.
+
+**Step 1: Start using dojah-kyc-sdk-react in your project by running**
+
+```text npm
+npm install dojah-kyc-sdk-react --save
+```
+
+```text yarn
+yarn add dojah-kyc-sdk-react --save
+```
+
+Reference : [https://www.npmjs.com/package/dojah-kyc-sdk-react](https://www.npmjs.com/package/dojah-kyc-sdk-react)
+
+Example: [https://github.com/dojah-inc/React-Js-sdk](https://github.com/dojah-inc/React-Js-sdk)
+
+> #### ❗️Adding the async attribute can cause the inline code to return undefined because the library may not be available at that moment. So avoid the use of async and defer for now.
+
+**Step 2: Configure the Javascript Client Library**
+
+At this stage, you can now create a Dojah widget object by passing in your public key and Application Id in your preferred configuration options.
+
+```javascript React JS
+import React from 'react'
+import Dojah from 'react-dojah'
+
+const App = () => {
+  /**
+   *  This is your app ID
+   * (go to your dashboard at
+   * https://dojah.io/dashboard
+   * to create an app and retrieve it)
+   */
+  const appID = "";
+
+  /**
+   *  This is your account public key
+   *  (go to your dashboard at
+   *  https://dojah.io/dashboard to
+   *  retrieve it. You can also regenerate one)
+   */
+  const publicKey = "";
+
+  /**
+   *  This is the widget type you'd like to load
+   *  (go to your dashboard at
+   *  https://dojah.io/dashboard to enable different
+   *  widget types)
+   */
+  const type = "custom";
+
+  const config = {
+  	widget_id: "" //this is generated from easyonboard here https://app.dojah.io/easy-onboard
+  };
+
+  /**
+   *  These are the user's data to verify, options
+   *  available to you possible options are:
+   *  {first_name: STRING, last_name: STRING, dob: DATE STRING}
+   *
+   *  NOTE: Passing all the values will automatically skip
+   *  the user-data page (thus the commented out `last_name`)
+   */
+  const userData = {
+    first_name: {$first_name}, //Optional
+    last_name: {$last_name}, //Optional
+    dob: {$dob}, //YYYY-MM-DD Optional
+    residence_country: 'NG', //Optional
+    email: {$email}//optional
+  };
+
+
+   const govData = {
+    nin: '',
+    bvn: '',
+    dl: '',
+    mobile: '',
+ 
+  };
+
+  /**
+   *  These are the metadata options
+   *  You can pass any values within the object
+   */
+  const metadata = {
+    user_id: '121',
+  };
+ 
+
+  /**
+   * @param {String} type
+   * This method receives the type
+   * The type can only be one of:
+   * loading, begin, success, error, close
+   * @param {String} data
+   * This is the data from doja
+   */
+  const response = (type, data) => {
+    console.log(type, data);
+    if(type === 'success'){
+    }else if(type === 'error'){
+    }else if(type === 'close'){
+    }else if(type === 'begin'){
+    }else if(type === 'loading'){
+    }
+  }
+
+  // The Dojah library accepts 3 props and
+  // initiliazes the doja widget and connect process
+  return (
+    <Dojah
+      response={response}
+      appID={appID}
+      publicKey={publicKey}
+      type={type}
+      config={config}
+      userData={userData}
+      govData={govData}
+      metadata={metadata}
+    />
+  );
+}
+
+export default App
+```
+
+
+
+
+| Parameter    | Type     | Description                                                                                                                                         |
+|--------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| type         | string   | Widget Type: Values are **'custom', 'verification', 'identification', 'verification', 'liveness'**                                                   |
+| app_id       | string   | Application Id, Get it from your dojah application dashboard [here](https://app.dojah.io/dashboard)                                                  |
+| p_key        | string   | Public Key, Get it from your dojah application dashboard [here](https://app.dojah.io/apps)                                                           |
+| reference_id | string   | Reference ID, It can be passed to keep track of the verification steps (Started, Ongoing, Successful). NB: reference_id character length must be greater than 10 |
+| widget_id    | string   | Widget ID, Get it from your Easy Onboard application dashboard [here](https://app.dojah.io/easy-onboard)                                             |
+| user_data    | object   | Automatically update the user data page, and thus skip the page |
+| gov_data     | object   | Automatically update the government data page, and thus skip the page|
+| metadata     | object   | Your application's metadata to be passed back to you via webhook, onSuccess, or onError                                                              |
+| onSuccess    | function | This is called when your user has successfully completed enrollment with their preferred institution. **The sample response data below is passed to the widget**  |
+| onError      | function | This is called when your user was unable to successfully complete enrollment.                                                                        |
+| onClose      | function | This is called when the widget is closed.                                                                                                            |
+
+**Step 3: Handle a Successful Enrollment**
+
+On successful enrollment, the _onSuccess _callback function that you supplied is called by the client library. We then return the connected account code to your server.
+
+Kindly use the overall status (**response.status** (Boolean, i.e _true or false_)) to ascertain if the request failed or succeeded.
+
+> #### 📘 Webhook Notifications 
+> 
+> 
+> You can receive the same data below (also passed to onSuccess and onError) via a webhook call.
+> 
+> Register your url for webhook calls [here](https://docs.dojah.io/docs/subscribe-to-services) and ensure `kyc.widget` is the `service` you are subscribed to.
+> 
+> In Config object Kindly set **webhook** object value to true (Boolean)
+> 
+> Example : **webhook : true**
+
+
+
+**The Sample response data after successful verification**
+
+```json Response
+{
+    aml: {
+        status: false
+    },
+    data: {
+        id: {
+            data: {
+                id_url: "https://images.dojah.io/id_sample_id_1720624047.jpg",
+                id_data: {
+                    extras: "",
+                    last_name: "John",
+                    first_name: "Doe",
+                    mrz_status: "",
+                    date_issued: "2019-01-01",
+                    expiry_date: "2020-01-01",
+                    middle_name: "",
+                    nationality: "Nigerian",
+                    date_of_birth: "1990-01-01",
+                    document_type: "National ID",
+                    document_number: "123456789"
+                },
+                back_url: "https://images.dojah.io/id_sample_id_1720624047.jpg"
+            },
+            status: true,
+            message: "Successfully verified your id"
+        },
+        email: {
+            data: {
+                email: "abc@gmail.com"
+            },
+            status: true,
+            message: "abc@gmail.com validation Successful"
+        },
+        index: {
+            data: {},
+            status: true,
+            message: "Successfully continued to the main checks."
+        },
+        selfie: {
+            data: {
+                selfie_url: "https://images.dojah.io/selfie_sample_image_1720624219.jpg"
+            },
+            status: true,
+            message: "Successfully validated your liveness"
+        },
+        countries: {
+            data: {
+                country: "Nigeria"
+            },
+            status: true,
+            message: "Successfully continued to the next step."
+        },
+        user_data: {
+            data: {
+                dob: "1990-12-03",
+                last_name: "John",
+                first_name: "Doe"
+            },
+            status: true,
+            message: ""
+        },
+        business_id: {
+            image_url: "https://images.dojah.io/selfie_sample_image_1720624219.jpg",
+            business_name: "ABC Company LIMITED",
+            business_type: "Business",
+            business_number: "1237654",
+            business_address: "",
+            registration_date: ""
+        },
+        phone_number: {
+            data: {
+                phone: "234810123456"
+            },
+            status: true,
+            message: "2348103817187 validation Successful"
+        },
+        business_data: {
+            business_name: null,
+            business_type: "BN",
+            business_number: null,
+            business_address: null,
+            registration_date: null
+        },
+        government_data: {
+            data: {
+                bvn: {
+                    entity: {
+                        bvn: "222222222222",
+                        nin: "",
+                        email: "",
+                        title: "",
+                        gender: "Male",
+                        customer: "6bb82c41-e15e-4308-b99d-e9640818eca9",
+                        image_url: "https://images.dojah.io/id_John_Doe_1720615487.jpg",
+                        last_name: "John",
+                        first_name: "Doe",
+                        middle_name: "Anon",
+                        nationality: "",
+                        name_on_card: "",
+                        watch_listed: "",
+                        date_of_birth: "01-Jun-1982",
+                        lga_of_origin: "",
+                        phone_number1: "08011111111",
+                        phone_number2: "",
+                        marital_status: "",
+                        enrollment_bank: "",
+                        state_of_origin: "",
+                        level_of_account: "",
+                        lga_of_residence: "",
+                        enrollment_branch: "",
+                        registration_date: "",
+                        state_of_residence: "",
+                        residential_address: ""
+                    }
+                },
+               nin: {
+                entity: {
+                nin: "1234567891",
+                firstname: "John",
+                middlename: "Doe",
+                surname: "Anon",
+                maidenname: "",
+                telephoneno: "0901234567",
+                state: "",
+                place: "",
+                profession: "ZOOLOGY",
+                title: "",
+                height: "167",
+                email: "",
+                birthdate: "1960-01-01",
+                birthstate: "",
+                birthcountry: "Not Available",
+                centralID: "",
+                documentno: "",
+                educationallevel: "tertiary",
+                employmentstatus: "unemployed",
+                othername: "",
+                pfirstname: "",
+                pmiddlename: "",
+                psurname: "",
+                nspokenlang: "YORUBA",
+                ospokenlang: "",
+                religion: "christianity",
+                residence_Town: "",
+                residence_lga: "Alimosho",
+                residence_state: "Lagos",
+                residencestatus: "birth",
+                residence_AddressLine1: "No 2 Anon house, John does estate, Lagos state, Nigeria",
+                residence_AddressLine2: "",
+                self_origin_lga: "",
+                self_origin_place: "",
+                self_origin_state: "",
+                signature: null,
+                nationality: null,
+                gender: "Female",
+                trackingId: "",
+                customer: "1234444y373737373737373737",
+                image_url: "https://images.dojah.io/id_SANDBOX_1721830110.jpg"
+              }
+          }
+            },
+            status: true,
+            message: ""
+        },
+        additional_document: [
+            {
+                document_url: "https://dojah-image.s3.amazonaws.com/66bcc73a4ff8e1003100454212aec768-3344-4df5-88f6-7e723c46cbb0.jpeg",
+                document_type: "image"
+            }
+        ]
+    },
+    value: "123456",
+    id_url: "https://images.dojah.io/id_sample_id_1720624047.jpg",
+    status: true,
+    id_type: "BVN",
+    message: "Successfully completed the verification.",
+    back_url: "https://images.dojah.io/id_sample_id_1720624047.jpg",
+    metadata: {
+        ipinfo: {
+            as: "AS29465 MTN NIGERIA Communication limited",
+            isp: "MTN NIGERIA Communication limited",
+            lat: 6.4474,
+            lon: 3.3903,
+            org: "MTN Nigeria",
+            zip: "",
+            city: "Lagos",
+            proxy: false,
+            query: "102.89.34.49",
+            mobile: true,
+            status: "success",
+            country: "Nigeria",
+            hosting: true,
+            district: "",
+            timezone: "Africa/Lagos",
+            region_name: "Lagos"
+        },
+        device_info: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
+    },
+    selfie_url: "https://images.dojah.io/selfie_sample_image_1720624219.jpg",
+    reference_id: "DJ-31038041E0",
+    verification_url: "https://app.dojah.io/verifications/bio-data/49fd74a4-8181-4ce8-a87a-0e63f7159257",
+    verification_mode: "LIVENESS",
+    verification_type: "RC-NUMBER",
+    verification_value: "123456",
+    verification_status: "Completed"
+}
+```
+
+> #### 📘 How to retrieve the Selfie Photo 
+> 
+> There's a response object that is sent to the client via the widget launcher on success or failure  
+> **selfieUrl** and **idUrl** under selfie and id in the success response objects, which holds the final selfie capture and id capture respectively.
+

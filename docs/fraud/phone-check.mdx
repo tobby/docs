@@ -1,0 +1,44 @@
+---
+title: "Phone Check"
+description: "Submit an Phone number for screening"
+---
+
+
+
+```http [GET]
+{{baseUrl}}/api/v1/fraud/phone
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| phone\_number | string | phone of user | required |
+
+### Sample response
+
+```json Response
+{
+  "entity": {
+    "number": 2348068810228,
+    "valid": true,
+    "disposable": false,
+    "type": "mobile",
+    "country": "NG",
+    "carrier": "MTN",
+    "score": 0,
+    "account_details_registered": [
+      "facebook",
+      "google",
+      "twitter"
+    ]
+  }
+}
+```

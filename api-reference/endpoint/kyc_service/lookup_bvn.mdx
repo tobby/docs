@@ -1,0 +1,90 @@
+---
+title: "Lookup BVN"
+api: "GET https://api.dojah.io/api/v1/kyc/bvn/full"
+description: "This endpoint allows you to Lookup BVN and get detailed information on the BVN Identity"
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+ 
+<ParamField query="bvn" type="string" required>
+  A valid Bank Verification Number (BVN)
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+     "bvn": "22350348240",
+     "first_name": "ADEOLA",
+     "last_name": "AYO",
+     "middle_name": "MICHEAL",
+     "gender": "Male",
+     "date_of_birth": "1972-02-19",
+     "phone_number1": "08099434292",
+     "image": "/9j/3AAQSkZJGgABAgBBBQABAAD/“,
+     "level_of_account": "Level 2 - Medium Level Accounts",
+     "lga_of_origin": "Odo Otin",
+     "lga_of_residence": "Ilorin South",
+     "marital_status": "Single",
+     "name_on_card": "MICHEAL, ADEOLA A",
+     "nationality": "Nigeria",
+     "nin": "",
+     "phone_number1": "08099434292",
+     "phone_number2": "",
+     "reference": "91b126d1-2467-42fc-b8d5-1cbd32257954",
+     "registration_date": "21-Mar-2018",
+     "residential_address": "24, ADELABU OWODE, ILORIN",
+     "state_of_origin": "Osun State",
+     "state_of_residence": "Kwara State",
+     "title": "Mr",
+     "watch_listed": "NO"
+    }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

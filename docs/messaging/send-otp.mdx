@@ -1,0 +1,63 @@
+---
+title: "Send OTP"
+description: "Deliver OTPs to your users via multiple channels such as Whatsapp, voice, sms and Email"
+---
+
+
+
+> ## 📘 NOTE
+> 
+> You would need to register a sender ID with the endpoint mentioned below. All messages sent before then will be delivered with the default sender ID
+
+### Request
+
+```http [POST]
+{{baseUrl}}api/v1/messaging/otp
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Body parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| sender\_id \* | string | registered Sender ID | required |
+| destination \* | string | Phone number of recipient for Whatsapp, Voice and SMS | required |
+| channel \* | string | can be either whatsapp, sms, voice, and email | required |
+| email | string | Email Recipient for Email OTP | optional |
+| expiry \* | integer | number of minutes before token becomes Invalid. Default is 10 | optional |
+| length | integer | length of token(4 to 10 characters), default is 6 characters | optional |
+| priority | boolean | indicate if you want to send in priority mode. Default is false | optional |
+| otp | integer | length of token should be between 4-10 digits which is optional | optional |
+
+> ## 📘NOTE
+> 
+> There is the priority feature. You can automatically resend messages via any of the channels if one doesn't get delivered. If the priority is set to true, the default setup is sms, whatsapp, and then voice. You can choose to set it however way you want in the channel parameter.
+> 
+> You can decide to use the OTP parameter send OTP, instead of the generated one.
+
+### Sample response
+
+```json Response
+{
+  "entity": {
+    "reference_id": "edd37ab5-48ec-4481-8cf9-ba5chu7c41f7",
+    "destination": "2348012345678",
+    "status": "SMS sent successfully"
+  }
+}
+```
+
+
+### Test Credentials for Sandbox
+
+Kindly use this Test OTP in sandbox Environment
+
+OTP = `1234`
+
+

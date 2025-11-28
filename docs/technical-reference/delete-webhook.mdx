@@ -1,0 +1,43 @@
+---
+title: "Delete Webhook"
+description: "This endpoint allows you to Subscribe to Dojah's webhook service"
+---
+
+
+
+### Request Parameters
+
+[](https://docs.dojah.io/docs/subscribe-to-services#request)
+
+```http [DELETE]
+{{baseUrl}}api/v1/webhook/delete
+```
+
+### Header
+
+[](https://docs.dojah.io/docs/subscribe-to-services#header)
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Body Parameters
+
+[](https://docs.dojah.io/docs/subscribe-to-services#body)
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| service | string | Type of services e.g `sms`, `kyc_widget`, `address` | Yes |
+
+### 
+
+Response Sample
+
+[](https://docs.dojah.io/docs/subscribe-to-services#response-sample)
+
+```json Response
+{
+  "entity": "webhook deleted successfully"
+}
+```

@@ -1,0 +1,43 @@
+---
+title: "Business Address Verification"
+description: "Submit an address for physical verification of a business in Nigeria"
+---
+
+### Request
+
+```
+{{baseUrl}}/api/v1/kyc/address/business
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Body parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| business\_name | string | Name of business | required |
+| business\_mobile | string | Office mobile number of the business | required |
+| first\_name | string | First name of business owner | required |
+| last\_name | string | Last name of business owner | required |
+| mobile | string | Mobile number of business owner | required |
+| street | string | House number, street name of the business | required |
+| landmark | string | The closest landmark to the location | required |
+| lga | string | LGA | required |
+| city | string | City | required |
+| state | string | State | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "status":"pending" ,
+        "reference_id": "69e10264-4b90-64fe-b4b7-c9dddafd0241"
+    }
+}
+```

@@ -1,0 +1,42 @@
+---
+title: "Zimbabwe National ID"
+icon: "file-code"
+description: "This endpoint allows you to Lookup a Zimbabwe National ID."
+---
+
+### Request
+
+```http [GET]
+{{baseURL}}/api/v1/zw/kyc/nin
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id_number  | string | Zimbabwian National ID | required |
+
+### Sample response
+
+
+```json Response
+{
+    "entity": {
+        "person_no": "451234561E45",
+        "status": "A",
+        "surname": "DOE",
+        "first_name": "JOHN",
+        "sex": "F",
+        "date_of_birth": "1901-01-01",
+        "date_of_death": "1961-01-01",
+        "birth_place": "Earth"
+    }
+}
+```

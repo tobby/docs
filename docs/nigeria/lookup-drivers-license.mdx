@@ -1,0 +1,52 @@
+---
+title: "Lookup Driver's Licence"
+description: "This endpoint returns details of a license number"
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/dl
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameters
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| license_number \* | string | A driver's license number | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "uuid": "1625583696",
+        "licenseNo": "FKJ494A2133",
+        "firstName": "JOHN",
+        "lastName": "DOE",
+        "middleName": "",
+        "gender": "Male",
+        "issuedDate": "2019-01-25",
+        "expiryDate": "2024-08-17",
+        "stateOfIssue": "LAGOS",
+        "birthDate": "28-09-1998",
+        "photo": "BASE 64 IMAGE"
+    }
+}
+```
+
+
+### Test Credentials for Sandbox
+
+Kindly use this Test Driver's license number in sandbox Environment
+
+DL = `FKJ494A2133, FKJ49409AB13`

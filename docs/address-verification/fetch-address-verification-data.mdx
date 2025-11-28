@@ -1,0 +1,73 @@
+---
+title: "Fetch Address Verification Data"
+description: "Retrieve the details of an address verification requested"
+---
+
+
+### Request 
+
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/address
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| reference\_id | string | 69e10264-4b90-64fe-b4b7-c9dddafd0241 | required |
+
+### Sample response
+
+
+```json Response
+{
+    "entity": {
+        "status":"pending",
+        "reference_id": "69e10264-4b90-64fe-b4b7-c9dddafd0241",
+        "data": {
+            "applicant": {
+                "first_name": "John",
+                "last_name": "Doe",
+                "phone": "08012345678",
+                "middle_name": "Kabiru",
+                "photo": "",
+                "gender": "Male",
+                "dob": "17/01/1988"
+            },
+            "location": "7.081273, 8.232523",
+            "photos": [
+                ""
+            ],
+            "neighbor": {
+                "name": "Musa Garba",
+                "comment": "Very friendly",
+                "phone": "080987654321"
+            },
+            "city": "oshodi",
+            "street": "270 Murtala Muhammed Way, Alagomeji. Yaba",
+            "lga": "lagos mainland",
+            "state": "Lagos",
+            "country": "Nigeria",
+            "comments": ""        
+        }
+    }
+}    
+```
+
+
+## Sandbox Reference Id
+
+Completed - 47f3227b-a1de-41ff-9868-290864bfefe4
+
+Pending - 69e10264-4b90-64fe-b4b7-c9dddafd0241
+
+Failed - 86a86106-d9f5-4d8f-b424-c90f0ee952ee
+

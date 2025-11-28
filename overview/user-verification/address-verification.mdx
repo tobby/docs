@@ -1,0 +1,84 @@
+---
+title: Address Verification
+icon: "map"
+
+---
+
+Address verification helps confirm a user's physical or digital location to ensure that the address they provide is legitimate. Dojah supports both digital and physical address verification flows, giving you flexibility based on your use case.
+
+You can use either option standalone or combine both methods for more robust verification.
+
+***
+
+#### Digital Address Verification
+
+Digital address verification is a lightweight, fast method to confirm where your users are currently located, without needing to send agents or rely on physical checks.
+
+You can enable digital address capture directly within the eKYC widget:
+
+- Users provide their current address via the form
+
+- Dojah detects their live GPS location and matches it with the entered address
+
+- You can also allow users to upload house images or utility bills as extra validation
+
+This flow is ideal for remote onboarding, fast KYC checks, or hybrid address screening
+
+<Note>
+You can configure digital address collection and matching rules directly in your EasyOnboard flow [here](https://app.dojah.io/easy-onboard)
+</Note>
+
+***
+
+#### Physical Address Verification
+
+Physical address verification offers an on-ground review of a user’s stated location. This is especially useful for higher-risk cases, regulatory compliance, or verifying business locations.
+
+There are two types of physical address checks you can perform with Dojah:
+
+<Tabs>
+  <Tab title="Individual Address Verification">
+   Dojah assigns a field agent to visit the user’s address and confirm:
+
+    - That the address exists and is valid
+
+    - That the user is physically present or can be identified at the location
+
+    - That any utility bills or supporting documents are legitimate
+
+    Agents collect GPS coordinates, house images, and additional comments.
+
+  </Tab>
+  <Tab title="Business Address Verification">
+   Designed for corporate clients, vendors, or merchants. Dojah verifies:
+
+    - The business signage, office premises, and activity
+
+    - Supporting documents like CAC certificates or tax records
+
+    - Presence of real staff or signage at the claimed location
+
+You can initiate this check for onboarding suppliers, vendors, or businesses in regulated industries.
+
+  </Tab>
+</Tabs>
+
+***
+
+#### Combine Both Methods for Stronger Accuracy
+
+You can layer digital and physical address checks to reduce fraud risk:
+
+- Start with digital collection using eKYC and location matching
+
+- Add a physical verification step based on risk profile or transaction limits
+
+- Review uploaded utility bills or house photos
+
+***
+
+#### Accessing Verification Results
+
+All address verification data. This includes photos, location match scores, and agent reports.
+
+You can also manage reviews and outcomes directly in your [dashboard](/guides/identity/address-verification), or trigger webhook notifications for completed checks.

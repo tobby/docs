@@ -1,0 +1,88 @@
+---
+title: "Validate International Passport"
+api: "GET https://api.dojah.io/api/v1/kyc/passport"
+description: "Validate a Customer's International Passport"
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+
+<ParamField query="passport_number" type="string" required>
+A valid passport number
+</ParamField>
+
+<ParamField query="surname" type="string" required>
+  Surname associated with the Passport
+</ParamField>
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+    "entity": {
+        "passport_number": "A00123456",
+        "date_of_issue": "01/02/2000",
+        "expiry_date": "01/02/2000",
+        "document_type": "Standard Passport",
+        "issue_place": "LAGOS",
+        "surname": "JOHN",
+        "first_name": "DOE",
+        "other_names": "MOSES",
+        "date_of_birth": "10/06/1993",
+        "gender": "Undecided",
+        "photo": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBA..."
+    }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>
+
+
+### Test Credentials for Sandbox
+
+Kindly use this Test Passport Number in sandbox Environment
+
+Passport Number = `A00123456`
+

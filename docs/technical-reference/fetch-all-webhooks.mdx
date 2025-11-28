@@ -1,0 +1,48 @@
+---
+title: "Fetch All Webhooks"
+description: "This endpoint allows you to Fetch All your Application Webhooks"
+---
+
+
+#### Request Parameters
+
+```http [GET]
+ {{baseUrl}}api/v1/webhook/fetch
+```
+
+### [](https://docs.dojah.io/docs/subscribe-to-services#header)
+
+
+#### Headers
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### [](https://docs.dojah.io/docs/subscribe-to-services#response-sample)
+
+```json Response
+{
+  "entity": [
+    {
+      "app_id": "61e6bef823664a003647505f",
+      "endpoint": "https://webhook.site/ec43b51e-eca7-42f0-b794-fb4f7b8c89d0",
+      "environment": "live",
+      "service": "sms",
+      "confirmation_status": "DELIVERED",
+      "date_created": "2022-01-18T14:31:36.810231+01:00",
+      "date_updated": "2022-01-18T14:31:36.810319+01:00"
+    },
+    {
+      "app_id": "61e6bef823664a003647505f",
+      "endpoint": "https://webhook.site/ec43b51e-eca7-42f0-b794-fb4f7b8c89d0",
+      "environment": "sandbox",
+      "service": "sms",
+      "confirmation_status": "DELIVERED",
+      "date_created": "2022-01-18T14:22:22.398813+01:00",
+      "date_updated": "2022-01-18T14:22:22.398857+01:00"
+    }
+  ]
+}
+```

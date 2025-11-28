@@ -1,0 +1,26 @@
+---
+title: "Fetch List of States"
+description: "This endpoint returns the list of States in Nigeria"
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}api/v1/general/states
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | private key  |
+
+
+### Sample response
+
+```json Response
+{"states":["Abia","Adamawa","Akwa Ibom","Anambra","Bauchi","Bayelsa","Benue","Borno","Cross River","Delta","Ebonyi","Edo","Ekiti","Enugu","Federal Capital Territory","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa","Niger","Ogun","Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara"]}
+```

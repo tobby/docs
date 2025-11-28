@@ -1,0 +1,43 @@
+---
+title: "Fund Wallet"
+icon: "money-check-dollar"
+description: "How to fund wallet via the Application"
+---
+
+
+
+> ## 📘In order for you to Fund your Dojah Wallet Balance without hassle
+> 
+>Click on **Top Up Wallet** from the Dashboard Menu and follow the prompts
+
+
+![](/images/fund_wallet.png)
+
+___
+
+## Dojah Wallet balance
+
+This endpoint would fetch you with your current dojah balance
+
+```http [GET]
+{{baseUrl}}/api/v1/balance
+
+```
+
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+
+```json Response
+{
+    "entity": {
+        "wallet_balance": "550.50"
+    }
+}
+
+```

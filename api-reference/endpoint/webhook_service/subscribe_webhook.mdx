@@ -1,0 +1,72 @@
+---
+title: "Subscribe to a service"
+api: "POST https://api.dojah.io/api/v1/webhook/subscribe"
+description: "An endpoints that allows you to subscribe to a service"
+---
+
+
+
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### BODY PARAMS
+ 
+<ParamField body="service" type="string" required>
+ sms , ngn_wallet, kyc_widget
+</ParamField>
+
+<ParamField body="webhook" type="string" required>
+  The URL to deliver notification to
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": "Webhook added successfully"
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

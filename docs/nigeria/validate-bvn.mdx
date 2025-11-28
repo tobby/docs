@@ -1,0 +1,65 @@
+---
+title: "Validate BVN"
+description: "The BVN Match service allows you to verify that the first name, last name and middle name of a user matches their BVN information"
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/bvn
+```
+
+### Header
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+
+### Query parameters
+
+| Parameters | Type | Description | Required |
+| --- | --- | --- | --- |
+| bvn \* | string | A valid bvn | required |
+| first name | string | first name of bvn holder | optional |
+| last name | string | last name of bvn holder | optional |
+| dob | string | date of birth of bvn holder in yyyy-mm-dd | optional |
+
+
+
+#### Sample response
+
+```json [200]
+{
+    "entity": {
+        "bvn": {
+            "value": "23456789012",
+            "status": true
+        },
+        "first_name": {
+            "confidence_value": 100,
+            "status": true
+        },
+         "last_name": {
+            "confidence_value": 100,
+            "status": true
+        }
+    }
+}
+```
+ 
+
+```json [400]
+{
+    "error": "BVN not found"
+}
+```
+
+
+### Test Credentials for Sandbox
+
+Kindly use this Test BVN in sandbox Environment
+
+bvn = `22222222222`

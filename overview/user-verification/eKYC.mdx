@@ -1,0 +1,100 @@
+---
+title: About eKYC
+
+---
+
+eKYC (Electronic Know Your Customer) is a digital process for verifying user identity using a combination of government data, biometrics, and document verification. With Dojah, you can run end-to-end eKYC flows that meet regulatory requirements without adding friction to your onboarding experience.
+
+Whether you're onboarding customers for financial services, lending, wallets, or mobility platforms, our eKYC flow ensures identity validation, fraud prevention, and compliance in one integrated pipeline.
+
+***
+
+### What’s Included in an eKYC Flow:
+
+Dojah’s eKYC stack is modular and can be configured to match your risk level, industry, and regulatory needs.
+
+<Columns cols={2}>
+  <Card title="Identity Validation"  icon="user" color="#3977de"  >
+		Verify user identity by cross-checking government-issued ID numbers (e.g. Passport, Voter ID, etc) against official databases to confirm data accuracy and legitimacy.
+  </Card>
+   <Card title="Document Verification"  icon="file" color="#3977de"  >
+		Validate uploaded identity documents by extracting structured data via OCR and checking for authenticity, completeness, and formatting errors.
+  </Card>
+</Columns>
+
+
+<Columns cols={2}>
+  <Card title="Face Match"  icon="user-check" color="#3977de"  >
+		Confirm that the user's selfie matches the photo on their identity document, returning a boolean match result along with a confidence score.
+	</Card>
+   <Card title="Liveness Detection"  icon="eye" color="#3977de"  >
+		Ensure the user is physically present during verification by detecting live biometric signals and blocking spoof attempts like photos, videos, or deepfakes.  
+	</Card>
+</Columns>
+
+
+<Columns cols={2}>
+  <Card title="Fraud Risk Signals"  icon="shield" color="#3977de"  >
+		Identify signs of identity fraud, such as reused documents, mismatched biometrics, or high-velocity activity.
+</Card>
+</Columns>
+
+***
+
+### How to integrate
+
+Dojah’s eKYC process is built around pre-configured flows. Once you define your verification steps from the dashboard, you can trigger the flow using either the SDK or a verification link.
+
+<Steps>
+  <Step title="Configure the flow">
+   From the Dojah dashboard, define what pages your eKYC flow should include. 
+   You can set up multiple flows for different use cases (e.g., low-risk vs. high-risk onboarding).
+
+   <Note>See how to configure a flow [here](/guides/identity/easyonboard/flow/create-flow)</Note>
+
+</Step>
+
+  <Step title="Choose How to Trigger the Flow">
+	1. **Verification Link**
+
+	Generate a unique flow URL for each user. 
+	You can send this link whichever you prefer, e.g from your internal dashboard. Users can easily complete the entire eKYC process in a browser
+
+	How to Generate Verification Links [here](/guides/identity/easyonboard/integration)
+
+
+	2. **SDK Integration**
+
+	Embed the flow directly into your app using the Dojah SDK. The SDK handles:
+
+	- UI rendering
+	- Step-by-step Capture
+	- Submission and result handling
+	- View Results via the dashboard or via webhooks
+
+	SDK Integration Guide Links [here](/sdks/javascript-library)
+
+  </Step>
+
+  
+</Steps>
+
+***
+
+#### When to Use eKYC
+- Remote onboarding
+Verify users quickly. Reduce drop-offs and automate identity checks.
+
+- Regulatory compliance
+Meet KYC/AML obligations across fintech, crypto, and payments. Keep your processes audit-ready.
+
+- Fraud prevention
+Catch fake identities before they enter your system. Block impersonation, duplicates, and recycled data.
+
+- Re-verification
+Confirm identity during high-risk actions like PIN resets or device changes. Add biometric checkpoints when it matters.
+
+- Platform safety
+Build trust in user activities. Use eKYC to protect reputation and prevent abuse.
+
+

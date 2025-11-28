@@ -1,0 +1,30 @@
+---
+title: Response Codes
+icon: "code"
+description: 'Status Codes'
+---
+
+Dojah uses standard HTTP response codes to indicate the status of a particular request. You can use these responses to handle success and error flows programmatically in your integration.
+
+	<Card title="These responses are grouped into:">
+	  - Informational Responses - (100 - 199)
+	  - Successful Responses - (200 - 299)
+	  - Redirects - (300 - 399)
+	  - Client Errors - (400 - 499)
+	  - Server Errors - (500 - 599)
+	</Card>
+
+| Status Code 		| Error             | Description																										|
+| -------- 	  		| ------------------| ------------- 																									|
+| 200        		| Successful 💯     | Your request was successful. 				    																	|
+| 400         		| Bad request       | Most likely an invalid syntax. Check all parameters. 			    												|
+| 401      			| Unauthorized      | You are unauthorized for this request. Contact support@dojah.io			    									|
+| 402       | Payment Required  | Your balance is low, please visit the dashboard to top up |
+| 404      			| Not found         | URL not recognized. Check to confirm the right URL. Records/parameters not found				    				|
+| 405      			| Method not found  | The request is disabled. Check the URL or rollback recent upgrades				    							|
+| 408      			| Request timeout   | Your request took longer than it should have. Check your internet connection.				    					|
+| 424      			| Failed Dependency | Third Party service Failure				    																	|
+| 429      			| Too many requests | You have sent too many requests that has exceeded the rate limit. You need to wait a while.				    	|
+| 500,502,503,504   | Server error      | This is a very rare occurrence where the server is unable to process a request properly. Contact support@dojah.io.|
+
+

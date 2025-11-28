@@ -1,0 +1,46 @@
+---
+title: "Zimbabwe Credit Check"
+icon: "file-code"
+description: "This endpoint allows you to Lookup a Zimbabwe National ID."
+---
+
+
+### Request
+
+```http [GET]
+{{baseURL}}/api/v1/zw/kyc/fcb
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id\_number \* | string | Zimbabwian National ID | required |
+| dob \* | string | date of birth | required |
+| name \* | string |  | required |
+| surname \* | string |  | required |
+| gender\* | string | M or F | required |
+| marital\_status\* | string | M or S | required |
+| mobile\_number\* | string |  | required |
+
+### Sample response
+uxzz
+```json Response
+{
+    "entity": {
+        "dob": "1901-01-01",
+        "full_name": "JOHN DOE",
+        "score": 288,
+        "status": "GOOD",
+        "gender": "F",
+        "id_number": "12345678A90"
+    }
+}
+```

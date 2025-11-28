@@ -1,0 +1,59 @@
+---
+title: "Keywords Definition"
+description: "Here’s a glossary of common terms used across Dojah’s platform and documentation. These keywords help you navigate features, integration options, and technical concepts more efficiently."
+---
+
+
+## Authentication & Security
+
+- **Apps**: Your registered applications within the Dojah platform.
+- **Public Keys**: Shared keys used to verify requests or data from Dojah.
+- **Private Keys**: Confidential keys used to securely authenticate your API requests.
+- **Sandbox**: A testing environment for running API calls without affecting live data.
+- **Live (Production)**: Your real environment where actual user and business data is processed.
+- **Webhook**: A callback mechanism that notifies your server in real-time when certain events happen.
+
+---
+
+## Identity & Verification
+
+- **EasyOnboard**: Dojah’s full-stack user onboarding suite combining eKYC, document, and biometric verification.
+- **eKYC**: Electronic Know-Your-Customer verification using digital data or uploaded documents.
+- **Document Verification**: Checks the validity of national ID cards, passports, and driver's licenses.
+- **Face Match**: Compares the user's selfie against the image on a government-issued document.
+- **Liveness Detection**: Verifies if a real human is present using anti-spoofing checks.
+- **Government Lookup**: Validates IDs like NIN, BVN, Voter ID, and Passport from authoritative sources.
+
+---
+
+## Business Verification
+
+- **Business Verification**: The process of validating business identities using official databases or documents.
+- **CAC Lookup**: Fetches company details from Nigeria's Corporate Affairs Commission (CAC).
+- **TIN Verification**: Confirms a business’s Tax Identification Number (TIN) from FIRS records.
+- **Global Business Check**: Search and validate international business records.
+- **eKYB Upload**: Allows companies to upload registration documents for verification against government databases.
+
+---
+
+## Fraud Intelligence
+
+- **EasyDetect**: Dojah’s fraud detection platform that analyzes behavioral, transactional, and device signals.
+- **AML Screening**: Checks for matches on global watchlists, sanctions lists, and PEPs (Politically Exposed Persons).
+- **Credit Check**: Assesses a user’s credit history, behavioral score, and loan performance.
+- **Phone Check**: Screens phone numbers for line status, reputation, and carrier insights.
+- **Email Check**: Assesses email validity, domain reputation, and usage signals.
+- **IP Screening**: Identifies risky or anonymized IPs based on geolocation and proxy status.
+- **User Screening**: Runs fraud signals against behavioral history, usage velocity, and blacklist databases.
+- **Custom Lists**: Internal blacklists or whitelists uploaded by your team to flag known entities.
+
+---
+
+## Platform Mechanics
+
+- **Flow Link**: A shareable URL that directs users into a verification or onboarding flow.
+- **Ingest URL**: The endpoint where you send real-time or batch events for analysis.
+- **Reference ID**: A unique identifier for each verification attempt, used for tracking and auditing.
+- **Confidence Score**: A numeric indication (usually 0–1 or 0–100%) of how confident the system is about a match or decision.
+- **Case**: A flagged verification or transaction event that requires human review in the dashboard.
+- **Velocity**: A risk signal based on how frequently a user, phone, device, or IP appears across the system in a short time.

@@ -1,0 +1,134 @@
+---
+title: About EasyDetect
+icon: "shield"
+
+---
+
+EasyDetect is Dojah’s intelligent fraud engine built to help you detect and stop fraud in real time. 
+It analyzes every user event—transactions, loan applications, signups—and returns a verdict:
+ **Approve**, **Block**, or **Review**.  
+
+You define the rules (there are also templates to begin with). We apply machine learning. 
+Together, they power precise fraud detection with less friction for good users.
+
+
+
+***
+
+#### What It Does
+
+EasyDetect evaluates events using a hybrid decision engine that includes:
+
+- **Your Rules** – Simple or complex logic you create in minutes from the dashboard  
+- **Behavioral Analytics** – Understand typical vs. anomalous user behavior over time  
+- **ML Risk Scoring** – Learn patterns across accounts, devices, and event histories  
+- **Account Profiling** – Track every user across multiple identifiers and flows  
+
+It’s real-time fraud detection with long-term risk intelligence built in.
+
+***
+
+#### How to Integrate and Use
+
+You can go live with EasyDetect in under an hour. Here's the typical setup flow:
+
+1. **Create a Flow**  
+   Define what kind of events you want to monitor (transactions, signups, etc). Each flow acts like a container for rules, signals, and verdicts.
+
+2. **Create Rules**  
+   Use the no-code rule builder to configure logic like “flag any new device + amount > ₦1M.” Choose from dozens of data points and operators.
+
+3. **Make a Decision**  
+   Choose your preferred action: `block`, `approve`, or `review`. Suspicious events are routed to case management.
+
+4. **Send Events**  
+   Send both backfill and live user events via our [API](/fraud/monitoring/live-transactions). Start detecting fraud from day one without retraining time.
+
+5. **Review Flagged Cases**  
+   Investigate any event flagged for review via the dashboard. See all context, rules triggered, and user history.
+
+6. **Report and Learn**  
+   Export case data, track fraud metrics, and feed insights back into your decision-making.
+
+***
+
+#### Use Cases
+
+<Columns cols={1}>
+  <Card title="Transaction Monitoring - Banking" href="/fraud/monitoring/live-transactions#transaction-monitoring-bank-transaction"  arrow="true" cta="View UseCase">
+    Monitor deposits, transfers, and withdrawals in real time to detect signs of account takeovers, money laundering, or unusual device behavior. Use dynamic rules to flag high-risk events without blocking legitimate activity.
+  </Card>
+  
+  <Card title="Payments" href="/fraud/monitoring/live-transactions#payments-card-transaction"  arrow="true" cta="View UseCase">
+    Track card payments, airtime billing, or wallet top-ups for fraud signals like IP mismatch, SIM swaps, or velocity abuse. Apply granular checks before processing to reduce chargebacks and protect revenue.
+  </Card>
+
+<Card title="Onboarding">
+   Screen users at the point of entry using behavioral patterns, identity validation, and risk scores. Catch fake accounts, stolen identities, or bot signups before they compromise your platform.
+  </Card>
+
+</Columns>
+
+***
+
+### Case Management
+
+When EasyDetect flags an event as **Review**, it becomes a Case.
+
+Inside the dashboard:
+
+- Analysts can view **why** the event was flagged (rules, score, risk signals, behavioral analysis)
+- Investigate with full **user history**, metadata, and associated accounts
+- Decide to **Approve** or **Block**, or escalate for a second opinion
+- Add **comments, status, and tags** for internal tracking
+- Each decision feeds into the ML model, improving future detection
+
+The Case Management panel is built for fraud teams, it’s not just a log. It’s an interactive command center.
+
+***
+
+### Account Management
+
+EasyDetect auto-generates a unified risk profile for every user by stitching together identifiers
+
+With each interaction, the profile gets richer, tracking behavioral history, past cases, and dynamic risk scores.
+
+Use the **Accounts tab** in the dashboard to:
+
+- Search for a user across flows  
+- View all events linked to them  
+- Flag suspicious account clusters  
+- See historical risk changes over time  
+
+Perfect for identifying fraud rings or repeat offenders hiding behind new identities.
+
+***
+
+#### Analysis & Reporting
+
+EasyDetect isn’t just reactive. It helps you learn.
+
+Inside the dashboard, you’ll find:
+
+- **Flow-level performance metrics** – Events by verdict, by rule, by status  
+- **Top triggered rules** – See what logic is catching the most fraud  
+- **Case resolution trends** – Track review outcomes over time  
+- **Export options** – Download case data, verdicts, or full reports  
+
+Use this to fine-tune your rules, update ops playbooks, or show compliance teams how fraud is being mitigated.
+
+***
+
+#### Why EasyDetect
+
+- Built for fraud, not just data collection  
+- Combines AI + human review workflows  
+- No-code rule setup  
+- Adaptive to any business flow  
+- Actionable reporting & team visibility  
+- Integrates via API or SDK  
+
+Whether you’re scaling a neobank, protecting loan decisions, or stopping resellers from gaming your coupons—EasyDetect gives you real-time trust signals, without slowing down your best customers.
+
+---
+

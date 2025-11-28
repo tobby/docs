@@ -1,0 +1,62 @@
+---
+title: "Authentication & API Setup"
+description: "Learn how to authenticate requests to Dojah APIs."
+
+---
+
+Securely authenticate all Dojah API calls by following this simple lifecycle: 
+create your app, generate API keys, select environments, and sign each request with your credentials.
+
+***
+
+#### Create an App
+
+- Log in to the Dojah Dashboard and go to **Developers → Configuration → My Apps**.
+- Create a new app or edit the default one. 
+        - Enter an App Name; 
+        - Optionally add a logo and primary color if you'll use widgets like EasyOnboard.
+- Each App has a unique **App ID**, this is required for all API calls.
+
+***
+
+
+#### API Keys
+
+- Once your app is created, you can generate **public** and **private** API keys.
+- **Public Key**: Meant for front-end usage (e.g. SDKs or widgets).
+- **Private Key**: Must remain confidential; used for authenticating server-side API calls.
+- Keys can be regenerated anytime from the dashboard.
+
+Each app comes with two keys:
+- **App ID**: Public identifier used in API calls.
+- **Secret Key**: Private key for signing and securing requests.
+
+<Note> Do not expose your Secret Key on the frontend or in public repositories. It should only be used server-side. </Note>
+
+
+***
+
+
+#### Environments
+
+Dojah supports both sandbox and production environments:
+
+| Environment | Base URL |
+|-------------|----------|
+| Sandbox     | `https://sandbox.dojah.io` |
+| Production  | `https://api.dojah.io`     |
+
+> 📘 **Note**  
+> - Always use HTTPS for all API requests.  
+> - Make sure you have created an app before sending any request.  
+> - Keep your Secret Key secure—never share it or expose it publicly.
+
+***
+
+#### Authorization
+
+For every API request, include your App ID and Secret Key in the request headers:
+
+```http
+AppId: YOUR_APP_ID
+Authorization: YOUR_SECRET_KEY

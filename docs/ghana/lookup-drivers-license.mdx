@@ -1,0 +1,47 @@
+---
+title: "Lookup Ghana Driver's License"
+icon: "file-code"
+description: "This endpoint allows you to verify a Ghana Driver's License."
+---
+
+
+
+```http [GET]
+{{baseUrl}}/api/v1/gh/kyc/dl
+```
+
+### Header
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id \* | string | The Voter Number, Application ID, or National ID Number (NIN) | required |
+| full_name \* | string | The full name of the document holder | required |
+| date_of_birth\* | string | The date of birth of the document holder in the format yyyy-MM-DD | required |
+
+
+### Sample response
+
+
+```json Response
+{
+    "entity": {
+        "certificate_date": "2010-07-19",
+        "date_of_birth": "1988-09-01",
+        "expiry_date": "2016-08-25",
+        "full_name": "John Doe",
+        "id": "V1234567",
+        "is_date_of_birth_match": true,
+        "is_full_name_match": true,
+        "issue_date": "2010-08-25",
+        "picture": "/9j/4AAQSkZJRgABAQAAAQABA",
+        "pin": "DOE-310203-03-01",
+        "processing_center": "VR3"
+    }
+}
+```

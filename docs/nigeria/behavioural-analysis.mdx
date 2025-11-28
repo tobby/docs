@@ -1,0 +1,186 @@
+---
+title: "Behavioural Analysis"
+description: "The Behavioural Analysis API provides an in-depth financial and behavioral assessment based on the account statement of a user. By analyzing the transaction history, spending patterns, income, and other financial activities, the API helps in understanding the user’s financial behavior, risk profile, and overall financial health. This can be particularly useful for financial institutions, credit scoring, risk assessment, and customer segmentation."
+---
+
+### Generate Account ID
+
+#### Request
+
+```http [POST]
+{{baseUrl}}/api/v1/financial/transactions/pdf
+```
+
+#### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+#### Body parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| bank_code | string | [Bank code](/docs/general/service/fetch-banks) of Customer | required |
+| statement | file | PDF document of Customer's statement of account | required |
+
+#### Sample response
+
+```json Response
+{
+    "entity": {
+        "acct_id": "1234a5b6-20bb-4e16-b711-56c5bd7a3c90"
+    }
+}
+```
+
+
+### Financial Analysis 
+
+
+#### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/financial/analysis
+```
+
+#### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+#### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| account_id | string | Account ID generated from the API [here](/docs/nigeria/behavioural-analysis#generate-account-id) | required |
+
+
+#### Sample response
+
+```json Response
+{
+    "entity": {
+        "accountBreakdown": {
+            "TotalCreditEntry": 306935.75,
+            "TotalDebitMade": 321986.57,
+            "averageMonthlyBalance": 0,
+            "averageMonthlyCredits": 25577.98,
+            "averageMonthlyDebits": 20124.16,
+            "averageWeeklyBalance": 0,
+            "averageWeeklyCredits": 6530.55,
+            "averageWeeklyDebits": 5031.04,
+            "closingBalance": 0,
+            "firstDateInStatement": "2021-04-12",
+            "lastDateInStatement": "2022-07-03",
+            "numberOfTransactingMonths": 6,
+            "periodInStatement": "April - July",
+            "yearInStatement": "2021, 2022"
+        },
+        "expenseBreakdown": {
+            "MaximumExpense": "pos web pmt John Doe b aso l00ng",
+            "atmLocations": [
+                "lagos",
+                "yabatech",
+                "yaba"
+            ],
+            "averageMonthlyExpenseOnAirtimeandData": 2200,
+            "averageMonthlyExpenseOnAtmAndPOS": 39663.05,
+            "averageMonthlyExpenseOnChargesAndStampDuty": 108.88,
+            "averageMonthlyExpenseOnEntertainment": 168.46,
+            "averageMonthlyExpenseOnGambling": 0,
+            "averageMonthlyExpenseOnHealth": 91.67,
+            "averageMonthlyExpenseOnHospitalityandFood": 0,
+            "averageMonthlyExpenseOnInsurance": 0,
+            "averageMonthlyExpenseOnInternationalTransactions": 0,
+            "averageMonthlyExpenseOnOnlineandWeb": 24955.55,
+            "averageMonthlyExpenseOnRent": 0,
+            "averageMonthlyExpenseOnSavingsAndInvestments": 0,
+            "averageMonthlyExpenseOnTransfer": 11692.5,
+            "averageMonthlyExpenseOnTransportation": 0,
+            "averageMonthlyExpenseOnUSSD": 333.33,
+            "averageMonthlyExpenseOnUtilities": 0,
+            "averageMonthlyExpenseonTravel": 0,
+            "averageMonthlyRecurringExpenses": 0,
+            "averageMonthlyTotalExpenses": 53555.55,
+            "minimumSalary": 653.25,
+            "monthWithmaximumExpense": "2/2022",
+            "mostFrequentExpense": "atm_and_pos_transactions",
+            "mostFrequentExpenseCategory": "atm_and_pos_transactions",
+            "totalExpenseOnAirtimeAndData": 13200,
+            "totalExpenseOnInternationalTransactions": 0,
+            "totalExpenseOnSavingsAndInvestments": 0,
+            "totalExpenseOnTransfer": 70155.02,
+            "totalExpenseOnTransportation": 0,
+            "totalExpenseOnTravel": 0,
+            "totalExpenseOnUSSD": 2000,
+            "totalExpenseOnUtilities": 0,
+            "totalExpenseonChargesAndStampDuty": 237978.3,
+            "totalExpenseonEntertainment": 1010.75,
+            "totalExpenseonGambling": 0,
+            "totalExpenseonHealth": 550,
+            "totalExpenseonHospitalityandFood": 0,
+            "totalExpenseonInsurance": 0,
+            "totalExpenseonOnlineandWeb": 149733.3,
+            "totalMonthlyExpenses": 321333.32,
+            "totalRecurringExpenses": 0
+        },
+        "fundsManagement": {
+            "accountActivity": 0.1,
+            "accountSweep": "No",
+            "averageMonthlyLoanAmount": 0,
+            "averageMonthlyLoanRepaymentAmount": 0,
+            "gamblingRate": 0,
+            "gamblingStatus": "No Gambling Transactions Found",
+            "loanInflowAmount": null,
+            "loanRepaymentToInflowAmount": 0,
+            "monthToMonthInflowToOutflowAmount": "Positive Cash Flow",
+            "numberOfCreditLoanTransactions": null,
+            "numberOfDebitRepaymentTransactions": null,
+            "overallInflowToOutflowAmount": "Negative Cash Flow",
+            "percentOfInflowIrregularity": 0,
+            "totalLoanAmount": 0,
+            "totalLoanRepaymentAmount": 0
+        },
+        "inflowBreakdown": {
+            "AdditionalIncome": "Yes",
+            "RecurringSalaryPayments": null,
+            "aSalaryEarner": "No",
+            "averageAdditionalIncome": 9166.67,
+            "averageGuaranteedSalary": 0,
+            "estimatedSalaryPaymentDay": null,
+            "lastDateOfSalaryPayment": null,
+            "minimumSalary": 0,
+            "netAverageMonthlySalary": 0,
+            "numberOfAdditionalIncomePayments": 2,
+            "totalnumberOfSalaryPayments": 0
+        },
+        "transactionRoutineBreakdown": {
+            "MaximumExpense": 0,
+            "lastCreditReceived": "2022-03-04",
+            "lastDebitMade": "2022-07-03",
+            "mostFrequentBalanceRange": "<10000",
+            "mostFrequentTransactionRange": "<10000",
+            "numberOfCardRequests": 0,
+            "percentNumberOfDaysBalanceWasLessThan10ThousandNaira": 1,
+            "percentNumberOfDaysTransactionsWasLessThan10ThousandNaira": 0.96,
+            "percentOfBalancesBetween100ThousandTo500ThousandNaira": 0,
+            "percentOfBalancesBetween10ThousandTo100ThousandNaira": 0,
+            "percentOfBalancesBetween500ThousandToOneMillionNaira": 0,
+            "percentOfBalancesGreaterThanOneMillionNaira": 0,
+            "percentOfBalancesLessThan10ThousandNaira": 1,
+            "percentOfTransactionsBetween100ThousandTo500ThousandNaira": 0,
+            "percentOfTransactionsBetween10ThousandTo100ThousandNaira": 0.12,
+            "percentOfTransactionsBetween500ThousandToOneMillionNaira": 0,
+            "percentOfTransactionsGreaterThanOneMillionNaira": 0,
+            "percentOfTransactionsLessThan10ThousandNaira": 0.88,
+            "percentofCreditTransactions": 0.19,
+            "percentofDebitTransactions": 0.81,
+            "totalAmountOfTransactions": 129
+        }
+    }
+}
+```

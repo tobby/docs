@@ -1,0 +1,45 @@
+---
+title: "Get Message Status"
+description: "This endpoint allows you get the delivery status of messages"
+---
+
+
+
+> ## 📘 NOTE
+> 
+> You can subscribe to the webhook service [here](/docs/gettingstarted/subscribe-to-service)
+
+### Request
+
+
+
+```text 
+{{baseUrl}}/api/v1/messaging/sms/get_status
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+
+### Query Parameters
+
+
+|  Parameters | Type | Description | Required |
+| --- | --- | --- | --- |
+| message_id | string | reference ID of the message | required |
+
+### Response Sample
+
+
+
+```
+{
+    "entity": {
+        "status": "DELIVERED"
+    }
+}
+```

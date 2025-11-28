@@ -1,0 +1,76 @@
+---
+title: "Fetch all Subscriptions"
+api: "GET https://api.dojah.io/api/v1/webhook/fetch"
+description: "An endpoint that allows you to fetch all subscriptions"
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "webhooks": [
+      {
+        "app_id": "5f3a4c693a7ea9003e4067e6",
+        "endpoint": "https://webhook.site/bc33b503-bf38-4b65-88e5-349d86378d4a",
+        "environment": "live",
+        "service": "sms",
+        "confirmation_status": null,
+        "date_created": "2023-03-18T06:45:37.293746+01:00",
+        "date_updated": "2023-03-18T06:45:37.293806+01:00",
+        "medium": "version 3"
+      }
+    ],
+    "total": 1,
+    "previous_page": "",
+    "next_page": "",
+    "total_pages": 1,
+    "current_page": 1
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

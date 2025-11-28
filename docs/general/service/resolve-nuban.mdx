@@ -1,0 +1,41 @@
+---
+title: "Resolve Nuban"
+description: "This endpoint returns the account name linked to an account number"
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}api/v1/general/account
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | private key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| account\_number \* | string | A valid NUBAN | required |
+| bank\_code \* | integer | Bank Code | required |
+
+> ## 📘 NOTE
+> 
+> The bank codes can be gotten from this [endpoint](/docs/general/service/fetch-banks)
+
+### Sample response
+
+```json Response
+{
+  "entity": {
+    "account_number": "4146507207",
+    "account_name": "FEMI ADEWALE KOLAWOLE"
+  }
+}
+```

@@ -1,0 +1,45 @@
+---
+title: "Lookup NIN"
+icon: "file-code"
+description: "This endpoint allows you to Lookup a National ID. You can Lookup with National ID Number (NIN)"
+---
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/ug/kyc/nin
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| nin \* | string | National ID Number (NIN) | required |
+| first_name  | string | The first name of the document holder | optional |
+| last_name | string | The last name of the document holder | optional |
+
+### Sample response
+
+```json Response
+{
+  
+    "entity": {
+        "id_number": "CM123456789AB",
+        "first_name": "John",
+        "last_name": "Doe",
+        "middle_name": "Anon",
+        "date_of_birth": "1990-01-01"
+    }
+
+  
+}
+```

@@ -1,0 +1,44 @@
+---
+title: "Age/Identity Verification"
+description: "Verify end users age or personal information through BVN, account numbers etc."
+---
+
+
+Age Identity and Verification allows you to confirm and ascertain information summitted by your end users.
+
+With this endpoint, Dojah can help you verify first name, middle name by simply adding it to the request body
+
+Information Required; Phone Number OR Account Number OR BVN
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/age_verification
+```
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| mode _required_ | _string_ | _phone\_number_ ,_account\_number_ or _bvn_ | required |
+| strict | _bool_ | default is _false_ | optional |
+| first\_name | _string_ | First name | required |
+| last\_name | _string_ | Last name | required |
+| dob | _string_ | Date of Birth | optional |
+| bvn | _string_ | Include BVN if mode is selected | required |
+| account\_number | _string_ | Include if account\_number mode is selected | optional |
+| bank\_code | _string_ | Include if account\_number mode is selected | optional |
+| phone\_number | _string_ | Include if phone\_number mode is selected | optional |
+
+### Response
+
+```json Response
+{
+  "entity": {
+    "first_name": "ADEOLA",
+    "last_name": "SEMIU",
+    "date_of_birth": "1993-06-10",
+    "verification": true
+  }
+}
+```

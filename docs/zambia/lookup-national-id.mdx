@@ -1,0 +1,41 @@
+---
+title: "Zambia National Registration Card"
+icon: "file-code"
+description: "This endpoint allows you to Lookup a Zambia National Registration Card."
+---
+
+### Request
+
+```http [GET]
+{{baseURL}}/api/v1/zm/kyc/nrc
+```
+
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| nrc  | string | National Registration Card | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "taxpayer_name": "John Doe",
+        "current_status": "ACTIVE",
+        "is_deregistered": 0,
+        "tax_types": "",
+        "nrc": "123456/78/9",
+        "tpin": "1234567890"
+
+    }
+}
+```

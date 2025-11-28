@@ -1,0 +1,107 @@
+---
+title: Transaction Monitoring
+icon: "code-compare"
+
+---
+
+Monitor banking transactions in real-time with EasyDetect’s transaction 
+intelligence engine. Designed for financial platforms, neobanks, and digital wallets,
+this system helps you detect unauthorized activity, risky behavior, or fraud rings before money moves.
+
+It uses a layered approach—rule-based logic, behavioral profiling, and 
+contextual analysis—to assess risk across sender, receiver, device, 
+and transaction metadata.
+
+
+
+***
+
+#### How It Works
+
+When you send a banking event to EasyDetect, the system immediately performs a multi-signal risk analysis. It evaluates:
+
+- **Transaction details** like amount, currency, channel, and purpose  
+- **User profile signals**, including account age, balance, registration time, and device consistency  
+- **Sender/Receiver reputations** and known fraudulent relationships  
+- **Device context** such as IP address, operating system, and geolocation  
+
+In milliseconds, EasyDetect returns one of three decisions:
+
+- ✅ **Allowed** – The transaction is safe to proceed
+- ⚠️ **Pending** – The transaction is flagged for manual review in the Case Management tab
+- ❌ **Blocked** – The transaction should be stopped immediately
+
+These verdicts give you operational flexibility, 
+automate decisions for low-risk events and review edge cases with full context.
+
+***
+
+#### Step-by-Step Integration
+
+<Steps>
+  <Step title="Create a Flow">
+    Log in to the Dojah Dashboard. Under EasyDetect, create a new fraud flow and select "Banking" as your use case. You can name it something like “Customer Transfers” or “Wallet Payouts.”
+  </Step>
+  <Step title="Define Rules">
+    Use the no-code rule builder to configure conditions like:  
+   `IF amount > ₦1M AND device mismatch → Mark as High-Risk`  
+   You can include logic for transaction velocity, foreign transfers, balance anomalies, and more
+  </Step>
+  <Step title="Send Events">
+     Push your transaction data via POST to the
+      unique ingestion [URL](/fraud/monitoring/live-transactions#ingest-url) provided in your flow’s settings. 
+      Ensure the `type` is set to `banking` and include relevant details like 
+      transaction metadata, user profile, device, and recipient.
+  </Step>
+    <Step title="Receive Decisions in Real-Time">
+     Your system receives an instant verdict. Based on the result, you can:  
+   - Approve and proceed  
+   - Hold for review in the dashboard  
+   - Block entirely  
+  </Step>
+  <Step title="Review Cases (if needed)">
+     Suspicious events will automatically generate a case with all contextual data and rule triggers. Analysts can manually review and take action.
+  </Step>
+   <Step title="Report and Optimize">
+     Use the reporting tab to analyze fraud trends, triggered rules, and verdict history. Iterate on your rule sets for better outcomes.
+  </Step>
+</Steps>
+
+***
+
+#### Example Risk Scenarios
+
+EasyDetect flags more than static values. Here are a few fraud patterns it detects:
+
+- Transfers initiated within minutes of a new account creation  
+- Unusual IP locations for high-value withdrawals  
+- Sender and receiver linked to prior high-risk activity  
+- Transactions from rooted or jailbroken devices  
+- SIM change before a transfer  
+
+<Note>You can configure who receives email alerts for case review.</Note>
+
+***
+
+#### Use Cases
+
+- **Account Takeover Detection**  
+   Catch sessions from new devices with unusual transaction requests
+
+- **Mule Account Identification**  
+   Flag transactions to beneficiaries with suspicious behavioral history
+
+- **AML/Compliance Monitoring**  
+   Combine transaction signals with EasyDetect’s fraud and identity stack for full-spectrum screening
+
+- **Payment Controls**  
+   Apply different rules by transaction channel—POS, mobile, ATM, or web
+
+***
+
+#### Why It Works
+
+EasyDetect combines high-speed fraud signals with long-term risk memory. 
+It doesn’t just inspect a transaction, it profiles the account, evaluates the network, and adapts based on feedback from every decision.
+
+Your team stays ahead of emerging fraud patterns while preserving trust with good customers.

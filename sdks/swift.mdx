@@ -1,0 +1,51 @@
+---
+title: "Swift SDK"
+description: "The Dojah platform has a smooth widget that enables your users to authorize access to their accounts. This widget works effortlessly across various browsers and devices of all sizes."
+---
+
+> ### 📘 Get Started with Swift SDK - Dojah KYC Widget
+
+
+Package : [dojah_kyc_sdk_swift](https://github.com/dojah-inc/sdk-swift)
+
+Example Application: [https://github.com/dojah-inc/sdk-swift](https://github.com/dojah-inc/sdk-swift)
+
+
+### Installation
+
+Using SPM add `https://github.com/dojah-inc/sdk-swift.git` as a dependency and set the `Dependency Rule` to the `main` branch.
+
+Add the following keys to your Info.plist file:
+
+- `NSCameraUsageDescription` - describe why your app needs access to the camera. This is called Privacy - Camera Usage Description in the visual editor.
+
+- `NSMicrophoneUsageDescription` - describe why your app needs access to the microphone, if you intend to record videos. This is called Privacy - Microphone Usage Description in the visual editor.
+
+
+- `NSLocationWhenInUseUsageDescription` - describe why your app needs access to the location, if you intend to verify address/location. This is called Privacy - Location Usage Description in the visual editor.
+
+### Usage
+
+```swift
+DojahWidgetSDK.initialize(
+    widgetID: {Required: Your_WidgetID},
+    referenceID: {Optional: Reference_ID},
+    emailAddress: {Optional: Email_Address},
+    navController: {Required: UINavigationController Instance}
+)
+```
+
+### SDK Parameters
+- `WidgetID` - a `REQUIRED` parameter. You get this ID when you sign up on the Dojah platform
+- `Reference ID` - an `OPTIONAL` parameter that allows you to initialize the SDK for an ongoing verification.
+- `Email Address` - an `OPTIONAL` parameter that allows you to initialize the SDK for an ongoing verification.
+- `navController` - a `REQUIRED` parameter. An instance of `UINavigationController` from which the SDK is presented.
+
+
+### Contributing
+- [KYC WIDGET Repository](https://github.com/dojah-inc/sdk-swift)
+- Fork it!
+- Create your feature branch: `git checkout -b feature/feature-name`
+- Commit your changes: `git commit -am 'Some commit message'`
+- Push to the branch: `git push origin feature/feature-name`
+- Submit a pull request 😉😉

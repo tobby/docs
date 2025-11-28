@@ -1,0 +1,36 @@
+---
+title: "Buy Airtime"
+description: "With this endpoint, your end users can easily buy Airtime across all mobile network"
+---
+
+
+
+Buy airtime across all mobile networks
+
+```http [POST]
+{{baseUrl}}/api/v1/purchase/airtime
+```
+
+### Header
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+
+
+
+|  Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| amount _required_ | _number_ | amount of airtime | required |
+| destination _required_ | _array_ | number(s) to receive the airtime | required |
+
+```json Response
+{
+    "entity": {
+        "status": "Sent",
+        "mobile": "+2348102152847",
+        "amount": "NGN 200.0000"
+    }
+}
+```

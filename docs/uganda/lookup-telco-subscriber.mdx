@@ -1,0 +1,47 @@
+---
+title: "Lookup Uganda Telco Subscriber"
+icon: "file-code"
+description: "This endpoint allows you to Lookup the name and phone number of a Ugandan Telco Subscriber"
+---
+
+
+
+### Request
+
+```http [POST]
+{{baseUrl}}/api/v1/ug/kyc/telco
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| last_name \* | string | Last name of the subscriber | required |
+| first_name \* | string | First name of the subscriber. | required |
+| phone_number \* | string | The phone number of the subscriber. | required |
+
+### Sample response
+
+```json Response
+
+{
+  "entity": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "name_check_error": null,
+    "network_name": "",
+    "percentage_name_match": 100,
+    "phone_is_mm_registered": false,
+    "phone_number": "+25612345678",
+    "verified_name": "John Doe"
+  }
+}
+
+```

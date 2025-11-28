@@ -1,0 +1,99 @@
+---
+title: "Email Reputation"
+api: "GET https://api.dojah.io/api/v1/kyc/email"
+description: "This endpoint retrieves information about an email and other information attached to it"
+---
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+
+<ParamField query="email" type="string" required>
+  desired email
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "email": "johndoe@gmail.com",
+    "reputation": "high",
+    "suspicious": false,
+    "references": 181,
+    "details": {
+      "blacklisted": false,
+      "malicious_activity": false,
+      "malicious_activity_recent": false,
+      "credentials_leaked": true,
+      "credentials_leaked_recent": false,
+      "data_breach": true,
+      "first_seen": "07/01/2008",
+      "last_seen": "09/13/2021",
+      "domain_exists": true,
+      "domain_reputation": "n/a",
+      "new_domain": false,
+      "days_since_domain_creation": 9552,
+      "suspicious_tld": false,
+      "spam": false,
+      "free_provider": true,
+      "disposable": false,
+      "deliverable": true,
+      "accept_all": false,
+      "valid_mx": true,
+      "primary_mx": "gmail-smtp-in.l.google.com",
+      "spoofable": true,
+      "spf_strict": true,
+      "dmarc_enforced": false,
+      "profiles": [
+        "linkedin",
+        "twitter"
+      ]
+    }
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

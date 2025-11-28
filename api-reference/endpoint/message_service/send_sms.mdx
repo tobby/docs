@@ -1,0 +1,91 @@
+---
+title: "Send SMS"
+api: "POST https://api.dojah.io/api/v1/messaging/sms"
+description: "An endpoint that allows you to deliver transactional messages to your users via our SMS or WhatsApp channels"
+---
+
+
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### BODY PARAMS
+ 
+<ParamField body="sender_id" type="string" required>
+ Registered Sender ID
+</ParamField>
+
+ 
+<ParamField body="destination" type="string" required>
+  Mobile number to receive message. Multiple numbers should be separated by comma
+</ParamField>
+
+<ParamField body="channel" type="string" required>
+ Either or any of the following can be used. sms, whatsapp,voice
+
+</ParamField>
+ 
+<ParamField body="priority" type="boolean">
+  Indicate if you want to send with the priority mode. Default is false
+</ParamField>
+
+ 
+<ParamField body="message" type="string" required>
+  Body of Message to be sent
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "status": "Sent",
+    "mobile": "2349069278034",
+    "message_id": "dj_c8095767-c69f-4bd7-aa52-7cb469effb51",
+    "reference_id": "cc7f9a23-959a-4708-ac6e-5cffec7682ba"
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

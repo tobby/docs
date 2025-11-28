@@ -1,0 +1,75 @@
+---
+title: "Lookup User Accounts"
+description: "Get account numbers linked to a BVN or Mobile Number"
+---
+
+
+Use with the BVN Number or the Mobile Number
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyc/accounts
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| mobile_number | string | Mobile Number of Customer | required |
+| bvn | string | BVN Number of Customer | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "banks": [
+            {
+                "accountDescription": "221****095",
+                "bankName": "Zenith Bank",
+                "bankCode": "057",
+                "mobile_number": "2348137877844"
+            },
+            {
+                "account_description": "999****260",
+                "bankName": "Access Bank Nigeria Plc",
+                "bankCode": "044",
+                "mobile_number": "2348137877844"
+            },
+            {
+                "accountDescription": "131****617",
+                "bankName": "Access Bank Nigeria Plc",
+                "bankCode": "044",
+                "mobile_number": "2348137877844"
+            },
+            {
+                "accountDescription": "304XXXX407",
+                "bankName": "FBN",
+                "bankCode": "011",
+                "mobile_number": "2348137877844"
+            }
+        ],
+      "bvn": "22271325557",
+      "mobile_number": "08137877844"
+    }
+
+}
+```
+
+
+
+### Test Credentials for Sandbox
+
+Kindly use this Test details in sandbox Environment
+
+mobile_number = `08137877844`
+
+BVN = `22271325557`

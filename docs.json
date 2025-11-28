@@ -1,122 +1,377 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "aspen",
+  "name": "Dojah Inc",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#010061",
+    "light": "#010061",
+    "dark": "#010061"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
-      {
-        "tab": "Guides",
+
+          {
+          "tab": "Overview",
+          "groups": [
+
+          {
+            "group": "GETTING STARTED",
+            "pages": [
+              
+              "overview/quickstart",
+              "overview/creating-an-account",
+              "overview/fund-your-wallet"
+            ]
+          },
+
+           {
+            "group": "USE-CASES",
+            "pages": [
+             "overview/user-verification/government-verification",   
+              "overview/user-verification/doc-id-verification",
+               {
+                "group": "Biometric Verification",
+                "icon": "fingerprint",
+                "pages": [
+                  "overview/user-verification/liveness",
+                  "overview/user-verification/face-match"
+                ]
+              },
+              {
+                "group": "eKYC",
+                "icon": "id-card",
+                "pages": [
+                  "overview/user-verification/eKYC",
+                  {
+                  "group": "EasyOnboard",
+                  "pages": [
+                    "overview/user-verification/easy-onboard",
+                    "overview/user-verification/setting-up",
+                    "overview/user-verification/fraud-check"
+                  ]
+                },
+                "overview/user-verification/custom-lists",
+                "overview/user-verification/case-management"
+                ]
+            },
+             "overview/user-verification/easy-auth",
+             "overview/user-verification/utility-bill",
+             "overview/user-verification/address-verification"
+            ]
+          },
+
+             {
+            "group": "REPORTS",
+            "pages": [
+              
+              "overview/quickstart",
+              "overview/creating-an-account",
+              "overview/fund-your-wallet"
+            ]
+          }
+         
+
+
+         ]
+      },
+        {
+        "tab": "Device Fingerprinting",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "SDKs & Libraries",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "sdks/overviews",
+              {
+                "group": "for eKYC(ID Widget)",
+                "pages": [
+                  "sdks/javascript-library",
+                  "sdks/react-library",
+                  "sdks/react-native-library",
+                  "sdks/flutter-library",
+                  "sdks/kotlin",
+                  "sdks/swift"
+                ]
+              }
             ]
           }
         ]
       },
+
+
       {
-        "tab": "API reference",
+        "tab": "API Integration",
         "groups": [
+         
           {
-            "group": "API documentation",
+           "group": "TECHNICAL REFERENCES",
             "pages": [
-              "api-reference/introduction"
+              "docs/technical-reference/keywords",
+              "docs/technical-reference/response-codes",
+               "docs/technical-reference/authentication",
+                {
+                "group": "Webhooks",
+                "pages": [
+                  "docs/technical-reference/subscribe-to-service",
+                  "docs/technical-reference/fetch-all-webhooks",
+                  "docs/technical-reference/delete-webhook",
+                  "docs/technical-reference/verify-events",
+                  "docs/technical-reference/get-verification-details",
+                  "docs/technical-reference/get-all-verification"
+                ]
+              }
+      
+            ]
+          },
+
+          {
+            "group": "USER VERIFICATION - GOVT DATA",
+            "pages": [
+              {
+                "group": "🇳🇬 Nigeria - Lookup",
+                "pages": [
+                  "docs/nigeria/lookup-bvn",
+                  "docs/nigeria/lookup-phone-number",
+                  "docs/nigeria/lookup-nuban-kycstatus",
+                  "docs/nigeria/lookup-nin",
+                  "docs/nigeria/lookup-voters-id"
+                ]
+              },
+              {
+                "group": "🇳🇬 Nigeria - Validation",
+                "pages": [
+                  "docs/nigeria/validate-bvn",
+                  "docs/nigeria/verify-nin-with-selfie-image",
+                  "docs/nigeria/verify-bvn-with-selfie-image",
+                  "docs/nigeria/age-identity-verification",
+                  "docs/nigeria/selfie-verification-vnin"
+                ]
+              },
+              {
+                "group": "🇰🇪 Kenya",
+                "pages": [
+                  "docs/kenya/lookup-national-id",
+                  "docs/kenya/lookup-passport",
+                  "docs/kenya/lookup-kra-pin"
+                ]
+              },
+              {
+                "group": "🇺🇬 Uganda",
+                "pages": [
+                  "docs/uganda/lookup-nin"
+                ]
+              },
+              {
+                "group": "🇬🇭 Ghana",
+                "pages": [
+                  "docs/ghana/lookup-passport",
+                  "docs/ghana/lookup-drivers-license",
+                  "docs/ghana/lookup-voters-id",
+                  "docs/ghana/lookup-tin",
+                  "docs/ghana/lookup-ssnit",
+                  "docs/ghana/validate-digital-addresses"
+                ]
+              },
+              {
+                "group": "🇿🇦 South Africa",
+                "pages": [
+                  "docs/southafrica/lookup-national-id"
+                ]
+              },
+              {
+                "group": "🇦🇴 Angola",
+                "pages": [
+                  "docs/angola/lookup-national-id"
+                ]
+              },
+              {
+                "group": "🇿🇼 Zimbabwe",
+                "pages": [
+                  "docs/zimbabwe/lookup-national-id",
+                  "docs/zimbabwe/lookup-credit-check"
+                ]
+              },
+              {
+                "group": "🇿🇲 Zambia",
+                "pages": [
+                  "docs/zambia/lookup-national-id"
+                ]
+              },
+               {
+                "group": "🌍 Global Identity Verification",
+                "pages": [
+                  "docs/globalverification/selfie-photo-id",
+                  "docs/globalverification/location-reverse-geocoding"
+                ]
+              }
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "BUSINESS VERIFICATION",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              {
+                "group": "🇳🇬 Nigeria",
+                "pages": [
+                  "docs/nigeria/validate-firs-tin",
+                  "docs/nigeria/lookup-cac"
+                ]
+              },
+               "docs/globalverification/businesscheck/global-business-search",
+              "docs/globalverification/businesscheck/global-business-details"
+            ]
+          },
+          {
+            "group": "BIOMETRIC CHECKS",
+            "pages": [
+              "docs/biometrics/liveness-check"
+            ]
+          },
+          {
+            "group": "DOCUMENT VERIFICATION",
+            "pages": [
+              "docs/document-analysis/document-analysis",
+              "docs/document-analysis/business-document",
+              "docs/document-analysis/utility-bill"
+            
+            ]
+          },
+            {
+            "group": "EASYDETECT",
+            "pages": [
+              "fraud/monitoring/live-transactions"
+            ]
+          },
+          {
+            "group": "BACKGROUND INTELLIGENCE",
+            "pages": [
+            {
+            "group": "AML Screening",
+            "pages": [
+              "docs/aml/screening-info-individual"
+
+            ]
+          },
+             {
+            "group": "Credit Check",
+            "pages": [
+               "docs/nigeria/behavioural-analysis",
+                  "docs/nigeria/credit-summary",
+                  "docs/nigeria/credit-score"
+            ]
+          },
+      
+              "docs/fraud/phone-check",
+              "docs/fraud/email-check",
+              "docs/fraud/ip-screening",
+              "docs/fraud/user-screening"
+            ]
+          },
+
+          {
+            "group": "MESSAGING SERVICES",
+            "pages": [
+              "docs/messaging/sender-id",
+              "docs/messaging/send-messages",
+              "docs/messaging/get-message-status",
+              "docs/messaging/send-otp",
+              "docs/messaging/validate-otp"
+            ]
+          },
+
+
+           {
+            "group": "ADDRESS SERVICES",
+            "pages": [
+            "docs/address-verification/individual-address-verification",
+             "docs/address-verification/fetch-address-verification-data",
+              "docs/address-verification/business-address-verification"
+              
+            ]
+          },
+          {
+            "group": "GENERAL SERVICES",
+            "pages": [
+              "docs/general/service/resolve-nuban",
+              "docs/general/service/fetch-banks",
+              "docs/general/service/buy-airtime",
+              "docs/general/service/country-states",
+              "docs/general/service/states-lga"
+            ]
+          }
+        ]
+      },
+
+    
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": "Changelog",
+            "pages": [
+              "changelog/api_changes"
             ]
           }
         ]
       }
     ],
-    "global": {
+      "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Visit Website",
+          "href": "https://dojah.io/",
+          "icon": "globe"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Login to app",
+          "href": "https://app.dojah.io/signin",
+          "icon": "cloud"
+        },
+        {
+          "anchor": "Join Community",
+          "href": "https://join.slack.com/t/dojahinc/shared_invite/zt-ng9ch04k-bT5sVBnTY6Fa1ffQ0SAxpQ",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Run in Postman",
+          "href": "https://app.getpostman.com/",
+          "icon": "code"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/dojah_blue.svg",
+    "dark": "/logo/dojah_blue.svg",
+    "href": "https://docs.dojah.io/overview/quickstart"
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+  "api": {
+    "mdx": {
+      "auth": {
+        "method": "key",
+        "name": "Authorization"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
     }
   },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+  "background": {
+    "image": "/background.png"
   },
+  
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/DojahInc",
+      "github": "https://github.com/dojah-inc",
+      "slack": "https://join.slack.com/t/dojahinc/shared_invite/zt-ng9ch04k-bT5sVBnTY6Fa1ffQ0SAxpQ",
+      "linkedin": "https://www.linkedin.com/company/dojah/"
+    }
+  },
+
+   "fonts": {
+    "heading": {
+      "family": "Inter",
+      "weight": 800
+    },
+    "body": {
+      "family": "Inter"
     }
   }
 }

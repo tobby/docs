@@ -1,0 +1,43 @@
+---
+title: "Global Business Search"
+description: "Search Global business records"
+---
+
+
+
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/kyb/business/search
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | private key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| company \* | string | name of company or number of company | required |
+| country\_code \* | string | ISO Alpha-2 Country Code of business country | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": [
+        {
+            "name": "John Doe Inc.",
+            "shortName": null,
+            "brandName": null,
+            "internationalNumber": "LLC_00943037",
+            "countryCode": "us-il"
+        }
+    ]
+}
+```

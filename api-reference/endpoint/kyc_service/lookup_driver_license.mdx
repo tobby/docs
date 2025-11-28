@@ -1,0 +1,77 @@
+---
+title: "Lookup Drivers Licence"
+api: "GET https://api.dojah.io/api/v1/kyc/dl"
+description: "An endpoint to verify and validate your customers using Drivers License Number"
+---
+
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+
+<ParamField query="license_number" type="string" required>
+  Drivers licence Number
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "licenseNo": "IKJ29459AB13",
+    "firstName": "OLA",
+    "lastName": "DAMOLA",
+    "middleName": "",
+    "gender": "Male",
+    "issuedDate": "2019-01-22",
+    "expiryDate": "2024-05-18",
+    "stateOfIssue": "LAGOS",
+    "birthDate": "18-05-1990",
+    "photo": "BASE 64 Image"
+  }
+}
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+
+
+</ResponseExample>

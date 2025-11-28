@@ -1,0 +1,110 @@
+---
+title: Configuring Flows
+
+---
+
+Design custom onboarding journeys by selecting the exact verification steps your product requires.
+
+***
+
+#### What Is a Verification Flow?
+
+A verification flow is a configurable sequence of steps that define 
+how a user or business is verified through Dojah. Each step in a flow 
+collects or validates specific data—ranging from basic user information to biometric checks and document uploads.
+
+Flows can be created and managed directly from the Dojah's Dashboard, 
+allowing you to tailor onboarding for different risk levels, industries, or customer types.
+
+***
+
+#### How to Configure a Flow
+
+Follow these steps to create a new flow:
+
+<Steps>
+  <Step title="Customize the Flow Interface">
+ Start by branding the verification page so it matches your product experience.
+ - Upload your logo
+ - Set your brand color
+
+ This ensures a consistent and trusted interface across web or mobile.
+  </Step>
+
+  <Step title="Set Verification Logic and Preferences">
+	Next, define the core behavior of the flow.
+
+    - **Select your supported countries**: Choose where this flow will be valid. You can configure multiple flows for different regions or regulatory needs.
+    
+    - **Enable user notifications (optional)** : If enabled, users will receive automatic email updates about the status of their verification (e.g., success, failure, review required).
+
+    - **Choose review mode**:
+        1. **Auto-review**: The system makes the decision based on your configured thresholds
+        2. **Manual review**: You or your team can inspect verification attempts before approval
+
+    This gives you full control over how and where the verification happens, and how decisions are handled.
+
+    <Note> You can see more preferences [here](/guides/identity/easyonboard/flow/create-flow)</Note>
+  </Step>
+  <Step title="Add Verification Steps">
+ 	Now, define the steps that make up your verification flow. You can include any combination of the following:
+    
+    - User Information - Name, date of birth, gender, nationality
+    - Government Lookup – Voters ID, passport or other ID checks
+    - Phone Verification – OTP sent to phone number
+    - Email Verification – OTP sent to email
+    - Document Upload – User uploads an ID or supporting document
+    - Liveness Check – Detects real human presence
+    - Face Match – Compares selfie to ID photo
+    - Business Information – RC number, tax ID, and business name
+
+    You can reorder steps and configure whether each one is required or optional.
+
+ <Note> You can view more of the pages [here](/guides/identity/easyonboard/verification-pages/verification-page)</Note>
+
+</Step>
+   <Step title="Save and Publish the Flow">
+ 	Once your flow is configured, choose how you want to use it. You have three options:
+
+   1. Web SDK
+
+   Integrate the flow directly into your web app using Dojah’s SDK. This gives you a seamless user experience and tighter control over how the verification process appears inside your product.
+
+  See more details on Web SDK [here](/sdks/overviews)
+
+   2. Mobile Integration
+
+   Use the same flow within your mobile app. The flow is fully responsive and optimized for mobile capture, making it ideal for apps that want to verify users on the go.
+
+  See more details on Mobile Integration [here](/guides/identity/easyonboard/integration)
+
+   3. Flow Link
+
+   Generate a shareable verification link tied to your flow. You can send this via email, in-app messaging, or SMS. When the user clicks the link, they’re taken to a verification page that runs the flow as configured.
+
+  See more details on Flow Links [here](/guides/identity/easyonboard/integration)
+  
+  </Step>
+</Steps>
+
+***
+
+#### What Happens After a Flow is Triggered
+
+Once a user starts the flow—whether via SDK or link—they go through the exact sequence you’ve configured. As they complete each step, Dojah processes the input in real time and aggregates the verification results.
+
+At the end of the flow:
+
+- You receive a structured result object summarizing all steps: what passed, what failed, and what needs review
+
+- If **auto-review is enabled**, the system will return an approval or rejection status based on your preset logic
+
+- If **manual review is selected**, your team can log into the dashboard to inspect submissions and take action
+
+You can also set up webhooks to receive status updates and verification events programmatically.
+
+<Info> 
+If you’ve enabled fraud checks in your flow, Dojah will automatically run background evaluations such as age threshold checks, IP and device screening, AML and sanctions list checks, and identity reuse detection. These run behind the scenes as the user completes the flow and can trigger automated flags or review requirements based on your configured thresholds.
+
+Learn how fraud checks work [here](/guides/identity/easyonboard/fraud-check)
+</Info>

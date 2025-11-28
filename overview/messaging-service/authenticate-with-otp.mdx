@@ -1,0 +1,44 @@
+---
+title: Authenticate with OTPs
+icon: "file-import"
+
+---
+
+Authenticate users securely using Dojah’s OTP service. 
+This API enables you to send time-bound one-time passwords to users’ phone numbers,
+ then validate the code when they submit it. It’s ideal for login, signup, 
+ transaction confirmation, and two-factor authentication (2FA).
+
+
+***
+
+#### How It Works
+
+The OTP process is straightforward:
+
+1. **Send OTP**  
+   Make a POST request to the `send-otp` [endpoint](/docs/messaging/send-otp) with the user’s phone number. A 6-digit code is generated and sent via SMS using your registered Sender ID.
+
+2. **User Inputs OTP**  
+   The user enters the code they received.
+
+3. **Validate OTP**  
+   Make a POST request to the `validate-otp` [endpoint](/docs/messaging/validate-otp) with the phone number and the code. If valid and not expired, you’ll receive a success response.
+
+Each OTP is valid for a limited time and can only be used once. You can also set your preferred OTP expiration time and resend behavior.
+
+
+#### Use Cases
+
+- Secure user login or account creation  
+- Authorize wallet top-ups, withdrawals, or payments  
+- Confirm sensitive changes (e.g., password updates, PIN resets)  
+- Add an extra layer of verification during onboarding
+
+#### Why Use Dojah OTP
+
+- Fast, telco-optimized delivery  
+- Custom sender ID branding  
+- Developer-friendly endpoints  
+- Built-in expiration and retry logic  
+- Secure and stateless validation

@@ -1,0 +1,41 @@
+---
+title: "Lookup Ghana Voter ID"
+icon: "file-code"
+description: "This endpoint allows you to verify a Ghana Voter ID card."
+---
+
+
+```http [GET]
+{{baseUrl}}/api/v1/gh/kyc/voter
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id * | string | The Voter ID number | required |
+| is_new_id | boolean | Whether this is a 2020 issued voter ID or the older ID. This is by default false until 1 September 2021, then it would be true by default. | optional |
+| full_name | string | The full name of the document holder as it appears on the ID | optional |
+
+### Sample response
+
+```json Response
+{
+    entity: {
+    		"id": "123456789",
+    		"full_name": "JOHN DOE",
+    		"date_of_birth": "25",
+    		"gender": "M",
+    		"polling_station": "C121402",
+    		"registration_date": "2012-09-04",
+    		"picture": "BASE64 ENCODED IMAGE",
+    		"is_full_name_match": true
+    }
+}
+```

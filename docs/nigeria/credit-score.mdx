@@ -1,0 +1,55 @@
+---
+title: "Credit Score"
+description: "The Credit Score API provides a score and comprehensive summary of an individual's credit history, linked to their Bank Verification Number (BVN). This API is designed to give financial institutions, lenders, and credit agencies a quick and accurate overview of a user's creditworthiness, including outstanding loans, repayment history, and overall credit behavior."
+---
+
+
+Use with the BVN Number
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/fico_score
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| bvn | string | BVN Number of Customer | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "bvn": "12345678901",
+        "name": "Ndaka Kadir Hassan",
+        "phone": "081234567789,
+        "gender": "Male",
+        "dateOfBirth": "18/02/1994",
+        "address": "ELEGANZA HOUSE,15B JOSEPH WESLEY STR.BROAD STREET   025 NG   LAGOS NIGERIA ",
+        "email": "",
+        "score": {
+            "totalNoOfDelinquentFacilities": 2,
+            "hasLoans": "YES",
+            "ficoScore": {
+                "score": 610,
+                "rating": "AVERAGE",
+                "reasons": "There is serious delinquency on the accounts, adverse record or collection filed on the credit report. Lack of recent revolving/charge account information on the credit report. There is delinquency on the accounts on credit report. Lack of recent revolving/charge account information on the credit report."
+            },
+            "lastReportedDate": "30-APR-2021",
+            "crcReportOrderNumber": "W-0032057385/2021"
+        },
+        "searchedDate": "2023-12-20T11:56:38.886Z",
+        "customer_id": "25379c18-40a9-4b24-9504-fcdc0f1d47ab"
+    }
+}
+```

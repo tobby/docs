@@ -1,0 +1,44 @@
+---
+title: "Angola National ID"
+description: "This endpoint allows you to Lookup a Angola National ID."
+---
+
+
+
+### Request
+
+```http [GET]
+{{baseURL}}/api/v1/ao/kyc/nin
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| id \* | string | Angolan National ID Number | required |
+
+### Sample request
+
+```json Response
+
+{
+    "entity": {
+        "first_name": "JOHN",
+        "last_name": "DOE",
+        "middle_name": "ANON",
+        "date_of_birth": "1991-08-06",
+        "mobile": "123456789",
+        "id_number": "00123456789LA012",
+        "image": "/9j/4AAQSkZJRgABAQAAAQABAAD/..."
+        "gender": "Male",
+        "nin": "00123456789LA012"
+    }
+}
+```

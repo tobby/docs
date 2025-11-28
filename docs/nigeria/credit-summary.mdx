@@ -1,0 +1,211 @@
+---
+title: "Credit Summary"
+description: "The Credit Summary API provides a comprehensive summary of an individual's credit history, linked to their Bank Verification Number (BVN). This API is designed to give financial institutions, lenders, and credit agencies a quick and accurate overview of a user's creditworthiness, including outstanding loans, repayment history, and overall credit behavior."
+---
+
+
+Use with the BVN Number
+
+### Request
+
+```http [GET]
+{{baseUrl}}/api/v1/credit_bureau
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| bvn | string | BVN Number of Customer | required |
+
+### Sample response
+
+```json Response
+{
+    "entity": {
+        "address": "ELEGANZA HOUSE,15B JOSEPH WESLEY STR.BROAD STREET   025 NG   LAGOS NIGERIA ",
+        "bvn": "12345678901",
+        "dateOfBirth": "01/01/1904",
+        "email": "",
+        "gender": "Male",
+        "name": "John Doe Anon",
+        "phone": "080123456789",
+        "score": {
+            "bureauStatus": {
+                "crc": "success",
+                "creditRegistry": "success",
+                "firstCentral": "success"
+            },
+            "creditEnquiries": [
+                {
+                    "source": "CREDIT_REGISTRY",
+                    "value": [
+                        {
+                            "contactPhone": "234 (1) 2798800",
+                            "date": "2022-11-13T00:00:00",
+                            "loanProvider": "Suretree Systems Limited",
+                            "reason": "N/A"
+                        }
+                    ]
+                }
+            ],
+            "creditEnquiriesSummary": [
+                {
+                    "source": "CREDIT_REGISTRY",
+                    "value": {
+                        "Last12MonthCount": "38",
+                        "Last36MonthCount": "101",
+                        "Last3MonthCount": "4"
+                    }
+                }
+            ],
+            "creditors": [
+                {
+                    "source": "CREDIT_REGISTRY",
+                    "value": [
+                        {
+                            "Address": "Stallion Plaza 36 Marina Lagos Island Lagos",
+                            "Name": "Union Bank of Nigeria Plc",
+                            "Phone": "0123456789",
+                            "Subscriber_ID": "734289734289248261"
+                        }
+                    ]
+                }
+            ],
+            "highestLoanAmount": [
+                {
+                    "source": "CRC",
+                    "value": 5000
+                }
+            ],
+            "lastReportedDate": [
+                {
+                    "source": "CRC",
+                    "value": "13/Nov/2022"
+                }
+            ],
+            "loanHistory": [
+                {
+                    "source": "CRC",
+                    "value": [
+                        {
+                            "accountNumber": "01234567893",
+                            "dateReported": "30-Apr-2019",
+                            "installmentAmount": "",
+                            "lastPaymentDate": "",
+                            "loanAmount": "5000",
+                            "loanDuration": null,
+                            "loanProvider": "UNION BANK OF NIGERIA PLC",
+                            "outstandingBalance": "0",
+                            "overdueAmount": "0",
+                            "paymentHistory": [],
+                            "performanceStatus": "Performing",
+                            "status": "Open",
+                            "type": "Overdraft"
+                        }
+                    ]
+                }
+            ],
+            "loanPerformance": [
+                {
+                    "source": "FIRST_CENTRAL",
+                    "value": [
+                        {
+                            "accountNumber": "12345678928181192",
+                            "loanAmount": 250800,
+                            "loanCount": 1,
+                            "loanProvider": "Union Bank Nigeria Plc Lagos",
+                            "noOfNonPerforming": 0,
+                            "noOfPerforming": 1,
+                            "outstandingBalance": 0,
+                            "overdueAmount": 0,
+                            "performanceStatus": "Performing",
+                            "status": "Closed"
+                        }
+                    ]
+                }
+            ],
+            "maxNoOfDays": [
+                {
+                    "source": "CRC",
+                    "value": null
+                }
+            ],
+            "totalBorrowed": [
+                {
+                    "source": "CRC",
+                    "value": 445800
+                }
+            ],
+            "totalMonthlyInstallment": [
+                {
+                    "source": "CRC",
+                    "value": 10000
+                }
+            ],
+            "totalNoOfActiveLoans": [
+                {
+                    "source": "CRC",
+                    "value": 1
+                }
+            ],
+            "totalNoOfClosedLoans": [
+                {
+                    "source": "CRC",
+                    "value": 2
+                }
+            ],
+            "totalNoOfDelinquentFacilities": [
+                {
+                    "source": "CRC",
+                    "value": 0
+                }
+            ],
+            "totalNoOfInstitutions": [
+                {
+                    "source": "CRC",
+                    "value": 1
+                }
+            ],
+            "totalNoOfLoans": [
+                {
+                    "source": "CRC",
+                    "value": 3
+                }
+            ],
+            "totalNoOfOverdueAccounts": [
+                {
+                    "source": "CRC",
+                    "value": 0
+                }
+            ],
+            "totalNoOfPerformingLoans": [
+                {
+                    "source": "CRC",
+                    "value": 3
+                }
+            ],
+            "totalOutstanding": [
+                {
+                    "source": "CRC",
+                    "value": 0
+                }
+            ],
+            "totalOverdue": [
+                {
+                    "source": "CRC",
+                    "value": 0
+                }
+            ]
+        },
+        "searchedDate": "2023-12-13T08:42:25.835Z"
+    }
+}
+```

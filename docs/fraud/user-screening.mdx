@@ -1,0 +1,123 @@
+---
+title: "User Screening"
+description: "Screen your users email, phone, IP Address and AML screening by via PEP, OFAC, , Sanction and Adverse media across 200+ countries and 42800+ databases before onboarding them"
+---
+
+## Request
+
+```http [GET]
+{{baseUrl}}api/v1/fraud/user
+```
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| first\_name \* | string | First Name | required |
+| last\_name \* | string | Last Name | required |
+| middle\_name | string | Middle Name | optional |
+| date\_of\_birth \* | string |  | required |
+| email | string | Email | optional |
+| phone | string | Phone No | optional |
+| ip\_address | string | IP Address | optional |
+
+## Sample response
+
+```json Response
+{
+  "entity": {
+    "overall_risk_score": 80,
+    "phone_check_result": {
+      "account_details_registered": [
+        "skype",
+        "angelist",
+        "instagram"
+      ],
+      "carrier": "T-MOBILE USA, INC",
+      "country": "US",
+      "disposable": false,
+      "flags": [],
+      "number": 16502969060,
+      "score": 4,
+      "type": "mobile",
+      "valid": true
+    },
+    "aml_screening_result": [
+      {
+        "match_type": "Individual",
+        "name": "John Asake Doe",
+        "nameMatchScore": 80,
+        "profileId": "WC2095906"
+      }
+    ],
+    "email_check_result": {
+      "account_details_registered": [
+        "skype",
+        "angelist",
+        "instagram"
+      ],
+      "breach_details": {
+        "first_breach": null,
+        "haveibeenpwned_listed": false,
+        "number_of_breaches": 0
+      },
+      "domain_details": {
+        "accept_all": false,
+        "created": "2004-09-27 18:06:20",
+        "custom": true,
+        "disposable": false,
+        "dmarc_enforced": false,
+        "domain": "example.com",
+        "expires": "2023-09-27 18:06:20",
+        "free": false,
+        "registered": true,
+        "registered_to": "NameFind LLC",
+        "registrar_name": "GoDaddy.com, LLC",
+        "spf_strict": false,
+        "suspicious_tld": false,
+        "tld": ".com",
+        "updated": "2022-08-16 04:46:10",
+        "valid_mx": false,
+        "website_exists": true
+      },
+      "deliverable": false,
+      "email": "test@example.com",
+      "score": 4,
+      "type": "mobile",
+      "valid": true
+    },
+    "ip_check_result": {
+      "ip": "2.58.56.101",
+      "blacklists": {
+        "detections": 11,
+        "engines_count": 85,
+        "detection_rate": "13%"
+      },
+      "ip_details": {
+        "reverse_dns": "powered.by.rdp.sh",
+        "continent_code": "EU",
+        "continent_name": "Europe",
+        "country_code": "DE",
+        "country_name": "Germany",
+        "country_currency": "EUR",
+        "country_calling_code": "49",
+        "region_name": "Hamburg",
+        "city_name": "Hamburg",
+        "latitude": 53.575321197509766,
+        "longitude": 10.015339851379395,
+        "isp": "1337 Services GmbH",
+        "asn": "AS210558"
+      },
+      "anonymity": {
+        "is_proxy": false,
+        "is_webproxy": false,
+        "is_vpn": false,
+        "is_hosting": false,
+        "is_tor": true
+      },
+      "risk_score": {
+        "result": 100
+      }
+    }
+  },
+  "uuid": "41f963a5-3d6b-41ec-aac8-bbc5247a4966"
+}
+```

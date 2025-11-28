@@ -1,0 +1,43 @@
+---
+title: IP Screening
+icon: "wifi"
+---
+
+IP Screening analyzes a user’s IP address to evaluate fraud risk,
+ detect suspicious activity, and flag high-risk sessions. 
+ It provides a clear breakdown of geolocation, proxy usage, 
+ blacklist history, and anonymity indicators, helping you prevent fraud before it happens.
+
+
+
+***
+
+#### Core Features
+
+You receive a detailed profile for every IP address submitted:
+
+- **Blacklist Score** — Number and severity of blacklist flags across threat intelligence sources  
+- **Geolocation Data** — Continent, country, city, ASN, ISP  
+- **Anonymity Detection** — Tor usage, proxy/VPN indicators, hosting environment  
+- **Reverse DNS** — Hostname associated with the IP (if available)  
+- **Fraud Risk Score** — A unified score from 0–100 indicating IP risk level  
+
+***
+
+#### Use Cases
+
+- **Funnel Protection** – Block access from suspicious IPs before onboarding or signup  
+- **Risk Scoring** – Include IP risk in your trust model for transactions or logins  
+- **Geographic Compliance** – Enforce regional restrictions on sensitive operations  
+- **Fraud Resolution** – Triangulate with other signals (email, phone, device) for investigative reviews  
+
+***
+
+#### Integration Options
+
+<Columns cols={1}>
+  <Card title="API Integration"  icon="plug" href="/docs/fraud/ip-screening"  arrow="true" cta="View API Reference">
+   Send an IP address via API and get back a structured risk profile including blacklist score, geolocation, and anonymity indicators.  
+
+  </Card>
+</Columns>

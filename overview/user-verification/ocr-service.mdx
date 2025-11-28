@@ -1,0 +1,68 @@
+---
+title: Generic OCR Service
+icon: "magnifying-glass"
+
+---
+
+The Generic OCR Service allows you to extract structured text and field-level data from virtually 
+any type of document, even if it’s not a standard ID or form. This is 
+useful when working with files like utility bills, handwritten documents, 
+bank statements, or any scanned paper that contains useful data.
+
+Whether it’s text-heavy, printed, or partially handwritten, 
+the OCR engine reads and returns usable data in a clean, structured format.
+
+
+***
+
+#### What It Does
+
+- Accepts document uploads (images or PDFs)
+
+- Uses Optical Character Recognition (OCR) to extract readable content
+
+- Returns both raw text and structured key-value data
+
+- Supports multiple languages and document layouts
+
+You can upload anything, from a filled-out physical form to a scanned multi-page document, and receive both unstructured and parsed outputs.
+
+
+***
+
+#### Common Use Cases
+
+Use the Generic OCR Service when you need to:
+
+- Parse bank statements, utility bills, invoices, or receipts
+
+- Digitize handwritten or scanned documents
+
+- Extract details from KYC documents that are not government-issued
+
+- Pre-process form submissions for backend automation
+
+This tool is especially helpful in onboarding, document analysis, or compliance workflows that require supplementary documents beyond standard IDs.
+
+***
+
+#### When to Use It
+
+- When you don’t need identity verification but still want to read and use document data
+
+- When your verification flow includes uploads like proof of address, income, or tax records
+
+- When you're processing documents submitted outside of EasyOnboard and need a flexible reader
+
+- As a fallback when standard document verification does not support a specific file format or region
+
+***
+
+#### Integration Option
+
+<Columns cols={1}>
+  <Card title="API Lookup"  icon="plug" href="/docs/document-analysis/generic-ocr-service"  arrow="true"  cta="View API Reference" >
+You can access the Generic OCR Service via a simple POST request with a file payload. It returns parsed data and metadata in real time.  
+</Card>
+</Columns>
+

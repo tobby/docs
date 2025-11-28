@@ -1,0 +1,93 @@
+---
+title: "Lookup NUBAN"
+api: "GET https://api.dojah.io/api/v1/kyc/nuban"
+description: "An endpoint that allows you can identify your users through Lookup NUBAN"
+---
+
+## What is NUBAN?
+NUBAN means Nigerian Uniform Bank Account Number. 
+It is standardized system for numbering bank accounts in Nigeria
+
+
+<ParamField header="AppId" type="string" required>
+  Application ID from dashboard
+</ParamField>
+
+#### Query parameter
+
+<ParamField query="account_number" type="string" required>
+  Account Number of user
+</ParamField>
+
+<ParamField query="bank_code" type="string" required>
+  Bank code associated with the bank
+</ParamField>
+
+
+
+#### RESPONSES
+
+<ResponseField name="200" type="json">
+ json
+</ResponseField>
+
+<ResponseField name="400" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+<ResponseField name="401" type="Object">
+  <Expandable title="properties">
+    <ResponseField name="error" type="string">
+      error message
+    </ResponseField>
+
+  </Expandable>
+</ResponseField>
+
+
+<ResponseExample>
+
+```json 200
+{
+  "entity": {
+    "account_name": "ADE MICHEAL KOLAWOLE",
+    "identity_number": "22231426256",
+    "identity_type": "BVN",
+    "bank": "First Bank",
+    "account_currency": "NGN",
+    "first_name": "",
+    "last_name": "",
+    "other_names": "",
+    "gender": "",
+    "dob": "",
+    "phone": "",
+    "postal_code": "",
+    "state_code": "",
+    "country_code": "",
+    "country_of_birth": "",
+    "nationality": "",
+    "expiry_date": "",
+    "address_1": "",
+    "address_2": ""
+  }
+}
+
+```
+
+```json 400
+{
+  "error": "Invalid request parameters"
+}
+```
+
+```json 401
+{
+  "error": "App Couldn't be Validated"
+}
+```
+</ResponseExample>

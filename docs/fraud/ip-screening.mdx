@@ -1,0 +1,68 @@
+---
+title: "IP Screening"
+description: "Submit an IP Address"
+---
+
+
+```http [GET]
+{{baseUrl}}/api/v1/fraud/ip
+
+```
+
+### Header
+
+| Header | Type | Description |
+| --- | --- | --- |
+| AppId | string | Create an app to get your app ID on dashboard [here](https://app.dojah.io/developers/configuration)  |
+| Authorization | string | public secret key  |
+
+### Query parameter
+
+| Parameter | Type | Description | Required |
+| --- | --- | --- | --- |
+| ip\_address | string | IP Address | required |
+
+### Sample response
+
+```json Response
+
+{
+  "entity": {
+    "report": {
+      "ip": "2.58.56.101",
+      "blacklists": {
+        "detections": 11,
+        "engines_count": 85,
+        "detection_rate": "13%",
+        "scantime": "0.92"
+      },
+      "information": {
+        "reverse_dns": "powered.by.rdp.sh",
+        "continent_code": "EU",
+        "continent_name": "Europe",
+        "country_code": "DE",
+        "country_name": "Germany",
+        "country_currency": "EUR",
+        "country_calling_code": "49",
+        "region_name": "Hamburg",
+        "city_name": "Hamburg",
+        "latitude": 53.575321197509766,
+        "longitude": 10.015339851379395,
+        "isp": "1337 Services GmbH",
+        "asn": "AS210558"
+      },
+      "anonymity": {
+        "is_proxy": false,
+        "is_webproxy": false,
+        "is_vpn": false,
+        "is_hosting": false,
+        "is_tor": true
+      },
+      "risk_score": {
+        "result": 100
+      }
+    },
+    "success": true
+  }
+}
+```

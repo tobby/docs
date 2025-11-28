@@ -1,0 +1,98 @@
+---
+title: Payments
+icon: "credit-card"
+
+---
+
+
+Track and assess payment events of any kind—from airtime and utility top-ups to card transactions and wallet transfers. 
+EasyDetect’s payment monitoring engine analyzes behavioral signals, payment metadata, and 
+device context to flag suspicious or high-risk activity before it impacts your platform.
+
+Whether it's card fraud, SIM manipulation, or unusual VAS payment patterns, 
+EasyDetect delivers an immediate verdict: Allowed, Pending, or Blocked.
+
+
+
+
+***
+
+#### How It Works
+
+When you send a banking event to EasyDetect, the system immediately performs a multi-signal risk analysis. It evaluates:
+
+- **Transaction details** like amount, currency, channel, and purpose  
+- **User profile signals**, including account age, balance, registration time, and device consistency  
+- **Channel-specific logic** tailored to VAS payments, airtime, card, or wallet transfers  
+- **Cross-referencing** with past behavior, known fraud databases, and velocity rules  
+
+In milliseconds, EasyDetect returns one of three decisions:
+
+- ✅ **Allowed** – The transaction is safe to proceed
+- ⚠️ **Pending** – The transaction is flagged for manual review in the Case Management tab
+- ❌ **Blocked** – The transaction should be stopped immediately
+
+These verdicts give you operational flexibility, 
+automate decisions for low-risk events and review edge cases with full context.
+
+***
+
+#### Step-by-Step Integration
+
+<Steps>
+  <Step title="Create a Flow">
+    Log in to the Dojah Dashboard. Under EasyDetect, create a new fraud flow and select "Banking" as your use case. You can name it something like “Customer Transfers” or “Wallet Payouts.”
+  </Step>
+  <Step title="Define Rules">
+   Use our rule builder to define fraud logic without writing code. Examples:  
+   - IF amount > 50,000 AND country = X → Mark as Pending  
+   - IF airtime purchase repeated 3x in 1 minute → Block  
+   - IF same device used for multiple users → Mark as High Risk
+  </Step>
+  <Step title="Send Events">
+     Push your transaction data via POST to the
+      unique ingestion [URL](/fraud/monitoring/live-transactions#ingest-url) provided in your flow’s settings. 
+      Ensure the `type` is set to `banking` and include relevant details like 
+      transaction metadata, user profile, device, and recipient.
+  </Step>
+    <Step title="Receive Decisions in Real-Time">
+     Your system receives an instant verdict. Based on the result, you can:  
+   - Approve and proceed  
+   - Hold for review in the dashboard  
+   - Block entirely  
+  </Step>
+  <Step title="Review Cases (if needed)">
+     Suspicious events will automatically generate a case with all contextual data and rule triggers. Analysts can manually review and take action.
+  </Step>
+   <Step title="Report and Optimize">
+     Use the reporting tab to analyze fraud trends, triggered rules, and verdict history. Iterate on your rule sets for better outcomes.
+  </Step>
+</Steps>
+
+***
+
+#### What We Catch
+
+EasyDetect flags more than static values. Here are a few fraud patterns it detects:
+
+- Rapid airtime/data recharge loops  
+- Wallet-to-wallet fraud rings  
+- Suspicious transfers to flagged accounts  
+- Multiple failed VAS attempts from same device  
+- High-value utility or POS transactions from new accounts  
+
+<Note>You can configure who receives email alerts for case review.</Note>
+
+***
+
+#### Use Cases
+
+- **Fintech Wallets** – Monitor wallet credits, top-ups, and withdrawals  
+- **VAS Providers** – Secure airtime, utility, and bill payments  
+- **Checkout Platforms** – Review digital payment activity across users  
+- **Payment Processors** – Add fraud insights to bank/card flow monitoring
+
+#### Why It Works
+
+Most fraud isn’t just about what’s being paid. It’s about **how, where, and when**. EasyDetect captures those patterns in real time. You get a verdict in milliseconds, can review flagged events manually, and constantly evolve your rules through the dashboard.
+
