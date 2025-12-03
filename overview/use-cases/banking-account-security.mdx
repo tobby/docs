@@ -43,47 +43,20 @@ Use the **Banking** category when processing:
 
 If an action can affect stored value, evaluate it as a Banking event.
 
-  
 
 ## **Expected Event Inputs**
 
 A Banking event should include signals that describe:
 
-**Category**
+| **Category**   | **Example Fields**           | **Purpose**                                |
+|--------------|-----------------|--------------------------------------------|
+|  Transaction details     | amount, currency, type, channel, purpose, time     | Identifies financial behavior and velocity changes |
+|  Profile details   |  user\_id, tier, account type, registration time  | Establishes identity history and entitlement levels |
+|  Counterparty details     |  sender, receiver account metadata  | Detects laundering or high-risk corridors  |
+|  Device & network  |  device\_id, IP, model, OS  | Detects account takeover and device sharing |
+|  Additional metadata   |  meta array  |  Business-specific flags and labels |
 
-**Example Fields**
 
-**Purpose**
-
-Transaction details
-
-amount, currency, type, channel, purpose, time
-
-Identifies financial behavior and velocity changes
-
-Profile details
-
-user\_id, tier, account type, registration time
-
-Establishes identity history and entitlement levels
-
-Counterparty details
-
-sender, receiver account metadata
-
-Detects laundering or high-risk corridors
-
-Device & network
-
-device\_id, IP, model, OS
-
-Detects account takeover and device sharing
-
-Additional metadata
-
-meta array
-
-Business-specific flags and labels
 
 The full JSON schema and field definitions are documented [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388)
 
