@@ -1,22 +1,17 @@
 ---
 title: "DEVICE FINGERPRINTING"
-description: "Device fingerprinting enables ProfiledRisk to understand who is behind an action, beyond just the user account. It provides a stable hardware- or browser-level identifier that supports:"
+description: ""
 ---
 
--   Detection of **multi-accounting** and **synthetic identities**
-    
--   Early identification of **account takeover risks**
-    
--   Identification of **fraud clusters** tied to specific devices
-    
--   **Behavioural profiling** of legitimate users over time
-    
--   Stronger signals in **web and mobile** channels where IPs fluctuate
-    
+Device fingerprinting enables ProfiledRisk to understand who is behind an action, beyond just the user account. It provides a stable hardware- or browser-level identifier that supports:
+
+- Detection of **multi-accounting** and **synthetic identities**
+- Early identification of **account takeover risks**
+- Identification of **fraud clusters** tied to specific devices
+- **Behavioural profiling** of legitimate users over time
+- Stronger signals in **web and mobile** channels where IPs fluctuate
 
 > A strong device identifier dramatically increases ProfiledRisk’s precision when linking events to a profile.
-
-  
 
 ## Web Implementation — DeviceGuard SDK
 
@@ -24,48 +19,42 @@ You can collect a browser fingerprint and pass a consistent `device_id` into all
 
 ### Integration Example
 
-```javascript DeviceGuard Javascript SDK
+```javascript DeviceGuard SDK
+<!-- Step 1: Include DeviceGuard SDK from CDN -->
+<script src="https://your-domain.com/sdk/deviceguard.min.js"></script>
 
-    <!-- Step 1: Include DeviceGuard SDK from CDN -->
-    <script src="https://your-domain.com/sdk/deviceguard.min.js"></script>
-    
-    <script>
-      // Step 2: Create an instance with your SDK configuration
-      const deviceGuard = new DeviceGuard({
-        apiKey: 'your-api-key-here',
-        endpoint: 'https://your-domain.com',
-        debug: true
-      });
-    
-      // Step 3: Initialize SDK
-      deviceGuard.init()
-        .then(result => {
-          console.log('Device ID:', result.deviceId);
-    
-          // Include this ID in your ingestion payload:
-          // device.device_id = result.deviceId
-        })
-        .catch(error => {
-          console.error('DeviceGuard initialization failed:', error);
-        });
-    </script>
-    
-    ```
+<script>
+  // Step 2: Create an instance with your SDK configuration
+  const deviceGuard = new DeviceGuard({
+    apiKey: 'your-api-key-here',
+    endpoint: 'https://your-domain.com',
+    debug: true
+  });
+
+  // Step 3: Initialize SDK
+  deviceGuard.init()
+    .then(result => {
+      console.log('Device ID:', result.deviceId);
+
+      // Include this ID in your ingestion payload:
+      // device.device_id = result.deviceId
+    })
+    .catch(error => {
+      console.error('DeviceGuard initialization failed:', error);
+    });
+</script>
+```
 
 This identifier should be included in the `device.device_id` field for:
 
--   Onboarding events
-    
--   Login events
-    
--   Payment / Banking / Lending events
-    
--   Any future behavioural event you define
-    
+- Onboarding events
+- Login events
+- Payment / Banking / Lending events
+- Any future behavioural event you define
 
 This ensures event-to-profile linking remains consistent across the user lifecycle.
 
-* * *
+---
 
 ## Mobile SDK Guidance
 
@@ -75,63 +64,37 @@ Mobile applications inherently provide more stable identifiers than the browser.
 
 Benefits:
 
--   Globally unique per device
-    
--   Resettable by the user → compliant with privacy expectations
-    
--   Available before authentication to detect risk during onboarding
-    
--   Ties user behaviour across apps on the same device (optional advantage)
-    
--     
-    
+- Globally unique per device
+- Resettable by the user → compliant with privacy expectations
+- Available before authentication to detect risk during onboarding
+- Ties user behaviour across apps on the same device (optional advantage)
+- 
 
 Ensure the value is passed as:
 
-```json
-    "device": {
-      "device_id": "advertising-id",
-      "type": "mobile",
-      "os": "iOS" or "Android"
-    }
 ```
-    
-
-  
+"device": {
+  "device_id": "<advertising-id>",
+  "type": "mobile",
+  "os": "iOS" or "Android"
+}
+```
 
 ## Best Practices
 
-Best Practice
-
-Why It Matters
-
-Capture device\_id **before** signup/login
-
-Detect returning fraudsters who use new accounts
-
-Use **same fingerprint logic** across channels
-
-Prevent siloed identity profiles
-
-Store device\_id locally & reuse
-
-Avoid fragmentation of the user’s risk profile
-
-Pair with IP + geolocation + device metadata
-
-Improves anomaly and behaviour-based detection
-
-  
+| Best Practice | Why It Matters |
+| --- | --- |
+| Capture device_id **before** signup/login | Detect returning fraudsters who use new accounts |
+| Use **same fingerprint logic** across channels | Prevent siloed identity profiles |
+| Store device_id locally & reuse | Avoid fragmentation of the user’s risk profile |
+| Pair with IP + geolocation + device metadata | Improves anomaly and behaviour-based detection |
 
 ## Summary
 
 A Profile is only as strong as the signals tied to it. Device fingerprinting ensures ProfiledRisk can:
 
--   Track behavioural risk evolution
-    
--   Catch repeated fraud behaviours hidden across new accounts
-    
--   Support higher-confidence automated decisions
-    
+- Track behavioural risk evolution
+- Catch repeated fraud behaviours hidden across new accounts
+- Support higher-confidence automated decisions
 
 This significantly reduces **false negatives** in fraud detection and **false positives** against good customers.
