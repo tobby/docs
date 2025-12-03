@@ -8,24 +8,15 @@ A **Profile Report** provides a complete view of an individual entity’s identi
 
 This report can be generated on-demand from any profile in the dashboard.
 
-  
-
 ## Purpose
 
 Use the Profile Report to:
 
--   Support **KYC/AML investigations**
-    
--   Review a user’s historical behaviour prior to **case resolution**
-    
--   Assess customer trustworthiness when approving **high-risk actions**
-    
--   Aid compliance documentation for **regulators** or **external auditors**
-    
--   Provide dispute support with concrete evidence trails
-    
-
-  
+- Support **KYC/AML investigations**
+- Review a user’s historical behaviour prior to **case resolution**
+- Assess customer trustworthiness when approving **high-risk actions**
+- Aid compliance documentation for **regulators** or **external auditors**
+- Provide dispute support with concrete evidence trails
 
 ## Report Content
 
@@ -33,96 +24,68 @@ Profile Reports include the following sections:
 
 ### 1\. Profile Summary
 
--   Profile ID
-    
--   Account creation and last updated timestamps
-    
--   Current risk level and score
-    
--   Total cases and open cases
-    
--   Total number of tracked events  
-      
+- Profile ID
+- Account creation and last updated timestamps
+- Current risk level and score
+- Total cases and open cases
+- Total number of tracked events  
     
 
 ### 2\. Customer Identity Details
 
--   Full legal name
-    
--   Email address
-    
--   Mobile number
-    
--   Nationality
-    
--   Account status
-    
--   Identity verification results
-    
--   Confidence level metrics  
-      
+- Full legal name
+- Email address
+- Mobile number
+- Nationality
+- Account status
+- Identity verification results
+- Confidence level metrics  
     
 
 ### 3\. Profile Stability Indicators
 
 Signals indicating recent identity or credential volatility:
 
--   Name changes (rolling 90 days)
-    
--   Phone number changes (rolling 90 days)  
-      
+- Name changes (rolling 90 days)
+- Phone number changes (rolling 90 days)  
     
 
 These metrics help detect takeover attempts or fraud rings reusing personal data.
 
 ### 4\. Financial Behaviour Summary
 
--   Lifetime transaction count + value
-    
--   Rolling 30-day transaction behaviour
-    
--   Primary channels and touchpoints
-    
--   Top counterparties  
-      
+- Lifetime transaction count + value
+- Rolling 30-day transaction behaviour
+- Primary channels and touchpoints
+- Top counterparties  
     
 
 This provides a fast behavioural baseline to detect anomalies.
 
 ### 5\. Loan Activity (Where Applicable)
 
--   Active loan count and balance
-    
--   Defaulted loans
-    
--   Recurring risk across lenders/brokers  
-      
+- Active loan count and balance
+- Defaulted loans
+- Recurring risk across lenders/brokers  
     
 
 ### 6\. Key Risk Indicators & Flags
 
 Highlights risky behavioural trends such as:
 
--   Device risk signals
-    
--   High login velocity
-    
--   Short password reset intervals
-    
--   Rapid geo-location movement  
-      
+- Device risk signals
+- High login velocity
+- Short password reset intervals
+- Rapid geo-location movement  
     
 
 These signals are derived from ProfiledRisk behavioural intelligence and configured Flow rules.
 
 ### 7\. Activity Footprint & Geolocation
 
--   Travel patterns
-    
--   Region-level geo consistency
-    
--   Address verification results  
-      
+- Travel patterns
+- Region-level geo consistency
+- Address verification results  
     
 
 ## How to Generate a Profile Report
@@ -133,52 +96,27 @@ From any Profile page:
 
 Supported formats:
 
--   PDF (designed for audits or escalations)
-    
+- PDF (designed for audits or escalations)
 
 Report generation timestamps and reporting entity details are embedded for compliance traceability.
 
-  
-
 ## Use Cases
 
-Team
-
-Reason
-
-Fraud & Risk Ops
-
-Evaluate user before **case approval**
-
-Compliance
-
-Support **AML assurance** and **exam findings**
-
-Customer Support
-
-Escalation for **account freeze**, **chargeback disputes**
-
-Product Risk
-
-Model updates using behavioural patterns
-
-Banking & Credit Ops
-
-Pre-disbursement and collections assessment
-
-  
+| Team | Reason |
+| --- | --- |
+| Fraud & Risk Ops | Evaluate user before **case approval** |
+| Compliance | Support **AML assurance** and **exam findings** |
+| Customer Support | Escalation for **account freeze**, **chargeback disputes** |
+| Product Risk | Model updates using behavioural patterns |
+| Banking & Credit Ops | Pre-disbursement and collections assessment |
 
 ## Summary
 
 Profile Report turns the entire customer identity, activity, and risk history into a single artifact, enabling:
 
--   Better regulatory readiness
-    
--   Faster investigation workflows
-    
--   Stronger dispute evidence
-    
--   Clear accountability and audit trails
-    
+- Better regulatory readiness
+- Faster investigation workflows
+- Stronger dispute evidence
+- Clear accountability and audit trails
 
 It is the **single source of truth** for profile-level analysis inside ProfiledRisk.

@@ -60,47 +60,18 @@ If the event impacts transaction settlement or fraud risk, send it as a Payment 
 
 A Payment event should provide a unified view across:
 
-**Category**
 
-**Example Details**
 
-**Risk Purpose**
 
-**User**
+| **Category**   | **Example Details**          | **Risk Purpose**                                |
+|--------------|-----------------|--------------------------------------------|
+|  **User**    | Profile/identity, KYC, income, account status    | Trust level, identity stability |
+|  **Transaction**    |  Value, channel, frequency, purpose  | Detects behavioral anomalies |
+|  **Payment**   | Card scheme, CVV, 3DS, AVS, recurring flag   | Financial instrument validation |
+|   **Merchant**    |  Merchant/location/category  | Risk scoring by MCC and geography |
+|  **Device**     |   device\_id, IP, OS  | Account takeover and device sharing signals |
+|  **Billing Address**     | street, city, country   | AVS/presence verification |
 
-Profile/identity, KYC, income, account status
-
-Trust level, identity stability
-
-**Transaction**
-
-Value, channel, frequency, purpose
-
-Detects behavioral anomalies
-
-**Payment**
-
-Card scheme, CVV, 3DS, AVS, recurring flag
-
-Financial instrument validation
-
-**Merchant**
-
-Merchant/location/category
-
-Risk scoring by MCC and geography
-
-**Device**
-
-device\_id, IP, OS
-
-Account takeover and device sharing signals
-
-**Billing Address**
-
-street, city, country
-
-AVS/presence verification
 
 The JSON schema and validation rules for Payment events are documented [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388).
 

@@ -2,218 +2,150 @@
 title: Lending & Credit Risk
 icon: "cash-register"
 ---
+Lending events represent requests to issue credit or increase exposure to existing users. These decisions carry financial risk because default, synthetic identity abuse, and loan stacking can occur if behavior is not thoroughly evaluated.
 
-Banking events represent account activities that involve storing or moving funds. These activities require continuous monitoring to detect account takeover attempts, mule behavior, and other high-risk financial interactions.
+ProfiledRisk provides real-time lending risk intelligence by combining:
 
-ProfiledRisk evaluates each banking event using both:
+- **Your custom lending rules** tailored to product risk appetite
+- **ProfiledRisk intelligence** assessing historical activity, device consistency, and identity stability
 
--   **User-configured rules** (Flows)
-    
--   **ProfiledRisk intelligence** (behavioral and contextual scoring)  
-      
-    
+Each lending event returns a decision via the status field:
 
-Each evaluation returns an operational decision via the status field:
+- **allowed** — continue loan approval workflow
+- **blocked** — reject request
+- **pending** — hold for additional checks or analyst decision
 
--   **allowed** — event can proceed
-    
--   **blocked** — event should be stopped
-    
--   **pending** — event requires manual review before continuing
-    
+This ensures loans are issued only when risk signals align with expected borrower behavior.
 
-This ensures good users move forward quickly while high-risk actions are held or stopped.
+## **When to Use This Use Case**
 
-  
+Use the **Lending** category when:
 
-## **When To Use This Use Case**
+- A user submits a loan application
+- Borrower profile or credit eligibility is updated
+- A new loan request is made for an existing borrower
+- Exposure changes require re-evaluation (credit limit increase, top-up)
 
-Use the **Banking** category when processing:
+Common triggers include:
 
--   Deposit requests
-    
--   Withdrawal requests
-    
--   Wallet-to-wallet or account-to-account transfers
-    
--   Bill payments and other value transactions
-    
--   Security-sensitive account actions, including password or PIN updates
-    
+- Salary advance applications
+- Personal or SME loan requests
+- Buy-Now-Pay-Later (BNPL) onboarding and repayment approvals
+- Rapid repeat borrowing behavior
 
-If an action can affect stored value, evaluate it as a Banking event.
-
-  
+If the event increases business exposure, ProfiledRisk should evaluate it as a lending risk event.
 
 ## **Expected Event Inputs**
 
-A Banking event should include signals that describe:
+A Lending event should clearly describe the loan request, the borrower profile, and the context in which the request occurs.
 
-**Category**
+### **Required signal groups:**
 
-**Example Fields**
+|     |     |     |
+| --- | --- | --- |
+| **Category** | **Example Fields** | **Risk Purpose** |
+| **Loan request** | amount, purpose, loan_term, interest_rate | Detect high-risk product misuse and affordability issues |
+| **User profile** | employment status, income, tier, KYC | Validate credibility and repayment capacity |
+| **Behavioral context** | registration_time, recent credential changes | Prevent fraudulent credit access and ATO abuses |
+| **Device & network** | device_id, OS, IP | Identify identity sharing, collusion, and takeover risk |
+| **Address & location** | declared addresses and geography | Support jurisdiction checks and fraud clustering detection |
 
-**Purpose**
+Example snippet from your payload:
 
-Transaction details
+```
+"loan": {
+  "id": "87554303-3f75-4883-8fb8-48fce003859f",
+  "time": "2022-12-12T12:15:05.391Z",
+  "amount": 10000,
+  "channel": "mobile",
+  "purpose": "Salary Advance",
+  "interest_rate": 18.5,
+  "loan_product": "personal",
+  "loan_term": 24
 
-amount, currency, type, channel, purpose, time
+}
+```
 
-Identifies financial behavior and velocity changes
+Full Schema definitions are located under **API Integration → Lending Events**.
 
-Profile details
-
-user\_id, tier, account type, registration time
-
-Establishes identity history and entitlement levels
-
-Counterparty details
-
-sender, receiver account metadata
-
-Detects laundering or high-risk corridors
-
-Device & network
-
-device\_id, IP, model, OS
-
-Detects account takeover and device sharing
-
-Additional metadata
-
-meta array
-
-Business-specific flags and labels
-
-The full JSON schema and field definitions are documented [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388)
-
-ProfiledRisk will use all available fields to build risk context over time.
-
-  
+ProfiledRisk uses onboarding and payment history to contextualize the credit request.
 
 ## **Decisioning Logic**
 
-Each Banking event is evaluated through:
+Evaluation combines:
 
-1.  **Your Flows**  
-    Rules configured in the dashboard using conditions such as amount thresholds, country restrictions, new devices, etc.  
-      
+### **1\. Your Rules**
+
+Configured in Flows, such as:
+
+- Employment and income validation requirements
+- Minimum credit score thresholds
+- Rules preventing excessive exposure per borrower
+- Enhanced verification for first-time lending customers  
     
-2.  **System Intelligence**
+
+### **2\. ProfiledRisk Intelligence**
+
+Including:
+
+- Loan stacking detection across shared devices or profiles
+- Spike in risk signals preceding requests
+- Weak identity correlated with high credit appetite
+- Cross-entity behavioral anomalies (e.g., same device, different users)  
     
-    -   User’s historical transaction behavior
-        
-    -   Device and IP history
-        
-    -   Geographic consistency
-        
-    -   Counter-party patterns
-        
-    -   Interaction velocity
-        
 
-The outcome returns:
-
-
-```json
-    {
-      "status": "blocked",
-      "risk_score": 87,
-      "risk_level": "high",
-      "case_created": true
-    }
+### **Response Example**
 
 ```
+{
+  "status": "pending",
+  "risk_score": 78,
+  "risk_level": "high",
+  "case_created": true
+}
+```
 
-Your system can enforce the response:
+### **Client Enforcement Behavior**
 
-**Status**
+|     |     |
+| --- | --- |
+| **Status** | **Action Required in Lending Workflow** |
+| allowed | Continue credit assessment or disbursement |
+| blocked | Reject loan request |
+| pending | Require analyst or step-up verification before decision |
 
-**Required Action from Client System**
+Pending is common when risk signals conflict but manual intervention may justify approval.
 
-**allowed**
+## **Case Management**
 
-Complete the transaction normally
+A Case is typically generated when:
 
-**blocked**
+- Borrower profile changes shortly before request (ATO suspicion)
+- Loan request is high-value relative to user history
+- Device/IP suggests collusion or synthetic identity clusters
+- Required borrower documentation triggers compliance review
 
-Do not process; optionally notify the user
+Analysts may escalate or finalize decision inline with lending policies.
 
-**pending**
+## **Example Lending Rules**
 
-Hold and send to Case review before processing
+|     |     |     |
+| --- | --- | --- |
+| **Objective** | **Rule Concept** | **Output Status** |
+| Prevent loan stacking | If 2+ applications within 24 hours from same device but different profiles | blocked |
+| Flag high-risk applications | If first-time borrower + amount > profile affordability threshold | pending |
+| Compliance review | If income/employment fields missing or inconsistent | pending |
+| Detect synthetic identity | If identity score below threshold across combined KYC checks | blocked |
 
-When a case is created, ProfiledRisk retains event details for analyst decisioning.
-
-  
-
-## **Case Creation**
-
-A Case may be created when:
-
--   A rule instructs that additional verification is required
-    
--   System intelligence cannot determine clear fraud vs. legitimate behavior
-    
--   The returned status is **pending**  
-      
-    
-
-Cases are visible in the dashboard with complete contextual information including user profile, device history, and linked transactions.
-
-Analysts may confirm or overturn automation, and decisions may be used to refine rules over time.
-
-  
-
-## **Example Flow Rules**
-
-Below are common rule patterns for Banking events:
-
-**Scenario**
-
-**Flow Condition**
-
-**Returned Status**
-
-Account takeover indicators
-
-New device + password changed recently + high withdrawal amount
-
-blocked
-
-Suspicious cash-out pattern
-
-3+ unrelated incoming transfers followed by immediate withdrawals
-
-pending
-
-High-risk recipient
-
-First-time beneficiary in restricted region
-
-pending
-
-Abnormal activity from dormant profile
-
-No activity for extended period then large transfers
-
-blocked
-
-Rule sets can be expanded and tuned based on operational policy.
-
-  
+Rules allow business teams to control exposure while enabling automation.
 
 ## **Summary**
 
-ProfiledRisk helps protect banking operations by:
+ProfiledRisk supports credit operations by:
 
--   Preventing unauthorized account access and withdrawals
-    
--   Detecting mule activity and laundering flows
-    
--   Routing uncertain activity to human review before funds move
-    
--   Reducing operational workload through automated decisioning
-    
+- Preventing high-risk accounts from receiving funds
+- Reducing default exposure through behavior-based evaluation
+- Ensuring compliance alignment with lending obligations
+- Improving analyst efficiency through automated segmentation
 
-This use case is essential when handling any banking actions that involve changes to stored value or account integrity.
+This use case should be applied whenever borrower exposure or credit risk changes.

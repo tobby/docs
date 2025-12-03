@@ -106,11 +106,6 @@
           "icon": "cloud"
         },
         {
-          "anchor": "Join Community",
-          "href": "https://join.slack.com/t/dojahinc/shared_invite/zt-ng9ch04k-bT5sVBnTY6Fa1ffQ0SAxpQ",
-          "icon": "slack"
-        },
-        {
           "anchor": "Run in Postman",
           "href": "https://app.getpostman.com/",
           "icon": "code"

@@ -60,41 +60,15 @@ A clear understanding of identity, device, and environment reduces false approva
 
 ### **Required Signal Groups**
 
-**Category**
 
-**Example Fields**
+| **Category**   | **Example Fields**           | **Purpose**                                |
+|--------------|-----------------|--------------------------------------------|
+|  **User identity**     | name, email, dob, phone     | Validate existence and completeness |
+|   **KYC attributes**    |  id type/number, issuing country  | Confirm regulatory compliance |
+|    **Behavioral context**   |  registration\_time, tier  | Identify rushed or unusual onboarding |
+|  **Device & network**     |  device\_id, OS, IP address  | Detect bots, multi-accounting, and takeover attempts |
+|  **Location**     |  user-provided address  | Match against risk geography context  |
 
-**Purpose**
-
-**User identity**
-
-name, email, dob, phone
-
-Validate existence and completeness
-
-**KYC attributes**
-
-id type/number, issuing country
-
-Confirm regulatory compliance
-
-**Behavioral context**
-
-registration\_time, tier
-
-Identify rushed or unusual onboarding
-
-**Device & network**
-
-device\_id, OS, IP address
-
-Detect bots, multi-accounting, and takeover attempts
-
-**Location**
-
-user-provided address
-
-Match against risk geography context
 
 Full onboarding schema is documented in [here](https://docs.dojah.services/s/PT/p/api-integration-Am73mLL388)
 
