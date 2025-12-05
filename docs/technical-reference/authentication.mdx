@@ -3,111 +3,72 @@ title: "Authentication"
 description: "All ProfiledRisk API requests must be authenticated using your private API Secret Key. Requests without valid authentication will be rejected."
 ---
 
-
 Authentication applies to every endpoint in the ProfiledRisk API.
 
 ## **Base URL**
 
-    
-    
-All API requests made **must** include a base URL. Below are the base URLs for each environment.
-
-SANDBOX ==> [https://sandbox.profiledrisk.com/api](https://sandbox.profiledrisk.com/api)
-
-PRODUCTION ==> [https://api.profiledrisk.com/api](https://api.profiledrisk.com/api)
-
+```
+https://ingest.profiledrisk.com/api/
+```
 
 This is the base domain used for all API interactions.
 
 You must append the correct endpoint path for each API call.  
 Specific endpoints will be referenced in subsequent sections of this documentation.
 
+## **API Keys**
 
+ProfiledRisk uses **a single Secret Key** for live transactions
+
+> **Developers → API Keys**
+
+Treat your Secret Key like a password.  
+Do not expose it in client-side, browser, or mobile applications.
 
 ## **Header Authentication**
 
 Every API request must include your Secret Key in the `Authorization` header.
 
-  
+#### **Header Format**
 
-## **API Keys**
-
-ProfiledRisk uses **a single Secret Key** for live transactions
-
-
-
-
-<Card title="Developers → API Keys" icon="bell">
- 
-
-
-> Treat your Secret Key like a password.  
-
-> Do not expose it in client-side, browser, or mobile applications.
-
-
-
-  </Card>
-
-
-
+```
+Authorization: {PRIVATE_KEY}
+Content-Type: application/json
+```
 
 Example:
 
-### Request
 
 ```http [POST]
-{{baseURL}}/api/events
+{{baseURL}}/ingest 
 ```
-
 
 ```json Body
-    {
-      "type": "payments",
-      "event": { ... }
-    }
+{
+  "key" : "6WgE3W1",
+  "type": "payments",
+  "event": { ... }
+}
 ```
-
-
 
 
 ## **Security Best Practices**
 
 To maintain compliance and protect your risk infrastructure:
 
--   **Never** store credentials directly in code repositories
-    
--   Use a secure secrets manager for environment variables
-    
--   Restrict access to keys based on least privilege
-    
--   Rotate credentials if leakage is suspected
-    
--   Disable and regenerate unused keys regularly
-    
+- **Never** store credentials directly in code repositories
+- Use a secure secrets manager for environment variables
+- Restrict access to keys based on least privilege
+- Rotate credentials if leakage is suspected
+- Disable and regenerate unused keys regularly
 
 ProfiledRisk logs all API usage against your keys for audit purposes.
-
-##   
 
 ## **Error Handling**
 
 If authentication fails, ProfiledRisk returns standard HTTP error responses:
 
-Code
-
-Error
-
-Reason
-
-`401 Unauthorized`
-
-Authentication failed
-
-Missing or invalid Secret Key
-
-`403 Forbidden`
-
-Access denied
-
-Key restricted or disabled
+| Code | Error | Reason |
+| --- | --- | --- |
+| `401 Unauthorized` | Authentication failed | Missing or invalid Secret Key |
+| `403 Forbidden` | Access denied | Key restricted or disabled |
