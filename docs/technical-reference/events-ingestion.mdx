@@ -8,9 +8,16 @@ Event Ingestion is how you send activity data to ProfiledRisk for evaluation. Ea
 ProfiledRisk supports two ingestion modes per Flow:
 
 -   **Realtime URL** – for live decisioning on production traffic
+
+```http Realtime URL
+ {{base_url}}/ingest
+```
     
 -   **Backfill URL** – for historical or batch events
-    
+
+```http Backfill URL
+ {{base_url}}/backfill
+```
 
 The keys for each url can be gotten from the dashboard, and you can view the schema for each user type under the payload schemas
 

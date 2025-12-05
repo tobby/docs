@@ -47,9 +47,9 @@
           {
             "group": "TECHNICAL REFERENCES",
             "pages": [
-              "docs/technical-reference/events-ingestion",
-              "docs/technical-reference/keywords-definitions",
+              "docs/technical-reference/keywords-and-definitions",
               "docs/technical-reference/authentication",
+              "docs/technical-reference/events-ingestion",
               "docs/technical-reference/webhooks"
             ]
           },
