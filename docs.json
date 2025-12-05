@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
-  "name": "Dojah Inc",
+  "name": "ProfiledRisk",
   "colors": {
     "primary": "#010061",
     "light": "#3498DB",
@@ -129,11 +129,9 @@
     "image": "/background.png"
   },
   "footer": {
-    "socials": {
-      "x": "https://twitter.com/DojahInc",
-      "github": "https://github.com/dojah-inc",
-      "slack": "https://join.slack.com/t/dojahinc/shared_invite/zt-ng9ch04k-bT5sVBnTY6Fa1ffQ0SAxpQ",
-      "linkedin": "https://www.linkedin.com/company/dojah/"
+  "socials": {
+      "instagram": "https://www.instagram.com/profiledrisk/",
+      "linkedin": "https://www.linkedin.com/company/profiledrisk"
     }
   },
   "fonts": {
