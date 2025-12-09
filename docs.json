@@ -56,8 +56,14 @@
           {
             "group": "PAYLOAD SCHEMAS",
             "pages": [
-              "docs/payload-schemas/onboarding-register-event",
-              "docs/payload-schemas/onboarding-login-event",
+               {
+                "group": "Onboarding",
+                "pages": [
+              "docs/payload-schemas/register-event",
+              "docs/payload-schemas/login-event"
+                ]
+              },
+              
               "docs/payload-schemas/banking-events",
               "docs/payload-schemas/payment-events",
               "docs/payload-schemas/lending-events"

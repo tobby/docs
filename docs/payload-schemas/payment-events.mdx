@@ -5,7 +5,11 @@ description: ""
 
 **Use when:** Evaluating card, transfer, USSD, or other payment instruments.
 
-**Endpoint:** Realtime URL of a Payments Flow
+**Endpoint:**
+
+```http [POST]
+{{baseURL}}/ingest 
+```
 
 **Request Template:**
 
@@ -13,6 +17,7 @@ description: ""
     {
       "key": "6WgE3W1",
       "type": "payments",
+
       "user": {
         "user_id": "9931fac0-6bfa-4b3c-842c-7840006d89b6",
         "user_type": "individual",
@@ -29,22 +34,24 @@ description: ""
         "last_password_change": "2022-10-15T14:22:10.000Z",
         "credit_score": "720",
         "employer_information": {
-          "annual_income": "",
-          "employment_status": "employed",
-          "employer_name": "Innovate Solutions"
-        },
-        "kyc_information": [
-          {
-            "id_number": "1234567890",
-            "id_type": "bvn",
-            "country": "NG"
-          },
-          {
-            "id_number": "1234567890",
-            "id_type": "NIN",
-            "country": "NG"
-          }
-        ]
+              "annual_income": "",
+              "employment_status": "employed",
+              "employer_name": "Innovate Solutions"
+            },
+         "kyc_information": [
+              {
+                "id_number": "1234567890",
+                "id_type": "bvn",
+                "country": "NG",
+                ... //additional keys and values
+              },
+              {
+                "id_number": "1234567890",
+                "id_type": "NIN",
+                "country": "NG",
+                ... //additional keys and values
+              }
+            ]
       },
       "transaction": {
         "id": "87554303-3f75-4883-8fb8-48fce003859f",
@@ -98,6 +105,9 @@ description: ""
         "region": "",
         "zipcode": "23401",
         "country": "Morocco"
-      }
+      },
+      "meta": [
+          { "key": "value" }
+       ]
     }
     ```

@@ -1,0 +1,49 @@
+---
+title: "Login Event"
+description: ""
+---
+
+**Use when:** A user previously is being updated
+
+**Endpoint:**
+
+```http [POST]
+{{baseURL}}/ingest 
+```
+
+
+**Request Template:**
+
+
+```json
+{
+  "key": "6WgE3W1",
+  "type": "login",
+   "event": {
+      "user": {
+        "user_id": "9931fac0-6bfa-4b3c-842c-7840006d89b6",
+        },
+      "device": {
+        "type": "mobile",
+        "os": "Android",
+        "model": "Pixel 7",
+        "language": "en-US",
+        "ip_address": "154.72.170.233",
+        "device_id": "ff97adb7-8d3d-4f15-94df-87e21e1212de"
+      },
+      "address": {
+        "address1": "6238 Walker Unions Suite 802",
+        "address2": "",
+        "city": "North Sarah",
+        "region": "",
+        "zipcode": "23401",
+        "country": "Morocco"
+      },
+      "meta": [
+          { "key": "value" }
+       ]
+       
+   }
+}
+```
+
